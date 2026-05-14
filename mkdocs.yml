@@ -2,7 +2,16 @@ site_name: Basis Wiki
 
 nav:
   - Übersicht: index.md
-  - Topic 1: content/1.md
+  - Einführung & Netzwerkgrundlagen: content/1.md
+  - Virtualisierung & VM-Setup: content/2.md
+  - IP-Adressierung & Subnetting: content/3.md
+  - Router & Switches: content/4.md
+  - Firewall & Sicherheit: content/5.md
+  - Webserver (Apache/Nginx): content/6.md
+  - E-Mail-Server (Postfix/Dovecot): content/7.md
+  - Topic 1: content/8.md
+  - Topic 1: content/9.md
+  - Topic 1: content/10.md
 
 
 theme:
