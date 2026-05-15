@@ -10,7 +10,6 @@ hide:
 
 <div markdown>
 
-# Basis Wiki
 
 <div class="grid cards fancy grid--cols-1" markdown >
 - [:material-call-split: **Einführung & Netzwerkgrundlagen**](content/1.md)
@@ -31,11 +30,7 @@ hide:
 
 ![](assets/logo.png)
 
-Hier können weitere Inhalte rein.
 
-{{ link("externer Link", "https://google.com") }}
-
-{{ youtube_video("https://www.youtube.com/embed/chPCpYNJe_Q?si=frU_Z_VwSGnPWEPF") }}
 
 !!! tip "Schneller Navigieren"
 
