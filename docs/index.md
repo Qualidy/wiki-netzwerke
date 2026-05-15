@@ -20,6 +20,9 @@ hide:
 - [:material-call-split: **Firewall & Sicherheit**](content/5.md)
 - [:material-call-split: **Webserver (Apache/Nginx)**](content/6.md)
 - [:material-call-split: **E-Mail-Server (Postfix/Dovecot)**](content/7.md)
+- [:material-call-split: **Monitoring & Fehlerbehebung**](content/8.md)
+- [:material-call-split: **Vertiefung Wireshark**](content/9.md)
+- [:material-call-split: **Abschlussprojekt & Reflexion**](content/10.md)
 </div>
 
 </div>
@@ -41,7 +44,5 @@ Hier können weitere Inhalte rein.
     ++n++ oder ++period++ : Zur nächsten Seite gehen (**N**ext)
     
 </div>
-[Subscribe to our newsletter](#){ .md-button }
 
-[Subscribe to our newsletter](#){ .md-button .md-button--primary }
 </div>
