@@ -5,6 +5,7 @@ nav:
   - Einführung & Netzwerkgrundlagen: content/1.md
   - Virtualisierung & VM-Setup: content/2.md
   - IP-Adressierung & Subnetting: content/3.md
+  - Rechenaufgaben: content/3.1.md
   - Router & Switches: content/4.md
   - Firewall & Sicherheit: content/5.md
   - Webserver (Apache/Nginx): content/6.md
