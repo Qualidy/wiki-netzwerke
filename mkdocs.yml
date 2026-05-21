@@ -13,6 +13,7 @@ nav:
   - Monitoring & Fehlerbehebung: content/8.md
   - Vertiefung Wireshark: content/9.md
   - Abschlussprojekt & Reflexion: content/10.md
+  - Docker: content/11.md
 
 
 theme:

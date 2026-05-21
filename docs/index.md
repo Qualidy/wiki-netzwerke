@@ -23,6 +23,7 @@ hide:
 - [:material-call-split: **Monitoring & Fehlerbehebung**](content/8.md)
 - [:material-call-split: **Vertiefung Wireshark**](content/9.md)
 - [:material-call-split: **Abschlussprojekt & Reflexion**](content/10.md)
+- [:material-call-split: **Docker**](content/11.md)
 </div>
 
 </div>
