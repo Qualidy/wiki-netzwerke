@@ -1,0 +1,1524 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../3/">
+      
+      
+        <link rel="next" href="../4/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Rechenaufgaben - Netzwerktechnik - Grundlagen & Praxis</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/logo.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/grid.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/video_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/python_tutor_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/mermaid.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#subnetz-berechnungen-ubungen-mit-schritt-fur-schritt-anleitung" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Netzwerktechnik - Grundlagen &amp; Praxis" class="md-header__button md-logo" aria-label="Netzwerktechnik - Grundlagen & Praxis" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Netzwerktechnik - Grundlagen & Praxis
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Rechenaufgaben
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Netzwerktechnik - Grundlagen &amp; Praxis" class="md-nav__button md-logo" aria-label="Netzwerktechnik - Grundlagen & Praxis" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Netzwerktechnik - Grundlagen & Praxis
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Übersicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Einführung & Netzwerkgrundlagen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Virtualisierung & VM-Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IP-Adressierung & Subnetting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Rechenaufgaben
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rechenaufgaben
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#theorie-wie-funktioniert-subnetting" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Theorie: Wie funktioniert Subnetting?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 Theorie: Wie funktioniert Subnetting?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-was-ist-eine-subnetzmaske" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Was ist eine Subnetzmaske?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-cidr-notation-classless-inter-domain-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. CIDR-Notation (Classless Inter-Domain Routing)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-anzahl-der-hosts-berechnen" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Anzahl der Hosts berechnen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubungen-subnetzmaske-cidr-anzahl-hosts" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧮 Übungen: Subnetzmaske → CIDR → Anzahl Hosts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧮 Übungen: Subnetzmaske → CIDR → Anzahl Hosts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1-grundlagen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 1: Grundlagen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2-cidr-subnetzmaske" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 2: CIDR → Subnetzmaske
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-3-anzahl-hosts-berechnen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 3: Anzahl Hosts berechnen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anleitung-wie-berechnet-man-das" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Anleitung: Wie berechnet man das?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧠 Anleitung: Wie berechnet man das?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-subnetzmaske-cidr-notation" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Subnetzmaske → CIDR-Notation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-cidr-notation-subnetzmaske" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. CIDR-Notation → Subnetzmaske
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-anzahl-hosts-berechnen" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Anzahl Hosts berechnen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubungen-zum-selbstrechnen" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 Übungen zum Selbstrechnen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 Übungen zum Selbstrechnen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-4-subnetzmaske-cidr-hosts" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 4: Subnetzmaske → CIDR → Hosts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-5-cidr-subnetzmaske-hosts" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 5: CIDR → Subnetzmaske → Hosts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-6-netzwerkaufteilung" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 6: Netzwerkaufteilung
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-7-benotigte-subnetzgroe-berechnen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 7: Benötigte Subnetzgröße berechnen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-8-subnetzmaske-in-binar-umwandeln" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 8: Subnetzmaske in Binär umwandeln
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-9-cidr-aus-binar-berechnen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 9: CIDR aus Binär berechnen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zusammenfassung-die-wichtigsten-formeln" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎓 Zusammenfassung: Die wichtigsten Formeln
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hausaufgabe" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Hausaufgabe
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Router & Switches
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Firewall & Sicherheit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Webserver (Apache/Nginx)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    E-Mail-Server (Postfix/Dovecot)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monitoring & Fehlerbehebung
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vertiefung Wireshark
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Abschlussprojekt & Reflexion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="subnetz-berechnungen-ubungen-mit-schritt-fur-schritt-anleitung">🧮 Subnetz-Berechnungen: Übungen mit Schritt-für-Schritt-Anleitung<a class="headerlink" href="#subnetz-berechnungen-ubungen-mit-schritt-fur-schritt-anleitung" title="Permanent link">&para;</a></h1>
+<h2 id="theorie-wie-funktioniert-subnetting">📚 <strong>Theorie: Wie funktioniert Subnetting?</strong><a class="headerlink" href="#theorie-wie-funktioniert-subnetting" title="Permanent link">&para;</a></h2>
+<h3 id="1-was-ist-eine-subnetzmaske"><strong>1. Was ist eine Subnetzmaske?</strong><a class="headerlink" href="#1-was-ist-eine-subnetzmaske" title="Permanent link">&para;</a></h3>
+<p>Eine <strong>Subnetzmaske</strong> teilt eine IP-Adresse in zwei Teile:</p>
+<ul>
+<li><strong>Netzwerkanteil</strong> (links)</li>
+<li><strong>Hostanteil</strong> (rechts)</li>
+</ul>
+<p><strong>Beispiel:</strong><br />
+IP: <code>192.168.1.10</code><br />
+Subnetzmaske: <code>255.255.255.0</code> (<code>/24</code>)<br />
+→ <strong>Netzwerkanteil:</strong> <code>192.168.1</code><br />
+→ <strong>Hostanteil:</strong> <code>.10</code></p>
+<hr />
+<h3 id="2-cidr-notation-classless-inter-domain-routing"><strong>2. CIDR-Notation (Classless Inter-Domain Routing)</strong><a class="headerlink" href="#2-cidr-notation-classless-inter-domain-routing" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Kürzere Schreibweise</strong> für Subnetzmasken.</li>
+<li><strong>Beispiel:</strong></li>
+<li><code>255.255.255.0</code> = <code>/24</code> (24 Bits für Netzwerk, 8 Bits für Hosts)</li>
+<li><code>255.255.0.0</code> = <code>/16</code> (16 Bits für Netzwerk, 16 Bits für Hosts)</li>
+</ul>
+<hr />
+<h3 id="3-anzahl-der-hosts-berechnen"><strong>3. Anzahl der Hosts berechnen</strong><a class="headerlink" href="#3-anzahl-der-hosts-berechnen" title="Permanent link">&para;</a></h3>
+<p><strong>Formel:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Anzahl Hosts = 2^(Anzahl Host-Bits) - 2
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><strong>Warum -2?</strong></li>
+<li><strong>1 Adresse</strong> für das <strong>Netzwerk selbst</strong> (z. B. <code>192.168.1.0</code>).</li>
+<li><strong>1 Adresse</strong> für den <strong>Broadcast</strong> (z. B. <code>192.168.1.255</code>).</li>
+</ul>
+<p><strong>Beispiel für /24:</strong></p>
+<ul>
+<li>Host-Bits: <code>32 - 24 = 8</code></li>
+<li>Anzahl Hosts: <code>2^8 - 2 = 256 - 2 = 254</code></li>
+</ul>
+<hr />
+<hr />
+<h2 id="ubungen-subnetzmaske-cidr-anzahl-hosts">🧮 <strong>Übungen: Subnetzmaske → CIDR → Anzahl Hosts</strong><a class="headerlink" href="#ubungen-subnetzmaske-cidr-anzahl-hosts" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="aufgabe-1-grundlagen"><strong>📝 Aufgabe 1: Grundlagen</strong><a class="headerlink" href="#aufgabe-1-grundlagen" title="Permanent link">&para;</a></h3>
+<p>Fülle die Tabelle aus:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Subnetzmaske</strong></th>
+<th><strong>CIDR-Notation</strong></th>
+<th><strong>Anzahl Host-Bits</strong></th>
+<th><strong>Anzahl Hosts</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>255.0.0.0</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>16.777.214</td>
+</tr>
+<tr>
+<td>255.255.0.0</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>65.534</td>
+</tr>
+<tr>
+<td>255.255.255.0</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>254</td>
+</tr>
+<tr>
+<td>255.255.255.128</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>126</td>
+</tr>
+</tbody>
+</table>
+<details class="success">
+<summary>Lösung:</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>| **Subnetzmaske**      | **CIDR-Notation** | **Anzahl Host-Bits** | **Anzahl Hosts** |
+|-----------------------|-------------------|----------------------|------------------|
+| 255.0.0.0             | /8                | 24                   | 16.777.214       |
+| 255.255.0.0           | /16               | 16                   | 65.534          |
+| 255.255.255.0         | /24               | 8                    | 254             |
+| 255.255.255.128       | /25               | 7                    | 126             |
+
+**Erklärung:**
+- **255.0.0.0** = `/8` → 32 - 8 = **24 Host-Bits** → `2^24 - 2 = 16.777.214`
+- **255.255.0.0** = `/16` → 32 - 16 = **16 Host-Bits** → `2^16 - 2 = 65.534`
+- **255.255.255.0** = `/24` → 32 - 24 = **8 Host-Bits** → `2^8 - 2 = 254`
+- **255.255.255.128** = `/25` → 32 - 25 = **7 Host-Bits** → `2^7 - 2 = 126`
+</code></pre></div></td></tr></table></div>
+</details>
+<hr />
+<hr />
+<h3 id="aufgabe-2-cidr-subnetzmaske"><strong>📝 Aufgabe 2: CIDR → Subnetzmaske</strong><a class="headerlink" href="#aufgabe-2-cidr-subnetzmaske" title="Permanent link">&para;</a></h3>
+<p>Wandle die CIDR-Notationen in Subnetzmasken um:</p>
+<table>
+<thead>
+<tr>
+<th><strong>CIDR</strong></th>
+<th><strong>Subnetzmaske</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/8</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>/16</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>/24</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>/25</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>/26</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<details class="success">
+<summary>Lösung:</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>| **CIDR** | **Subnetzmaske** |
+|----------|------------------|
+| /8       | 255.0.0.0        |
+| /16      | 255.255.0.0      |
+| /24      | 255.255.255.0    |
+| /25      | 255.255.255.128  |
+| /26      | 255.255.255.192  |
+
+**Erklärung:**
+- **/8** = 8 Bits für Netzwerk → `255.0.0.0`
+- **/16** = 16 Bits für Netzwerk → `255.255.0.0`
+- **/24** = 24 Bits für Netzwerk → `255.255.255.0`
+- **/25** = 25 Bits für Netzwerk → `255.255.255.128` (128 = 10000000 im Binärsystem)
+- **/26** = 26 Bits für Netzwerk → `255.255.255.192` (192 = 11000000 im Binärsystem)
+</code></pre></div></td></tr></table></div>
+</details>
+<hr />
+<hr />
+<h3 id="aufgabe-3-anzahl-hosts-berechnen"><strong>📝 Aufgabe 3: Anzahl Hosts berechnen</strong><a class="headerlink" href="#aufgabe-3-anzahl-hosts-berechnen" title="Permanent link">&para;</a></h3>
+<p>Berechne die Anzahl der Hosts für die folgenden CIDR-Notationen:</p>
+<table>
+<thead>
+<tr>
+<th><strong>CIDR</strong></th>
+<th><strong>Anzahl Host-Bits</strong></th>
+<th><strong>Anzahl Hosts</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/24</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>/25</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>/26</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>/27</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>/28</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<details class="success">
+<summary>Lösung:</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>| **CIDR** | **Anzahl Host-Bits** | **Anzahl Hosts** |
+|----------|----------------------|------------------|
+| /24      | 8                    | 254              |
+| /25      | 7                    | 126              |
+| /26      | 6                    | 62               |
+| /27      | 5                    | 30               |
+| /28      | 4                    | 14               |
+
+**Erklärung:**
+- **/24** → 32 - 24 = **8 Host-Bits** → `2^8 - 2 = 254`
+- **/25** → 32 - 25 = **7 Host-Bits** → `2^7 - 2 = 126`
+- **/26** → 32 - 26 = **6 Host-Bits** → `2^6 - 2 = 62`
+- **/27** → 32 - 27 = **5 Host-Bits** → `2^5 - 2 = 30`
+- **/28** → 32 - 28 = **4 Host-Bits** → `2^4 - 2 = 14`
+</code></pre></div></td></tr></table></div>
+</details>
+<hr />
+<hr />
+<hr />
+<h2 id="anleitung-wie-berechnet-man-das">🧠 <strong>Anleitung: Wie berechnet man das?</strong><a class="headerlink" href="#anleitung-wie-berechnet-man-das" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="1-subnetzmaske-cidr-notation"><strong>1. Subnetzmaske → CIDR-Notation</strong><a class="headerlink" href="#1-subnetzmaske-cidr-notation" title="Permanent link">&para;</a></h3>
+<p><strong>Schritt-für-Schritt:</strong></p>
+<ol>
+<li><strong>Subnetzmaske in Binär umwandeln</strong>
+  Beispiel: <code>255.255.255.128</code><br />
+   → <code>11111111.11111111.11111111.10000000</code></li>
+<li><strong>Anzahl der aufeinanderfolgenden 1en zählen</strong>
+  → 25 Einsen → <strong>/25</strong></li>
+</ol>
+<p><strong>Beispiel:</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Subnetzmaske</strong></th>
+<th><strong>Binär</strong></th>
+<th><strong>CIDR</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>255.0.0.0</td>
+<td>11111111.00000000.00000000.00000000</td>
+<td>/8</td>
+</tr>
+<tr>
+<td>255.255.0.0</td>
+<td>11111111.11111111.00000000.00000000</td>
+<td>/16</td>
+</tr>
+<tr>
+<td>255.255.255.128</td>
+<td>11111111.11111111.11111111.10000000</td>
+<td>/25</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<hr />
+<h3 id="2-cidr-notation-subnetzmaske"><strong>2. CIDR-Notation → Subnetzmaske</strong><a class="headerlink" href="#2-cidr-notation-subnetzmaske" title="Permanent link">&para;</a></h3>
+<p><strong>Schritt-für-Schritt:</strong></p>
+<ol>
+<li><strong>Anzahl der Netzwerk-Bits</strong> (CIDR-Wert) bestimmen.
+  Beispiel: <code>/25</code> → 25 Bits für Netzwerk.</li>
+<li><strong>Subnetzmaske in Binär erstellen</strong></li>
+<li>25 Einsen + 7 Nullen → <code>11111111.11111111.11111111.10000000</code></li>
+<li><strong>Binär in Dezimal umwandeln</strong>
+  → <code>255.255.255.128</code></li>
+</ol>
+<p><strong>Beispiel:</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>CIDR</strong></th>
+<th><strong>Binär</strong></th>
+<th><strong>Subnetzmaske</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/24</td>
+<td>11111111.11111111.11111111.00000000</td>
+<td>255.255.255.0</td>
+</tr>
+<tr>
+<td>/26</td>
+<td>11111111.11111111.11111111.11000000</td>
+<td>255.255.255.192</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<hr />
+<h3 id="3-anzahl-hosts-berechnen"><strong>3. Anzahl Hosts berechnen</strong><a class="headerlink" href="#3-anzahl-hosts-berechnen" title="Permanent link">&para;</a></h3>
+<p><strong>Schritt-für-Schritt:</strong></p>
+<ol>
+<li><strong>Anzahl der Host-Bits</strong> berechnen:
+  <code>32 - CIDR-Wert</code><br />
+   Beispiel: <code>/24</code> → <code>32 - 24 = 8 Host-Bits</code></li>
+<li><strong>Anzahl der Hosts</strong> berechnen:
+  <code>2^(Host-Bits) - 2</code><br />
+   Beispiel: <code>2^8 - 2 = 256 - 2 = 254</code></li>
+</ol>
+<p><strong>Warum -2?</strong></p>
+<ul>
+<li><strong>1 Adresse</strong> für das <strong>Netzwerk</strong> (z. B. <code>192.168.1.0</code>).</li>
+<li><strong>1 Adresse</strong> für den <strong>Broadcast</strong> (z. B. <code>192.168.1.255</code>).</li>
+</ul>
+<hr />
+<hr />
+<h2 id="ubungen-zum-selbstrechnen">💡 <strong>Übungen zum Selbstrechnen</strong><a class="headerlink" href="#ubungen-zum-selbstrechnen" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="aufgabe-4-subnetzmaske-cidr-hosts"><strong>📝 Aufgabe 4: Subnetzmaske → CIDR → Hosts</strong><a class="headerlink" href="#aufgabe-4-subnetzmaske-cidr-hosts" title="Permanent link">&para;</a></h3>
+<p>Fülle die Tabelle aus:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Subnetzmaske</strong></th>
+<th><strong>CIDR</strong></th>
+<th><strong>Anzahl Hosts</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>255.255.255.192</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>255.255.255.224</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>255.255.255.240</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>255.255.240.0</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="aufgabe-5-cidr-subnetzmaske-hosts"><strong>📝 Aufgabe 5: CIDR → Subnetzmaske → Hosts</strong><a class="headerlink" href="#aufgabe-5-cidr-subnetzmaske-hosts" title="Permanent link">&para;</a></h3>
+<p>Fülle die Tabelle aus:</p>
+<table>
+<thead>
+<tr>
+<th><strong>CIDR</strong></th>
+<th><strong>Subnetzmaske</strong></th>
+<th><strong>Anzahl Hosts</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/18</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>/20</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>/22</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>/29</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<hr />
+<h3 id="aufgabe-6-netzwerkaufteilung"><strong>📝 Aufgabe 6: Netzwerkaufteilung</strong><a class="headerlink" href="#aufgabe-6-netzwerkaufteilung" title="Permanent link">&para;</a></h3>
+<p><strong>Szenario:</strong><br />
+Du hast das Netzwerk <code>192.168.1.0/24</code> und möchtest es in <strong>4 gleich große Subnetze</strong> aufteilen.</p>
+<p><strong>Fragen:</strong></p>
+<ol>
+<li>Welche <strong>CIDR-Notation</strong> hat jedes Subnetz?</li>
+<li>Wie viele <strong>Hosts</strong> hat jedes Subnetz?</li>
+<li>Gib die <strong>Netzwerkadressen</strong> und <strong>Broadcast-Adressen</strong> der Subnetze an.</li>
+</ol>
+<details class="success">
+<summary>Lösung:</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>**1. CIDR-Notation:**
+- Ursprüngliches Netzwerk: `/24` (256 Adressen).
+- Aufteilung in 4 Subnetze → **/26** (64 Adressen pro Subnetz).
+
+**2. Anzahl Hosts:**
+- `/26` → `2^(32-26) - 2 = 2^6 - 2 = 64 - 2 = 62 Hosts`.
+
+**3. Netzwerkadressen und Broadcast-Adressen:**
+| **Subnetz** | **Netzwerkadresse** | **Broadcast-Adresse** | **Host-Bereich** |
+|-------------|----------------------|-----------------------|------------------|
+| Subnetz 1   | 192.168.1.0/26        | 192.168.1.63          | 192.168.1.1 – 192.168.1.62 |
+| Subnetz 2   | 192.168.1.64/26       | 192.168.1.127         | 192.168.1.65 – 192.168.1.126 |
+| Subnetz 3   | 192.168.1.128/26      | 192.168.1.191         | 192.168.1.129 – 192.168.1.190 |
+| Subnetz 4   | 192.168.1.192/26      | 192.168.1.255         | 192.168.1.193 – 192.168.1.254 |
+</code></pre></div></td></tr></table></div>
+</details>
+<hr />
+<hr />
+<h3 id="aufgabe-7-benotigte-subnetzgroe-berechnen"><strong>📝 Aufgabe 7: Benötigte Subnetzgröße berechnen</strong><a class="headerlink" href="#aufgabe-7-benotigte-subnetzgroe-berechnen" title="Permanent link">&para;</a></h3>
+<p><strong>Szenario:</strong><br />
+Du brauchst ein Subnetz für <strong>50 Hosts</strong>. Welche <strong>kleinste mögliche CIDR-Notation</strong> kannst du verwenden?</p>
+<p><strong>Frage:</strong> Welche CIDR-Notation wählst du und warum?</p>
+<details class="success">
+<summary>Lösung:</summary>
+</details>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>**Berechnung:**
+- **Anforderung:** 50 Hosts → `2^n - 2 ≥ 50` → `n = 6` (2^6 - 2 = 62).
+- **CIDR-Notation:** `32 - 6 = 26` → **/26**.
+
+**Antwort:**
+- **/26**, weil es **62 Hosts** unterstützt (die kleinste CIDR, die ≥ 50 Hosts erlaubt).
+</code></pre></div></td></tr></table></div>
+<hr />
+<hr />
+<h3 id="aufgabe-8-subnetzmaske-in-binar-umwandeln"><strong>📝 Aufgabe 8: Subnetzmaske in Binär umwandeln</strong><a class="headerlink" href="#aufgabe-8-subnetzmaske-in-binar-umwandeln" title="Permanent link">&para;</a></h3>
+<p>Wandle die folgenden Subnetzmasken in <strong>Binär</strong> um:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Subnetzmaske</strong></th>
+<th><strong>Binär</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>255.0.0.0</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>255.255.0.0</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>255.255.255.128</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>255.255.255.192</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<details class="success">
+<summary>Lösung:</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>| **Subnetzmaske** | **Binär** |
+|------------------|-----------|
+| 255.0.0.0 | 11111111.00000000.00000000.00000000 |
+| 255.255.0.0 | 11111111.11111111.00000000.00000000 |
+| 255.255.255.128 | 11111111.11111111.11111111.10000000 |
+| 255.255.255.192 | 11111111.11111111.11111111.11000000 |
+</code></pre></div></td></tr></table></div>
+</details>
+<hr />
+<hr />
+<h3 id="aufgabe-9-cidr-aus-binar-berechnen"><strong>📝 Aufgabe 9: CIDR aus Binär berechnen</strong><a class="headerlink" href="#aufgabe-9-cidr-aus-binar-berechnen" title="Permanent link">&para;</a></h3>
+<p>Gegeben sind die folgenden Binärdarstellungen von Subnetzmasken. Berechne die <strong>CIDR-Notation</strong>:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Binär</strong></th>
+<th><strong>CIDR</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11111111.11111111.00000000.00000000</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>11111111.11111111.11111111.10000000</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>11111111.11111111.11111111.11100000</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<details class="success">
+<summary>Lösung:</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>| **Binär** | **CIDR** |
+|-----------|----------|
+| 11111111.11111111.00000000.00000000 | /16 |
+| 11111111.11111111.11111111.10000000 | /25 |
+| 11111111.11111111.11111111.11100000 | /28 |
+</code></pre></div></td></tr></table></div>
+</details>
+<hr />
+<hr />
+<hr />
+<h2 id="zusammenfassung-die-wichtigsten-formeln">🎓 <strong>Zusammenfassung: Die wichtigsten Formeln</strong><a class="headerlink" href="#zusammenfassung-die-wichtigsten-formeln" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Berechnung</strong></th>
+<th><strong>Formel</strong></th>
+<th><strong>Beispiel</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CIDR → Host-Bits</strong></td>
+<td><code>32 - CIDR</code></td>
+<td><code>/24</code> → <code>32 - 24 = 8</code></td>
+</tr>
+<tr>
+<td><strong>Host-Bits → Anzahl Hosts</strong></td>
+<td><code>2^(Host-Bits) - 2</code></td>
+<td><code>8 Host-Bits</code> → <code>2^8 - 2 = 254</code></td>
+</tr>
+<tr>
+<td><strong>Subnetzmaske → CIDR</strong></td>
+<td>Anzahl der <strong>1en</strong> in Binär</td>
+<td><code>255.255.255.0</code> → <code>11111111.11111111.11111111.00000000</code> → <strong>24 Einsen</strong> → <code>/24</code></td>
+</tr>
+<tr>
+<td><strong>CIDR → Subnetzmaske</strong></td>
+<td><code>CIDR</code> Einsen + <code>(32 - CIDR)</code> Nullen</td>
+<td><code>/25</code> → <code>11111111.11111111.11111111.10000000</code> → <code>255.255.255.128</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<hr />
+<h2 id="hausaufgabe">📌 <strong>Hausaufgabe</strong><a class="headerlink" href="#hausaufgabe" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Berechne für die folgenden Subnetzmasken die CIDR-Notation und die Anzahl der Hosts:</strong></li>
+<li><code>255.255.254.0</code></li>
+<li><code>255.255.252.0</code></li>
+<li><code>255.255.248.0</code></li>
+<li><strong>Du hast das Netzwerk <code>10.0.0.0/16</code> und möchtest es in 8 gleich große Subnetze aufteilen.</strong></li>
+<li>Welche <strong>CIDR-Notation</strong> hat jedes Subnetz?</li>
+<li>Wie viele <strong>Hosts</strong> hat jedes Subnetz?</li>
+<li>Gib die <strong>Netzwerkadressen</strong> der Subnetze an.</li>
+<li><strong>Forschung:</strong></li>
+<li>Suche im Internet nach einem <strong>Subnetz-Rechner</strong> (z. B. <a href="https://www.calculator.net/ip-subnet-calculator.html">Subnet Calculator</a>) und überprüfe deine Berechnungen.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../3/" class="md-footer__link md-footer__link--prev" aria-label="Previous: IP-Adressierung &amp; Subnetting">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                IP-Adressierung & Subnetting
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../4/" class="md-footer__link md-footer__link--next" aria-label="Next: Router &amp; Switches">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Router & Switches
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Qualidy GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.kununu.com/de/qualidy" target="_blank" rel="noopener" title="www.kununu.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M311 86.3c12.3-12.7 12-32.9-.7-45.2s-32.9-12-45.2.7C143.4 167.2 76.4 236.3 64 249V64c0-17.7-14.3-32-32-32S0 46.3 0 64v384c0 17.7 14.3 32 32 32s32-14.3 32-32V341l64.7-66.7 133 192c10.1 14.5 30 18.1 44.5 8.1s18.1-30 8.1-44.5L174.1 227.4z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://de.linkedin.com/company/qualidy" target="_blank" rel="noopener" title="de.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.google.com/search?sca_esv=7e6ba2047fcb60f3&uds=AMwkrPtyB8MsmozA4Lwzqy2G2HCu-abqzc6moOG48q3gP5dtjTRzC2Ws0eSwcyLXDfZNuYCrZ7ByIreHLG9th3vKLekPoVeey0tumAbet4cVLQRLzdRFhUbOGbnyp3xo1V0hzzaNmkCN&si=AKbGX_rcuucMgom2rba1cdwsvM2SVoIkP2btyqGMV4t0GuHIs4sGV_1tpuqR0YHG4Rzd9SdJcL-lW6E-2aJA5azZLTKkIOrZ2j2aWwoBkVbdEJ0o0GPcQhs%3D&q=Qualidy+GmbH+Rezensionen&sa=X&ved=2ahUKEwibsbnSgcmFAxXNQvEDHaVYCiAQ3PALegQIRxAF" target="_blank" rel="noopener" title="www.google.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://qualidy.de" target="_blank" rel="noopener" title="qualidy.de" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.path", "navigation.top", "navigation.footer", "toc.follow", "toc.integrate", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

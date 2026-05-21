@@ -1,0 +1,1531 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../2/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Einführung & Netzwerkgrundlagen - Netzwerktechnik - Grundlagen & Praxis</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/logo.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/grid.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/video_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/python_tutor_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/mermaid.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tag-1-einfuhrung-netzwerkgrundlagen" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Netzwerktechnik - Grundlagen &amp; Praxis" class="md-header__button md-logo" aria-label="Netzwerktechnik - Grundlagen & Praxis" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Netzwerktechnik - Grundlagen & Praxis
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Einführung & Netzwerkgrundlagen
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Netzwerktechnik - Grundlagen &amp; Praxis" class="md-nav__button md-logo" aria-label="Netzwerktechnik - Grundlagen & Praxis" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Netzwerktechnik - Grundlagen & Praxis
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Übersicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Einführung & Netzwerkgrundlagen
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Einführung & Netzwerkgrundlagen
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#theorie" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 Theorie
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📖 Theorie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-einfuhrung-was-ist-ein-netzwerk" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Einführung: Was ist ein Netzwerk?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Einführung: Was ist ein Netzwerk?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arten-von-netzwerken" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arten von Netzwerken
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warum-sind-netzwerke-wichtig" class="md-nav__link">
+    <span class="md-ellipsis">
+      Warum sind Netzwerke wichtig?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-entstehung-und-geschichte-von-netzwerken" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Entstehung und Geschichte von Netzwerken
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Entstehung und Geschichte von Netzwerken">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#meilensteine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Meilensteine
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-osi-referenzmodell" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. OSI-Referenzmodell
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. OSI-Referenzmodell">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#die-7-schichten-im-uberblick" class="md-nav__link">
+    <span class="md-ellipsis">
+      Die 7 Schichten im Überblick
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merksatz-fur-die-schichten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merksatz für die Schichten
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualisierung-des-osi-modells" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualisierung des OSI-Modells
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#praktische-relevanz" class="md-nav__link">
+    <span class="md-ellipsis">
+      Praktische Relevanz
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-netzwerktopologien" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Netzwerktopologien
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Netzwerktopologien">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ubersicht-der-topologien" class="md-nav__link">
+    <span class="md-ellipsis">
+      Übersicht der Topologien
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualisierung-der-topologien" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualisierung der Topologien
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubungsaufgaben" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 Übungsaufgaben
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 Übungsaufgaben">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1-osi-modell-schichten-zuordnen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 1: OSI-Modell – Schichten zuordnen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2-netzwerktopologien-vor-und-nachteile" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 2: Netzwerktopologien – Vor- und Nachteile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-3-osi-modell-datenfluss-analysieren" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 3: OSI-Modell – Datenfluss analysieren
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📝 Aufgabe 3: OSI-Modell – Datenfluss analysieren">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#client-perspektive-pc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Client-Perspektive (PC):
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-perspektive" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server-Perspektive:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-4-netzwerkplanung-kundenanforderungen-analysieren" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 4: Netzwerkplanung – Kundenanforderungen analysieren
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📝 Aufgabe 4: Netzwerkplanung – Kundenanforderungen analysieren">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-empfohlene-topologie-stern-topologie" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Empfohlene Topologie: Stern-Topologie
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-benotigte-hardwarekomponenten" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Benötigte Hardwarekomponenten
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-sicherheitsmanahmen" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Sicherheitsmaßnahmen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zusammenfassung" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎓 Zusammenfassung
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Virtualisierung & VM-Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IP-Adressierung & Subnetting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rechenaufgaben
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Router & Switches
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Firewall & Sicherheit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Webserver (Apache/Nginx)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    E-Mail-Server (Postfix/Dovecot)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monitoring & Fehlerbehebung
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vertiefung Wireshark
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Abschlussprojekt & Reflexion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tag-1-einfuhrung-netzwerkgrundlagen">📚 Tag 1: Einführung &amp; Netzwerkgrundlagen<a class="headerlink" href="#tag-1-einfuhrung-netzwerkgrundlagen" title="Permanent link">&para;</a></h1>
+<h2 id="theorie"><strong>📖 Theorie</strong><a class="headerlink" href="#theorie" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="1-einfuhrung-was-ist-ein-netzwerk"><strong>1. Einführung: Was ist ein Netzwerk?</strong><a class="headerlink" href="#1-einfuhrung-was-ist-ein-netzwerk" title="Permanent link">&para;</a></h3>
+<p>Ein <strong>Netzwerk</strong> ist ein System aus <strong>Knoten</strong> (z. B. Computer, Server, Router) und <strong>Verbindungen</strong> (z. B. Kabel, Funk), die den <strong>Austausch von Daten</strong> ermöglichen.</p>
+<h4 id="arten-von-netzwerken"><strong>Arten von Netzwerken</strong><a class="headerlink" href="#arten-von-netzwerken" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Typ</strong></th>
+<th><strong>Beschreibung</strong></th>
+<th><strong>Beispiel</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LAN</strong></td>
+<td>Lokales Netzwerk (begrenzter Bereich, z. B. Büro, Schule)</td>
+<td>Ethernet, WLAN zu Hause</td>
+</tr>
+<tr>
+<td><strong>WAN</strong></td>
+<td>Weitverbindungsnetzwerk (große geografische Gebiete)</td>
+<td>Internet</td>
+</tr>
+<tr>
+<td><strong>WLAN</strong></td>
+<td>Drahtloses LAN (Funkverbindung)</td>
+<td>Router mit Wi-Fi</td>
+</tr>
+<tr>
+<td><strong>MAN</strong></td>
+<td>Metropolitan Area Network (Stadtgebiet)</td>
+<td>Stadtweites Netzwerk für Behörden</td>
+</tr>
+<tr>
+<td><strong>PAN</strong></td>
+<td>Personal Area Network (geringer Radius, z. B. Bluetooth)</td>
+<td>Verbindung zwischen Smartphone und Kopfhörern</td>
+</tr>
+</tbody>
+</table>
+<h4 id="warum-sind-netzwerke-wichtig"><strong>Warum sind Netzwerke wichtig?</strong><a class="headerlink" href="#warum-sind-netzwerke-wichtig" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Daten austauschen</strong> (z. B. Dateien, E-Mails)</li>
+<li><strong>Ressourcen teilen</strong> (z. B. Drucker, Server)</li>
+<li><strong>Kommunikation</strong> (z. B. VoIP, Chat)</li>
+<li><strong>Zentralisierte Verwaltung</strong> (z. B. Benutzerverwaltung, Backups)</li>
+</ul>
+<hr />
+<hr />
+<h3 id="2-entstehung-und-geschichte-von-netzwerken"><strong>2. Entstehung und Geschichte von Netzwerken</strong><a class="headerlink" href="#2-entstehung-und-geschichte-von-netzwerken" title="Permanent link">&para;</a></h3>
+<h4 id="meilensteine"><strong>Meilensteine</strong><a class="headerlink" href="#meilensteine" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>1960er:</strong> ARPANET (Vorläufer des Internets, USA)</li>
+<li><strong>1970er:</strong> Ethernet (Xerox), TCP/IP-Protokoll</li>
+<li><strong>1980er:</strong> ISO/OSI-Referenzmodell, erste kommerzielle Netzwerke</li>
+<li><strong>1990er:</strong> World Wide Web (WWW), Breitband-Internet</li>
+<li><strong>2000er:</strong> WLAN (802.11), Cloud Computing</li>
+<li><strong>2010er–heute:</strong> IoT, 5G, Software-Defined Networking (SDN)</li>
+</ul>
+<hr />
+<h3 id="3-osi-referenzmodell"><strong>3. OSI-Referenzmodell</strong><a class="headerlink" href="#3-osi-referenzmodell" title="Permanent link">&para;</a></h3>
+<p>Das <strong>OSI-Modell</strong> (Open Systems Interconnection) ist ein <strong>7-Schichten-Modell</strong>, das die Kommunikation in Netzwerken standardisiert.</p>
+<h4 id="die-7-schichten-im-uberblick"><strong>Die 7 Schichten im Überblick</strong><a class="headerlink" href="#die-7-schichten-im-uberblick" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Schicht</strong></th>
+<th><strong>Name</strong></th>
+<th><strong>Aufgabe</strong></th>
+<th><strong>Beispiele/Protokolle</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>7</strong></td>
+<td>Anwendung (Application)</td>
+<td>Benutzerschnittstelle, Anwendungsdienste</td>
+<td>HTTP, FTP, SMTP, DNS</td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td>Darstellung (Presentation)</td>
+<td>Datenformatierung (Verschlüsselung, Komprimierung)</td>
+<td>SSL/TLS, JPEG, MPEG</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>Sitzung (Session)</td>
+<td>Verbindung zwischen Anwendungen herstellen/verwalten</td>
+<td>NetBIOS, RPC</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>Transport (Transport)</td>
+<td>Ende-zu-Ende-Kommunikation, Fehlererkennung, Flusskontrolle</td>
+<td>TCP, UDP</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>Vermittlung (Network)</td>
+<td>Logische Adressierung (IP), Routing</td>
+<td>IP, ICMP, Router</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>Sicherung (Data Link)</td>
+<td>Physikalische Adressierung (MAC), Fehlererkennung in Frames</td>
+<td>Ethernet, Switch, MAC-Adressen</td>
+</tr>
+<tr>
+<td><strong>1</strong></td>
+<td>Bitübertragung (Physical)</td>
+<td>Übertragung von Rohdaten (Bits) über physikalische Medien</td>
+<td>Kabel (UTP, Glasfaser), WLAN</td>
+</tr>
+</tbody>
+</table>
+<h4 id="merksatz-fur-die-schichten"><strong>Merksatz für die Schichten</strong><a class="headerlink" href="#merksatz-fur-die-schichten" title="Permanent link">&para;</a></h4>
+<p><strong>"All People Seem To Need Data Processing"</strong><br />
+(Anwendung, Präsentation, Sitzung, Transport, Vermittlung, Sicherung, Bitübertragung)</p>
+<h4 id="visualisierung-des-osi-modells"><strong>Visualisierung des OSI-Modells</strong><a class="headerlink" href="#visualisierung-des-osi-modells" title="Permanent link">&para;</a></h4>
+<pre class="mermaid"><code>graph TD
+    A[Anwendung] --&gt;|HTTP, FTP| B[Präsentation]
+    B --&gt;|SSL, JPEG| C[Sitzung]
+    C --&gt;|TCP, UDP| D[Transport]
+    D --&gt;|IP, ICMP| E[Vermittlung]
+    E --&gt;|Ethernet, MAC| F[Sicherung]
+    F --&gt;|Kabel, WLAN| G[Bitübertragung]</code></pre>
+<h4 id="praktische-relevanz"><strong>Praktische Relevanz</strong><a class="headerlink" href="#praktische-relevanz" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Fehleranalyse:</strong> Wenn z. B. eine Webseite nicht lädt, kann das Problem in <strong>Schicht 7 (HTTP)</strong> oder <strong>Schicht 3 (IP-Routing)</strong> liegen.</li>
+<li><strong>Protokoll-Stack:</strong> Jede Schicht fügt <strong>Header</strong> hinzu (z. B. IP-Header in Schicht 3, TCP-Header in Schicht 4).</li>
+</ul>
+<hr />
+<hr />
+<h3 id="4-netzwerktopologien"><strong>4. Netzwerktopologien</strong><a class="headerlink" href="#4-netzwerktopologien" title="Permanent link">&para;</a></h3>
+<p>Eine <strong>Topologie</strong> beschreibt die <strong>Anordnung der Knoten und Verbindungen</strong> in einem Netzwerk.</p>
+<h4 id="ubersicht-der-topologien"><strong>Übersicht der Topologien</strong><a class="headerlink" href="#ubersicht-der-topologien" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Topologie</strong></th>
+<th><strong>Beschreibung</strong></th>
+<th><strong>Vorteile</strong></th>
+<th><strong>Nachteile</strong></th>
+<th><strong>Einsatzbeispiel</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Stern</strong></td>
+<td>Alle Knoten sind mit einem zentralen Knoten (z. B. Switch) verbunden.</td>
+<td>Einfache Verwaltung, hohe Performance</td>
+<td>Single Point of Failure (zentraler Knoten)</td>
+<td>Büro-Netzwerke</td>
+</tr>
+<tr>
+<td><strong>Bus</strong></td>
+<td>Alle Knoten sind an ein gemeinsames Kabel angeschlossen.</td>
+<td>Geringer Verkabelungsaufwand</td>
+<td>Kollisionsanfälligkeit, schwer zu erweitern</td>
+<td>Ältere Ethernet-Netzwerke</td>
+</tr>
+<tr>
+<td><strong>Ring</strong></td>
+<td>Jeder Knoten ist mit zwei Nachbarn verbunden (Ringstruktur).</td>
+<td>Kein Single Point of Failure</td>
+<td>Komplexe Fehlerbehebung</td>
+<td>Token Ring (z. B. IBM-Netzwerke)</td>
+</tr>
+<tr>
+<td><strong>Mesh</strong></td>
+<td>Jeder Knoten ist mit jedem anderen verbunden (voll vermascht) oder teilweise.</td>
+<td>Hohe Ausfallsicherheit</td>
+<td>Hoher Verkabelungsaufwand</td>
+<td>Büro (aktuell auch immer mehr private Haushalte)</td>
+</tr>
+<tr>
+<td><strong>Hybrid</strong></td>
+<td>Kombination aus mehreren Topologien (z. B. Stern + Ring).</td>
+<td>Flexibel, skalierbar</td>
+<td>Komplexe Verwaltung</td>
+<td>Große Unternehmensnetzwerke</td>
+</tr>
+</tbody>
+</table>
+<h4 id="visualisierung-der-topologien"><strong>Visualisierung der Topologien</strong><a class="headerlink" href="#visualisierung-der-topologien" title="Permanent link">&para;</a></h4>
+<pre class="mermaid"><code>graph TD
+    subgraph Stern
+        A[Switch] --&gt; B[PC 1]
+        A --&gt; C[PC 2]
+        A --&gt; D[PC 3]
+    end
+
+    subgraph Bus
+        E[PC 1] --&gt;|Kabel| F[PC 2]
+        F --&gt;|Kabel| G[PC 3]
+    end
+
+    subgraph Ring
+        H[PC 1] --&gt; I[PC 2]
+        I --&gt; J[PC 3]
+        J --&gt; H
+    end
+
+    subgraph Mesh
+        K[PC 1] --&gt; L[PC 2]
+        K --&gt; M[PC 3]
+        L --&gt; M
+        L --&gt; K
+        M --&gt; L
+        M --&gt; K
+
+    end</code></pre>
+<hr />
+<hr />
+<h2 id="ubungsaufgaben"><strong>💡 Übungsaufgaben</strong><a class="headerlink" href="#ubungsaufgaben" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="aufgabe-1-osi-modell-schichten-zuordnen"><strong>📝 Aufgabe 1: OSI-Modell – Schichten zuordnen</strong><a class="headerlink" href="#aufgabe-1-osi-modell-schichten-zuordnen" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong><br />
+Ordne die folgenden <strong>Protokolle und Komponenten</strong> den richtigen <strong>OSI-Schichten</strong> zu.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Protokoll/Komponente</strong></th>
+<th><strong>OSI-Schicht</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HTTP</td>
+<td>?</td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>?</td>
+</tr>
+<tr>
+<td>Ethernet</td>
+<td>?</td>
+</tr>
+<tr>
+<td>IP</td>
+<td>?</td>
+</tr>
+<tr>
+<td>MAC-Adresse</td>
+<td>?</td>
+</tr>
+<tr>
+<td>Router</td>
+<td>?</td>
+</tr>
+<tr>
+<td>Switch</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+<p>Hier gibst auch nochmal was zum nachschlagen! <a href="https://de.wikipedia.org/wiki/OSI-Modell">OSI Modell WIki</a></p>
+<details class="success">
+<summary>Lösung:</summary>
+<table>
+<thead>
+<tr>
+<th><strong>Protokoll/Komponente</strong></th>
+<th><strong>OSI-Schicht</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HTTP</td>
+<td>7 (Anwendung)</td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>4 (Transport)</td>
+</tr>
+<tr>
+<td>Ethernet</td>
+<td>2 (Sicherung)</td>
+</tr>
+<tr>
+<td>IP</td>
+<td>3 (Vermittlung)</td>
+</tr>
+<tr>
+<td>MAC-Adresse</td>
+<td>2 (Sicherung)</td>
+</tr>
+<tr>
+<td>Router</td>
+<td>3 (Vermittlung)</td>
+</tr>
+<tr>
+<td>Switch</td>
+<td>2 (Sicherung)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>&nbsp;</p>
+<hr />
+<hr />
+<h3 id="aufgabe-2-netzwerktopologien-vor-und-nachteile"><strong>📝 Aufgabe 2: Netzwerktopologien – Vor- und Nachteile</strong><a class="headerlink" href="#aufgabe-2-netzwerktopologien-vor-und-nachteile" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong><br />
+Vergleiche die <strong>Stern- und Bus-Topologie</strong> anhand der folgenden Kriterien:</p>
+<ol>
+<li><strong>Verkabelungsaufwand</strong></li>
+<li><strong>Ausfallsicherheit</strong></li>
+<li><strong>Erweiterbarkeit</strong></li>
+<li><strong>Performance</strong></li>
+</ol>
+<p><strong>Erstelle eine Tabelle mit den Vor- und Nachteilen.</strong></p>
+<details class="success">
+<summary>Lösung:</summary>
+<p>Lösung anzeigen</p>
+<table>
+<thead>
+<tr>
+<th><strong>Kriterium</strong></th>
+<th><strong>Stern-Topologie</strong></th>
+<th><strong>Bus-Topologie</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Verkabelung</strong></td>
+<td>Hoch (jeder Knoten hat eigenes Kabel)</td>
+<td>Niedrig (ein gemeinsames Kabel)</td>
+</tr>
+<tr>
+<td><strong>Ausfallsicherheit</strong></td>
+<td>Niedrig (Single Point of Failure: Switch)</td>
+<td>Mittel (Kabelbruch betrifft alle Knoten)</td>
+</tr>
+<tr>
+<td><strong>Erweiterbarkeit</strong></td>
+<td>Hoch (einfaches Hinzufügen neuer Knoten)</td>
+<td>Niedrig (Kabel muss verlängert werden)</td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Hoch (keine Kollisionen)</td>
+<td>Niedrig (Kollisionsanfälligkeit)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>&nbsp;</p>
+<hr />
+<hr />
+<h3 id="aufgabe-3-osi-modell-datenfluss-analysieren"><strong>📝 Aufgabe 3: OSI-Modell – Datenfluss analysieren</strong><a class="headerlink" href="#aufgabe-3-osi-modell-datenfluss-analysieren" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong><br />
+Ein Benutzer ruft die Webseite <code>https://www.example.com</code> auf.<br />
+Beschreibe den <strong>Datenfluss durch die OSI-Schichten</strong> aus der Perspektive des <strong>Clients (PC)</strong> und des <strong>Servers</strong>.</p>
+<p><strong>Fragen:</strong></p>
+<ol>
+<li>Welche Schichten sind auf dem <strong>Client</strong> beteiligt?</li>
+<li>Welche Protokolle werden in den einzelnen Schichten verwendet?</li>
+<li>Wie sieht der Datenfluss auf dem <strong>Server</strong> aus?</li>
+</ol>
+<details class="success">
+<summary>Lösung:</summary>
+<h4 id="client-perspektive-pc"><strong>Client-Perspektive (PC):</strong><a class="headerlink" href="#client-perspektive-pc" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p><strong>Schicht 7 (Anwendung):</strong></p>
+<ul>
+<li>Der Benutzer gibt die URL <code>https://www.example.com</code> in den Browser ein.</li>
+<li><strong>Protokoll:</strong> HTTP/HTTPS (Port 80/443).</li>
+</ul>
+</li>
+<li>
+<p><strong>Schicht 6 (Präsentation):</strong></p>
+<ul>
+<li>Verschlüsselung der Daten mit <strong>TLS/SSL</strong> (HTTPS).</li>
+</ul>
+</li>
+<li>
+<p><strong>Schicht 5 (Sitzung):</strong></p>
+<ul>
+<li>Aufbau einer Sitzung zwischen Client und Server (z. B. über <strong>TLS-Handshake</strong>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Schicht 4 (Transport):</strong></p>
+<ul>
+<li><strong>TCP</strong> stellt eine zuverlässige Verbindung her (Port 443).</li>
+<li>Segmentierung der Daten in <strong>TCP-Segmente</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Schicht 3 (Vermittlung):</strong></p>
+<ul>
+<li><strong>IP</strong> fügt die <strong>Quell- und Ziel-IP-Adresse</strong> hinzu.</li>
+<li>Routing der Pakete zum Server.</li>
+</ul>
+</li>
+<li>
+<p><strong>Schicht 2 (Sicherung):</strong></p>
+<ul>
+<li><strong>Ethernet</strong> fügt <strong>MAC-Adressen</strong> (Quell- und Ziel-MAC) hinzu.</li>
+<li>Daten werden in <strong>Frames</strong> gepackt.</li>
+</ul>
+</li>
+<li>
+<p><strong>Schicht 1 (Bitübertragung):</strong></p>
+<ul>
+<li>Übertragung der Bits über das <strong>physikalische Medium</strong> (z. B. Kabel, WLAN).</li>
+</ul>
+</li>
+</ol>
+<h4 id="server-perspektive"><strong>Server-Perspektive:</strong><a class="headerlink" href="#server-perspektive" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>Schicht 1 (Bitübertragung):</strong><ul>
+<li>Empfang der Bits über das Netzwerkinterface.</li>
+</ul>
+</li>
+<li><strong>Schicht 2 (Sicherung):</strong><ul>
+<li><strong>Ethernet</strong> liest die <strong>Ziel-MAC-Adresse</strong> und prüft, ob sie zum Server gehört.</li>
+<li>Entpacken der <strong>Frames</strong> zu IP-Paketen.</li>
+</ul>
+</li>
+<li><strong>Schicht 3 (Vermittlung):</strong><ul>
+<li><strong>IP</strong> prüft die <strong>Ziel-IP-Adresse</strong> und leitet das Paket weiter.</li>
+</ul>
+</li>
+<li><strong>Schicht 4 (Transport):</strong><ul>
+<li><strong>TCP</strong> empfängt die Segmente und setzt sie zusammen.</li>
+<li>Bestätigung der empfangenen Daten (ACK).</li>
+</ul>
+</li>
+<li><strong>Schicht 5 (Sitzung):</strong><ul>
+<li>Verwaltung der Sitzung (z. B. TLS-Session).</li>
+</ul>
+</li>
+<li><strong>Schicht 6 (Präsentation):</strong><ul>
+<li>Entschlüsselung der Daten (TLS/SSL).</li>
+</ul>
+</li>
+<li><strong>Schicht 7 (Anwendung):</strong><ul>
+<li>Der <strong>Webserver</strong> (z. B. Apache) verarbeitet die HTTP-Anfrage und sendet die Webseite zurück.</li>
+</ul>
+</li>
+</ol>
+</details>
+<p>&nbsp;</p>
+<h3 id="aufgabe-4-netzwerkplanung-kundenanforderungen-analysieren"><strong>📝 Aufgabe 4: Netzwerkplanung – Kundenanforderungen analysieren</strong><a class="headerlink" href="#aufgabe-4-netzwerkplanung-kundenanforderungen-analysieren" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong><br />
+Ein <strong>Kunde</strong> möchte ein <strong>Büro-Netzwerk</strong> für <strong>20 Mitarbeiter</strong> einrichten.<br />
+Die Anforderungen sind:</p>
+<ul>
+<li><strong>10 PCs</strong> im Büro (kabelgebunden)</li>
+<li><strong>5 Laptops</strong> (WLAN)</li>
+<li><strong>1 Drucker</strong> (kabelgebunden)</li>
+<li><strong>1 Server</strong> (für Dateien und E-Mails)</li>
+<li><strong>GästewLAN</strong> für Besucher (getrennt vom Firmennetz)</li>
+<li><strong>Hohe Sicherheit</strong> (kein Zugriff von außen auf interne Daten)</li>
+<li><strong>Skalierbarkeit</strong> (später sollen 10 weitere Mitarbeiter hinzukommen)</li>
+</ul>
+<p><strong>Aufgaben:</strong></p>
+<ol>
+<li>Welche <strong>Netzwerktopologie</strong> würdest du empfehlen? Begründe deine Wahl.</li>
+<li>Welche <strong>Hardwarekomponenten</strong> werden benötigt?</li>
+<li>Wie könntest du die <strong>Sicherheit</strong> gewährleisten?</li>
+</ol>
+<details class="success">
+<summary>Lösung:</summary>
+<p>Lösung anzeigen</p>
+<h4 id="1-empfohlene-topologie-stern-topologie"><strong>1. Empfohlene Topologie: Stern-Topologie</strong><a class="headerlink" href="#1-empfohlene-topologie-stern-topologie" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Begründung:</strong></li>
+<li><strong>Einfache Verwaltung:</strong> Alle Geräte sind mit einem zentralen Switch verbunden.</li>
+<li><strong>Hohe Performance:</strong> Keine Kollisionen (im Gegensatz zu Bus-Topologie).</li>
+<li><strong>Erweiterbarkeit:</strong> Einfaches Hinzufügen neuer Geräte (z. B. für die 10 zusätzlichen Mitarbeiter).</li>
+<li><strong>Ausfallsicherheit:</strong> Bei einem Kabelbruch ist nur ein Gerät betroffen.</li>
+</ul>
+<h4 id="2-benotigte-hardwarekomponenten"><strong>2. Benötigte Hardwarekomponenten</strong><a class="headerlink" href="#2-benotigte-hardwarekomponenten" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Komponente</strong></th>
+<th><strong>Anzahl</strong></th>
+<th><strong>Begründung</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Switch</strong></td>
+<td>1</td>
+<td>Verbindet alle kabelgebundenen Geräte (PCs, Drucker, Server).</td>
+</tr>
+<tr>
+<td><strong>Router</strong></td>
+<td>1</td>
+<td>Verbindet das LAN mit dem Internet und verwaltet das WLAN.</td>
+</tr>
+<tr>
+<td><strong>Access Point</strong></td>
+<td>1</td>
+<td>Für das WLAN der Mitarbeiter.</td>
+</tr>
+<tr>
+<td><strong>GästewLAN-Access Point</strong></td>
+<td>1</td>
+<td>Getrenntes WLAN für Besucher (z. B. mit VLAN).</td>
+</tr>
+<tr>
+<td><strong>Kabel (UTP Cat. 6)</strong></td>
+<td>16</td>
+<td>10 PCs + 1 Drucker + 1 Server + 4 Reserve.</td>
+</tr>
+<tr>
+<td><strong>Firewall</strong></td>
+<td>1</td>
+<td>Schützt das Netzwerk vor externen Angriffen.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-sicherheitsmanahmen"><strong>3. Sicherheitsmaßnahmen</strong><a class="headerlink" href="#3-sicherheitsmanahmen" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Netzwerksegmentierung:</strong></li>
+<li><strong>VLANs</strong> für verschiedene Bereiche (z. B. VLAN 10 für Mitarbeiter, VLAN 20 für Gäste).</li>
+<li><strong>Firewall-Regeln:</strong> Blockieren von Zugriffen zwischen VLANs (z. B. Gäste dürfen nicht auf den Server zugreifen).</li>
+<li><strong>WLAN-Sicherheit:</strong></li>
+<li><strong>WPA3-Verschlüsselung</strong> für das Mitarbeiter-WLAN.</li>
+<li><strong>Captive Portal</strong> für das GästewLAN (z. B. mit Passwort oder Zeitlimit).</li>
+<li><strong>Zugriffskontrolle:</strong></li>
+<li><strong>MAC-Adressfilterung</strong> für das Mitarbeiter-WLAN.</li>
+<li><strong>Starke Passwörter</strong> für alle Geräte.</li>
+<li><strong>Server-Sicherheit:</strong></li>
+<li><strong>Firewall</strong> auf dem Server (z. B. <code>ufw</code> unter Linux).</li>
+<li><strong>Regelmäßige Backups</strong> der Daten.</li>
+</ul>
+</details>
+<p>&nbsp;</p>
+<hr />
+<hr />
+<h2 id="zusammenfassung"><strong>🎓 Zusammenfassung</strong><a class="headerlink" href="#zusammenfassung" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Netzwerke</strong> ermöglichen den <strong>Daten- und Ressourcenaustausch</strong> zwischen Geräten.</li>
+<li>Das <strong>OSI-Modell</strong> standardisiert die Kommunikation in <strong>7 Schichten</strong>.</li>
+<li><strong>Netzwerktopologien</strong> (Stern, Bus, Ring, Mesh) haben jeweils <strong>Vorteile und Nachteile</strong>.</li>
+<li><strong>Kundenanforderungen</strong> müssen bei der Netzwerkplanung berücksichtigt werden (Sicherheit, Skalierbarkeit, Performance).</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Übersicht">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Übersicht
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../2/" class="md-footer__link md-footer__link--next" aria-label="Next: Virtualisierung &amp; VM-Setup">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Virtualisierung & VM-Setup
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Qualidy GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.kununu.com/de/qualidy" target="_blank" rel="noopener" title="www.kununu.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M311 86.3c12.3-12.7 12-32.9-.7-45.2s-32.9-12-45.2.7C143.4 167.2 76.4 236.3 64 249V64c0-17.7-14.3-32-32-32S0 46.3 0 64v384c0 17.7 14.3 32 32 32s32-14.3 32-32V341l64.7-66.7 133 192c10.1 14.5 30 18.1 44.5 8.1s18.1-30 8.1-44.5L174.1 227.4z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://de.linkedin.com/company/qualidy" target="_blank" rel="noopener" title="de.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.google.com/search?sca_esv=7e6ba2047fcb60f3&uds=AMwkrPtyB8MsmozA4Lwzqy2G2HCu-abqzc6moOG48q3gP5dtjTRzC2Ws0eSwcyLXDfZNuYCrZ7ByIreHLG9th3vKLekPoVeey0tumAbet4cVLQRLzdRFhUbOGbnyp3xo1V0hzzaNmkCN&si=AKbGX_rcuucMgom2rba1cdwsvM2SVoIkP2btyqGMV4t0GuHIs4sGV_1tpuqR0YHG4Rzd9SdJcL-lW6E-2aJA5azZLTKkIOrZ2j2aWwoBkVbdEJ0o0GPcQhs%3D&q=Qualidy+GmbH+Rezensionen&sa=X&ved=2ahUKEwibsbnSgcmFAxXNQvEDHaVYCiAQ3PALegQIRxAF" target="_blank" rel="noopener" title="www.google.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://qualidy.de" target="_blank" rel="noopener" title="qualidy.de" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.path", "navigation.top", "navigation.footer", "toc.follow", "toc.integrate", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

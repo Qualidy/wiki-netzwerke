@@ -1,0 +1,1823 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../1/">
+      
+      
+        <link rel="next" href="../3/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Virtualisierung & VM-Setup - Netzwerktechnik - Grundlagen & Praxis</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/logo.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/grid.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/video_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/python_tutor_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/mermaid.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tag-2-virtualisierung-vm-setup-mit-hyper-v" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Netzwerktechnik - Grundlagen &amp; Praxis" class="md-header__button md-logo" aria-label="Netzwerktechnik - Grundlagen & Praxis" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Netzwerktechnik - Grundlagen & Praxis
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Virtualisierung & VM-Setup
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Netzwerktechnik - Grundlagen &amp; Praxis" class="md-nav__button md-logo" aria-label="Netzwerktechnik - Grundlagen & Praxis" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Netzwerktechnik - Grundlagen & Praxis
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Übersicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Einführung & Netzwerkgrundlagen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Virtualisierung & VM-Setup
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Virtualisierung & VM-Setup
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#theorie" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 Theorie
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📖 Theorie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-was-ist-virtualisierung" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Was ist Virtualisierung?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Was ist Virtualisierung?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vorteile-der-virtualisierung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vorteile der Virtualisierung
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nachteile-der-virtualisierung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nachteile der Virtualisierung
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-arten-der-virtualisierung" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Arten der Virtualisierung
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Arten der Virtualisierung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vergleich-virtualisierung-vs-containerisierung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vergleich: Virtualisierung vs. Containerisierung
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-hypervisor-die-virtualisierungssoftware" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Hypervisor – Die Virtualisierungssoftware
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Hypervisor – Die Virtualisierungssoftware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#typen-von-hypervisoren" class="md-nav__link">
+    <span class="md-ellipsis">
+      Typen von Hypervisoren
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beliebte-hypervisor-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beliebte Hypervisor-Software
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-hyper-v-uberblick" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Hyper-V – Überblick
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Hyper-V – Überblick">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hyper-v-netzwerkmodi-im-vergleich" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hyper-V-Netzwerkmodi im Vergleich
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#praxis-hyper-v-einrichten-vm-erstellen" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Praxis: Hyper-V einrichten &amp; VM erstellen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ Praxis: Hyper-V einrichten &amp; VM erstellen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schritt-0-hyper-v-aktivieren-falls-noch-nicht-geschehen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Schritt 0: Hyper-V aktivieren (falls noch nicht geschehen)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Schritt 0: Hyper-V aktivieren (falls noch nicht geschehen)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#auf-windows-1011-pro-oder-windows-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Auf Windows 10/11 Pro oder Windows Server:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-1-ubuntu-server-desktop-iso-herunterladen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Schritt 1: Ubuntu Server &amp; Desktop ISO herunterladen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-2-neue-vm-in-hyper-v-erstellen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Schritt 2: Neue VM in Hyper-V erstellen
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Schritt 2: Neue VM in Hyper-V erstellen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-uber-hyper-v-manager-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 1: Über Hyper-V-Manager (GUI)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-uber-powershell-fur-fortgeschrittene" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 2: Über PowerShell (für Fortgeschrittene)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-3-ubuntu-server-installieren" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Schritt 3: Ubuntu Server installieren
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-4-basis-konfiguration-der-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Schritt 4: Basis-Konfiguration der VM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Schritt 4: Basis-Konfiguration der VM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-anmeldung" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Anmeldung
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-system-aktualisieren" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. System aktualisieren
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-benutzer-zu-sudoers-hinzufugen-falls-nicht-automatisch" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Benutzer zu sudoers hinzufügen (falls nicht automatisch)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-hostname-prufenandern" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Hostname prüfen/ändern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-netzwerkkonfiguration-prufen" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Netzwerkkonfiguration prüfen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-statische-ip-adresse-einrichten-optional-fur-externes-netzwerk" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Statische IP-Adresse einrichten (optional für Externes Netzwerk)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-5-zweite-vm-erstellen-kommunikation-testen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Schritt 5: Zweite VM erstellen &amp; Kommunikation testen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubungsaufgaben" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 Übungsaufgaben
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 Übungsaufgaben">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1-hyper-v-aktivieren-und-vm-erstellen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 1: Hyper-V aktivieren und VM erstellen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2-netzwerkmodi-in-hyper-v-testen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 2: Netzwerkmodi in Hyper-V testen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-3-benutzerverwaltung-paketmanagement" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 3: Benutzerverwaltung &amp; Paketmanagement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-4-netzwerkdiagnose" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 4: Netzwerkdiagnose
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zusammenfassung" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎓 Zusammenfassung
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tipps-fur-hyper-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Tipps für Hyper-V
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IP-Adressierung & Subnetting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rechenaufgaben
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Router & Switches
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Firewall & Sicherheit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Webserver (Apache/Nginx)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    E-Mail-Server (Postfix/Dovecot)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monitoring & Fehlerbehebung
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vertiefung Wireshark
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Abschlussprojekt & Reflexion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tag-2-virtualisierung-vm-setup-mit-hyper-v">🖥️ Tag 2: Virtualisierung &amp; VM-Setup mit Hyper-V<a class="headerlink" href="#tag-2-virtualisierung-vm-setup-mit-hyper-v" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="theorie"><strong>📖 Theorie</strong><a class="headerlink" href="#theorie" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="1-was-ist-virtualisierung"><strong>1. Was ist Virtualisierung?</strong><a class="headerlink" href="#1-was-ist-virtualisierung" title="Permanent link">&para;</a></h3>
+<p><strong>Virtualisierung</strong> ermöglicht das <strong>Betreiben mehrerer virtueller Maschinen (VMs)</strong> auf einem <strong>physikalischen Host-System</strong>.<br />
+Jede VM läuft <strong>isoliert</strong> und kann ein eigenes <strong>Betriebssystem (OS)</strong> und <strong>Anwendungen</strong> ausführen.</p>
+<h4 id="vorteile-der-virtualisierung"><strong>Vorteile der Virtualisierung</strong><a class="headerlink" href="#vorteile-der-virtualisierung" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Vorteil</strong></th>
+<th><strong>Beschreibung</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ressourceneffizienz</strong></td>
+<td>Mehrere VMs teilen sich die Hardware (CPU, RAM, Festplatte) des Hosts.</td>
+</tr>
+<tr>
+<td><strong>Isolation</strong></td>
+<td>VMs sind voneinander getrennt – ein Absturz einer VM beeinflusst andere nicht.</td>
+</tr>
+<tr>
+<td><strong>Flexibilität</strong></td>
+<td>Schnelles Erstellen, Klonen und Löschen von VMs.</td>
+</tr>
+<tr>
+<td><strong>Kosteneinsparung</strong></td>
+<td>Weniger physische Hardware nötig (z. B. für Testumgebungen).</td>
+</tr>
+<tr>
+<td><strong>Schnelle Bereitstellung</strong></td>
+<td>VMs können in Minuten erstellt und konfiguriert werden.</td>
+</tr>
+<tr>
+<td><strong>Sicherheit</strong></td>
+<td>Testen von Software oder Netzwerkkonfigurationen ohne Risiko für das Host-System.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="nachteile-der-virtualisierung"><strong>Nachteile der Virtualisierung</strong><a class="headerlink" href="#nachteile-der-virtualisierung" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Nachteil</strong></th>
+<th><strong>Beschreibung</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Performance-Overhead</strong></td>
+<td>VMs sind langsamer als physische Maschinen (CPU/RAM wird geteilt).</td>
+</tr>
+<tr>
+<td><strong>Komplexität</strong></td>
+<td>Verwaltung mehrerer VMs erfordert Wissen (z. B. Netzwerkkonfiguration).</td>
+</tr>
+<tr>
+<td><strong>Ressourcenkonflikte</strong></td>
+<td>Zu viele VMs auf einem Host können zu Performance-Problemen führen.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<hr />
+<h3 id="2-arten-der-virtualisierung"><strong>2. Arten der Virtualisierung</strong><a class="headerlink" href="#2-arten-der-virtualisierung" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Art</strong></th>
+<th><strong>Beschreibung</strong></th>
+<th><strong>Beispiele</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vollvirtualisierung</strong></td>
+<td>Der Hypervisor simuliert eine komplette Hardware (CPU, RAM, etc.).</td>
+<td>VMware ESXi, <strong>Hyper-V</strong>, KVM</td>
+</tr>
+<tr>
+<td><strong>Paravirtualisierung</strong></td>
+<td>Der Hypervisor stellt eine abstrakte Hardware-Schnittstelle bereit.</td>
+<td>Xen, KVM (mit Paravirt-Treibern)</td>
+</tr>
+<tr>
+<td><strong>Containerisierung</strong></td>
+<td>Leichtgewichtige Virtualisierung auf Betriebssystemebene (kein eigenes OS).</td>
+<td>Docker, LXC</td>
+</tr>
+<tr>
+<td><strong>Hardware-Virtualisierung</strong></td>
+<td>Dedizierte Hardware für VMs (z. B. für Hochleistungsanwendungen).</td>
+<td>Bare-Metal-Hypervisor (z. B. VMware vSphere)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="vergleich-virtualisierung-vs-containerisierung"><strong>Vergleich: Virtualisierung vs. Containerisierung</strong><a class="headerlink" href="#vergleich-virtualisierung-vs-containerisierung" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Kriterium</strong></th>
+<th><strong>Virtualisierung (VMs)</strong></th>
+<th><strong>Containerisierung</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Isolation</strong></td>
+<td>Hoch (eigenes OS pro VM)</td>
+<td>Mittel (geteilter Kernel)</td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Langsamer (Overhead durch OS)</td>
+<td>Schneller (kein OS-Overhead)</td>
+</tr>
+<tr>
+<td><strong>Ressourcenverbrauch</strong></td>
+<td>Hoch (eigenes OS pro VM)</td>
+<td>Niedrig (geteilter Kernel)</td>
+</tr>
+<tr>
+<td><strong>Portabilität</strong></td>
+<td>Mittel (abhängig vom Hypervisor)</td>
+<td>Hoch (Container laufen auf jedem System mit Docker)</td>
+</tr>
+<tr>
+<td><strong>Einsatzzweck</strong></td>
+<td>Vollständige Systeme (z. B. Server)</td>
+<td>Mikroservices, Anwendungen (z. B. Web-Apps)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<hr />
+<h3 id="3-hypervisor-die-virtualisierungssoftware"><strong>3. Hypervisor – Die Virtualisierungssoftware</strong><a class="headerlink" href="#3-hypervisor-die-virtualisierungssoftware" title="Permanent link">&para;</a></h3>
+<p>Ein <strong>Hypervisor</strong> ist die Software, die <strong>VMs verwaltet</strong> und die <strong>Hardware-Ressourcen</strong> verteilt.</p>
+<h4 id="typen-von-hypervisoren"><strong>Typen von Hypervisoren</strong><a class="headerlink" href="#typen-von-hypervisoren" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Typ</strong></th>
+<th><strong>Beschreibung</strong></th>
+<th><strong>Beispiele</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Typ 1 (Bare-Metal)</strong></td>
+<td>Läuft <strong>direkt auf der Hardware</strong> (ohne Host-Betriebssystem).</td>
+<td>VMware ESXi, <strong>Microsoft Hyper-V</strong>, KVM</td>
+</tr>
+<tr>
+<td><strong>Typ 2 (Hosted)</strong></td>
+<td>Läuft <strong>auf einem Host-Betriebssystem</strong> (z. B. Windows, Linux).</td>
+<td>VirtualBox, VMware Workstation</td>
+</tr>
+</tbody>
+</table>
+<h4 id="beliebte-hypervisor-software"><strong>Beliebte Hypervisor-Software</strong><a class="headerlink" href="#beliebte-hypervisor-software" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Software</strong></th>
+<th><strong>Typ</strong></th>
+<th><strong>Plattform</strong></th>
+<th><strong>Kosten</strong></th>
+<th><strong>Einsatzzweck</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hyper-V</strong></td>
+<td>Typ 1</td>
+<td>Windows (ab Windows 8 Pro, Windows Server)</td>
+<td>Kostenlos (in Windows enthalten)</td>
+<td>Server-Virtualisierung, Testumgebungen</td>
+</tr>
+<tr>
+<td>VirtualBox</td>
+<td>Typ 2</td>
+<td>Windows, Linux, macOS</td>
+<td>Kostenlos</td>
+<td>Entwicklung, Testumgebungen</td>
+</tr>
+<tr>
+<td>VMware ESXi</td>
+<td>Typ 1</td>
+<td>Bare-Metal</td>
+<td>Kostenlos (begrenzte Version)</td>
+<td>Server-Virtualisierung</td>
+</tr>
+<tr>
+<td>KVM</td>
+<td>Typ 1</td>
+<td>Linux</td>
+<td>Kostenlos</td>
+<td>Server-Virtualisierung</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<hr />
+<h3 id="4-hyper-v-uberblick"><strong>4. Hyper-V – Überblick</strong><a class="headerlink" href="#4-hyper-v-uberblick" title="Permanent link">&para;</a></h3>
+<p><strong>Hyper-V</strong> ist ein <strong>Hypervisor von Microsoft</strong>, der in <strong>Windows 10/11 Pro/Enterprise und Windows Server</strong> enthalten ist.</p>
+<ul>
+<li><strong>Unterstützte Gast-Betriebssysteme:</strong> Windows, Linux (z. B. Ubuntu, Debian, CentOS), FreeBSD.</li>
+<li><strong>Funktionen:</strong></li>
+<li><strong>Snapshots</strong> (Zustände von VMs speichern und wiederherstellen).</li>
+<li><strong>Dynamische Speicherzuweisung</strong> (RAM wird je nach Bedarf zugewiesen).</li>
+<li><strong>Netzwerkmodi</strong> (Extern, Intern, Privat, NAT).</li>
+<li><strong>Integration Services</strong> (bessere Performance für Linux-VMs).</li>
+</ul>
+<h4 id="hyper-v-netzwerkmodi-im-vergleich"><strong>Hyper-V-Netzwerkmodi im Vergleich</strong><a class="headerlink" href="#hyper-v-netzwerkmodi-im-vergleich" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Modus</strong></th>
+<th><strong>Beschreibung</strong></th>
+<th><strong>Einsatzzweck</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Extern</strong></td>
+<td>VM erhält eine <strong>IP aus dem physikalischen Netzwerk</strong> (wie ein physikalisches Gerät).</td>
+<td>VM soll im LAN wie ein normales Gerät erscheinen.</td>
+</tr>
+<tr>
+<td><strong>Intern</strong></td>
+<td>VMs können <strong>nur miteinander kommunizieren</strong> (kein Zugriff auf das Host-Netzwerk oder Internet).</td>
+<td>Isolierte Testnetzwerke.</td>
+</tr>
+<tr>
+<td><strong>Privat</strong></td>
+<td>VMs können <strong>nur untereinander kommunizieren</strong> (kein Zugriff auf Host oder Internet).</td>
+<td>Isolierte Testumgebungen.</td>
+</tr>
+<tr>
+<td><strong>NAT</strong></td>
+<td>VMs teilen sich eine <strong>IP-Adresse des Hosts</strong> (für Internetzugriff).</td>
+<td>Standardmodus für Internetzugriff.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<hr />
+<h2 id="praxis-hyper-v-einrichten-vm-erstellen"><strong>🛠️ Praxis: Hyper-V einrichten &amp; VM erstellen</strong><a class="headerlink" href="#praxis-hyper-v-einrichten-vm-erstellen" title="Permanent link">&para;</a></h2>
+<hr />
+<hr />
+<h3 id="schritt-0-hyper-v-aktivieren-falls-noch-nicht-geschehen"><strong>📌 Schritt 0: Hyper-V aktivieren (falls noch nicht geschehen)</strong><a class="headerlink" href="#schritt-0-hyper-v-aktivieren-falls-noch-nicht-geschehen" title="Permanent link">&para;</a></h3>
+<h4 id="auf-windows-1011-pro-oder-windows-server"><strong>Auf Windows 10/11 Pro oder Windows Server:</strong><a class="headerlink" href="#auf-windows-1011-pro-oder-windows-server" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>Hyper-V aktivieren (über PowerShell als Administrator):</strong>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code> <span class="nb">Enable-WindowsOptionalFeature</span> <span class="n">-Online</span> <span class="n">-FeatureName</span> <span class="n">Microsoft-Hyper-V</span> <span class="n">-All</span>
+</code></pre></div></td></tr></table></div></li>
+<li><strong>Neustart durchführen:</strong>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code> <span class="nb">Restart-Computer</span>
+</code></pre></div></td></tr></table></div></li>
+<li><strong>Prüfen, ob Hyper-V aktiv ist:</strong>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code> <span class="nb">Get-WindowsOptionalFeature</span> <span class="n">-Online</span> <span class="n">-FeatureName</span> <span class="n">Microsoft-Hyper-V</span>
+</code></pre></div></td></tr></table></div></li>
+<li><strong>Erwartet:</strong> <code>State : Enabled</code></li>
+</ol>
+<hr />
+<hr />
+<h3 id="schritt-1-ubuntu-server-desktop-iso-herunterladen"><strong>📌 Schritt 1: Ubuntu Server &amp; Desktop ISO herunterladen</strong><a class="headerlink" href="#schritt-1-ubuntu-server-desktop-iso-herunterladen" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://ubuntu.com/download/server">Ubuntu 26.04 Server LTS herunterladen</a></li>
+<li><a href="https://ubuntu.com/download/desktop">Ubuntu 26.04 Desktop LTS herunterladen</a></li>
+</ul>
+<hr />
+<hr />
+<h3 id="schritt-2-neue-vm-in-hyper-v-erstellen"><strong>📌 Schritt 2: Neue VM in Hyper-V erstellen</strong><a class="headerlink" href="#schritt-2-neue-vm-in-hyper-v-erstellen" title="Permanent link">&para;</a></h3>
+<h4 id="option-1-uber-hyper-v-manager-gui"><strong>Option 1: Über Hyper-V-Manager (GUI)</strong><a class="headerlink" href="#option-1-uber-hyper-v-manager-gui" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>Hyper-V-Manager öffnen</strong> (Suche nach "Hyper-V-Manager" im Startmenü).</li>
+<li><strong>Neue VM erstellen:</strong><ul>
+<li>Rechtsklick auf deinen <strong>Host</strong> → <strong>Neu</strong> → <strong>Virtueller Computer</strong>.</li>
+</ul>
+</li>
+<li><strong>Name und Speicherort:</strong><ul>
+<li><strong>Name:</strong> <code>Ubuntu-Server-01</code></li>
+<li><strong>Speicherort:</strong> Standard oder benutzerdefiniert → <strong>Weiter</strong>.</li>
+</ul>
+</li>
+<li><strong>Generation auswählen:</strong><ul>
+<li><strong>Generation 2</strong> (empfohlen für Ubuntu) → <strong>Weiter</strong>.</li>
+</ul>
+</li>
+<li><strong>Arbeitsspeicher zuweisen:</strong><ul>
+<li><strong>2048 MB (2 GB)</strong> → <strong>Weiter</strong>.</li>
+</ul>
+</li>
+<li><strong>Netzwerk konfigurieren:</strong><ul>
+<li><strong>Netzwerkadapter:</strong> <strong>Extern</strong> (für Internetzugriff) oder <strong>NAT</strong> (falls kein externes Netzwerk verfügbar) → <strong>Weiter</strong>.</li>
+</ul>
+</li>
+<li><strong>Festplatte erstellen:</strong><ul>
+<li><strong>Größe:</strong> <strong>10 GB</strong> (dynamisch erweitern) → <strong>Weiter</strong>.</li>
+</ul>
+</li>
+<li><strong>Installationsoptionen:</strong><ul>
+<li><strong>Betriebssystem von einer Start-CD/DVD installieren</strong> → <strong>Weiter</strong>.</li>
+<li><strong>Ubuntu Server ISO auswählen</strong> → <strong>Fertig stellen</strong>.</li>
+</ul>
+</li>
+</ol>
+<h4 id="option-2-uber-powershell-fur-fortgeschrittene"><strong>Option 2: Über PowerShell (für Fortgeschrittene)</strong><a class="headerlink" href="#option-2-uber-powershell-fur-fortgeschrittene" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c"># Neue VM erstellen</span>
+<span class="nb">New-VM</span> <span class="n">-Name</span> <span class="s2">&quot;Ubuntu-Server-01&quot;</span> <span class="n">-MemoryStartupBytes</span> <span class="n">2GB</span> <span class="n">-NewVHDPath</span> <span class="s2">&quot;C:\VMs\Ubuntu-Server-01.vhdx&quot;</span> <span class="n">-NewVHDSizeBytes</span> <span class="n">20GB</span> <span class="n">-Generation</span> <span class="n">2</span>
+
+<span class="c"># Netzwerkadapter hinzufügen (Extern)</span>
+<span class="nb">Add-VMNetworkAdapter</span> <span class="n">-VMName</span> <span class="s2">&quot;Ubuntu-Server-01&quot;</span> <span class="n">-SwitchName</span> <span class="s2">&quot;Externer Switch&quot;</span>
+
+<span class="c"># DVD-Laufwerk mit ISO verbinden</span>
+<span class="nb">Add-VMDvdDrive</span> <span class="n">-VMName</span> <span class="s2">&quot;Ubuntu-Server-01&quot;</span> <span class="n">-Path</span> <span class="s2">&quot;C:\Pfad\zu\ubuntu-22.04-live-server-amd64.iso&quot;</span>
+
+<span class="c"># VM starten</span>
+<span class="nb">Start-VM</span> <span class="n">-Name</span> <span class="s2">&quot;Ubuntu-Server-01&quot;</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<hr />
+<h3 id="schritt-3-ubuntu-server-installieren"><strong>📌 Schritt 3: Ubuntu Server installieren</strong><a class="headerlink" href="#schritt-3-ubuntu-server-installieren" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>VM starten</strong> (im Hyper-V-Manager: Rechtsklick auf die VM → <strong>Verbinden</strong>).</li>
+<li><strong>Sprache auswählen:</strong> <code>English</code> (empfohlen für bessere Dokumentation).</li>
+<li><strong>Installationsmenü:</strong><ul>
+<li><strong>Install Ubuntu Server</strong> auswählen.</li>
+</ul>
+</li>
+<li><strong>Sprache &amp; Region:</strong><ul>
+<li><strong>Language:</strong> <code>English</code></li>
+<li><strong>Country:</strong> <code>Germany</code> (oder passendes Land)</li>
+<li><strong>Keyboard Layout:</strong> <code>German</code></li>
+</ul>
+</li>
+<li><strong>Netzwerkkonfiguration:</strong><ul>
+<li><strong>Hostname:</strong> <code>ubuntu-server-01</code></li>
+<li><strong>User:</strong> <code>vm1</code></li>
+<li><strong>Server Name:</strong> <code>ubuntu-server-01</code></li>
+</ul>
+</li>
+<li><strong>Benutzer erstellen:</strong><ul>
+<li><strong>Name:</strong> <code>admin</code></li>
+<li><strong>Username:</strong> <code>vm1</code></li>
+<li><strong>Password:</strong> (z. B. <code>vm1password</code>)</li>
+<li><strong>Confirm Password:</strong> Gleiches Passwort wiederholen.</li>
+</ul>
+</li>
+<li><strong>SSH-Setup:</strong><ul>
+<li><strong>Install OpenSSH server?</strong> → <strong>Ja</strong> (für Fernzugriff).</li>
+</ul>
+</li>
+<li><strong>Featured Server Snaps:</strong><ul>
+<li><strong>Keine Auswahl</strong> (leer lassen) → <strong>Done</strong>.</li>
+</ul>
+</li>
+<li><strong>Installation starten:</strong><ul>
+<li><strong>Install</strong> → Bestätigen mit <strong>Enter</strong>.</li>
+</ul>
+</li>
+<li><strong>Warten, bis die Installation abgeschlossen ist</strong> (ca. 5–10 Minuten).</li>
+<li><strong>Reboot:</strong><ul>
+<li><strong>Reboot Now</strong> → VM startet neu.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<hr />
+<h3 id="schritt-4-basis-konfiguration-der-vm"><strong>📌 Schritt 4: Basis-Konfiguration der VM</strong><a class="headerlink" href="#schritt-4-basis-konfiguration-der-vm" title="Permanent link">&para;</a></h3>
+<h4 id="1-anmeldung"><strong>1. Anmeldung</strong><a class="headerlink" href="#1-anmeldung" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Benutzername:</strong> <code>vm1</code></li>
+<li><strong>Passwort:</strong> <code>vm1password</code> (oder das gewählte Passwort).</li>
+</ul>
+<h4 id="2-system-aktualisieren"><strong>2. System aktualisieren</strong><a class="headerlink" href="#2-system-aktualisieren" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+</code></pre></div></td></tr></table></div>
+<h4 id="3-benutzer-zu-sudoers-hinzufugen-falls-nicht-automatisch"><strong>3. Benutzer zu sudoers hinzufügen (falls nicht automatisch)</strong><a class="headerlink" href="#3-benutzer-zu-sudoers-hinzufugen-falls-nicht-automatisch" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>sudo<span class="w"> </span>admin
+</code></pre></div></td></tr></table></div>
+<h4 id="4-hostname-prufenandern"><strong>4. Hostname prüfen/ändern</strong><a class="headerlink" href="#4-hostname-prufenandern" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Hostname anzeigen</span>
+hostname
+
+<span class="c1"># Hostname ändern (z. B. in &quot;server1&quot;)</span>
+sudo<span class="w"> </span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>server1
+</code></pre></div></td></tr></table></div>
+<h4 id="5-netzwerkkonfiguration-prufen"><strong>5. Netzwerkkonfiguration prüfen</strong><a class="headerlink" href="#5-netzwerkkonfiguration-prufen" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># IP-Adresse anzeigen</span>
+ip<span class="w"> </span>a
+
+<span class="c1"># oder</span>
+ifconfig
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><strong>Hinweis:</strong> Im <strong>NAT-Modus</strong> erhält die VM eine <strong>private IP</strong> (z. B. <code>192.168.1.100</code>).<br />
+  Im <strong>Externen Modus</strong> erhält die VM eine <strong>IP aus deinem LAN</strong>.</li>
+</ul>
+<h4 id="6-statische-ip-adresse-einrichten-optional-fur-externes-netzwerk"><strong>6. Statische IP-Adresse einrichten (optional für Externes Netzwerk)</strong><a class="headerlink" href="#6-statische-ip-adresse-einrichten-optional-fur-externes-netzwerk" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>Netzwerk-Interface prüfen:</strong>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span>ip<span class="w"> </span>a
+</code></pre></div></td></tr></table></div></li>
+<li>Beispielausgabe:
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 00:15:5d:01:02:03 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.100/24 brd 192.168.1.255 scope global dynamic eth0
+</code></pre></div></td></tr></table></div></li>
+<li><strong>Interface:</strong> <code>eth0</code> (kann abweichen, z. B. <code>ens18</code>).</li>
+<li><strong>Netzwerkkonfiguration bearbeiten:</strong>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/netplan/00-installer-config.yaml
+</code></pre></div></td></tr></table></div></li>
+<li><strong>Inhalt anpassen</strong> (Beispiel für statische IP <code>192.168.1.10</code>):
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">network</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">  </span><span class="nt">renderer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">networkd</span>
+<span class="w">  </span><span class="nt">ethernets</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">eth0</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">dhcp4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span>
+<span class="w">      </span><span class="nt">addresses</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">192.168.1.10/24</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="nt">gateway4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.1.1</span>
+<span class="w">      </span><span class="nt">nameservers</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">addresses</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">8.8.8.8</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">8.8.4.4</span><span class="p p-Indicator">]</span>
+</code></pre></div></td></tr></table></div></li>
+<li><strong>Speichern:</strong> <code>Strg + O</code> → <code>Enter</code> → <code>Strg + X</code>.</li>
+<li><strong>Netzwerk neu starten:</strong>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span>sudo<span class="w"> </span>netplan<span class="w"> </span>apply
+</code></pre></div></td></tr></table></div></li>
+<li><strong>IP-Adresse prüfen:</strong>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span>ip<span class="w"> </span>a
+</code></pre></div></td></tr></table></div></li>
+<li>Sollte jetzt <code>192.168.1.10</code> anzeigen.</li>
+</ol>
+<hr />
+<hr />
+<h3 id="schritt-5-zweite-vm-erstellen-kommunikation-testen"><strong>📌 Schritt 5: Zweite VM erstellen &amp; Kommunikation testen</strong><a class="headerlink" href="#schritt-5-zweite-vm-erstellen-kommunikation-testen" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Zweite VM (<code>Ubuntu-Server-02</code>) erstellen</strong> (gleiche Schritte wie oben).<ul>
+<li><strong>Netzwerkmodus:</strong> <strong>Extern</strong> (für Kommunikation zwischen den VMs).</li>
+</ul>
+</li>
+<li><strong>Statische IP für die zweite VM einrichten:</strong><ul>
+<li><strong>IP:</strong> <code>192.168.1.11</code></li>
+<li><strong>Gateway:</strong> <code>192.168.1.1</code> (dein Router).</li>
+</ul>
+</li>
+<li><strong>Kommunikation testen:</strong><ul>
+<li><strong>Von VM1 (192.168.1.10) zu VM2 (192.168.1.11) pingen:</strong></li>
+<li><strong>Erwartetes Ergebnis:</strong>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>PING 192.168.1.11 (192.168.1.11) 56(84) bytes of data.
+64 bytes from 192.168.1.11: icmp_seq=1 ttl=64 time=0.512 ms
+</code></pre></div></td></tr></table></div></li>
+<li><strong>Abbruch:</strong> <code>Strg + C</code>.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<hr />
+<h2 id="ubungsaufgaben"><strong>💡 Übungsaufgaben</strong><a class="headerlink" href="#ubungsaufgaben" title="Permanent link">&para;</a></h2>
+<hr />
+<hr />
+<h3 id="aufgabe-1-hyper-v-aktivieren-und-vm-erstellen"><strong>📝 Aufgabe 1: Hyper-V aktivieren und VM erstellen</strong><a class="headerlink" href="#aufgabe-1-hyper-v-aktivieren-und-vm-erstellen" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong></p>
+<ol>
+<li>Aktiviere <strong>Hyper-V</strong> auf deinem Windows-System.</li>
+<li>Erstelle eine <strong>neue VM</strong> mit folgenden Spezifikationen:</li>
+<li><strong>Name:</strong> <code>Ubuntu-Server-01</code></li>
+<li><strong>Betriebssystem:</strong> Ubuntu Server 22.04 LTS</li>
+<li><strong>RAM:</strong> 2 GB</li>
+<li><strong>Festplatte:</strong> 20 GB (dynamisch)</li>
+<li><strong>Netzwerk:</strong> Extern (für Internetzugriff)</li>
+<li>Installiere <strong>Ubuntu Server</strong> auf der VM.</li>
+<li>Melde dich an und führe folgende Befehle aus:
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span>whoami
+<span class="w"> </span>hostname
+<span class="w"> </span>ip<span class="w"> </span>a
+</code></pre></div></td></tr></table></div></li>
+</ol>
+<p><strong>Fragen:</strong></p>
+<ol>
+<li>Welcher <strong>Benutzername</strong> wurde während der Installation erstellt?</li>
+<li>Welche <strong>IP-Adresse</strong> hat deine VM erhalten?</li>
+</ol>
+<details class="success">
+<summary>Lösung:</summary>
+<ol>
+<li>
+<p><strong>Benutzername:</strong></p>
+<ul>
+<li>Der während der Installation gewählte Benutzername (z. B. <code>admin</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>IP-Adresse:</strong></p>
+<ul>
+<li>Im <strong>Externen Modus</strong>: Eine IP aus deinem <strong>lokalen Netzwerk</strong> (z. B. <code>192.168.1.10</code>).</li>
+<li>Im <strong>NAT-Modus</strong>: Eine private IP (z. B. <code>192.168.1.100</code>).</li>
+</ul>
+</li>
+</ol>
+</details>
+<hr />
+<hr />
+<h3 id="aufgabe-2-netzwerkmodi-in-hyper-v-testen"><strong>📝 Aufgabe 2: Netzwerkmodi in Hyper-V testen</strong><a class="headerlink" href="#aufgabe-2-netzwerkmodi-in-hyper-v-testen" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong></p>
+<ol>
+<li>Erstelle eine <strong>zweite VM</strong> (<code>Ubuntu-Server-02</code>).</li>
+<li>Konfiguriere die <strong>Netzwerkadapter</strong> wie folgt:</li>
+<li><strong>VM1 (<code>Ubuntu-Server-01</code>):</strong><ul>
+<li>Netzwerkadapter: <strong>Extern</strong> (für Internet und Kommunikation mit VM2).</li>
+</ul>
+</li>
+<li><strong>VM2 (<code>Ubuntu-Server-02</code>):</strong><ul>
+<li>Netzwerkadapter: <strong>Extern</strong> (für Internet und Kommunikation mit VM1).</li>
+</ul>
+</li>
+<li>Weise beiden VMs <strong>statische IPs</strong> zu:</li>
+<li>VM1: <code>192.168.1.10</code></li>
+<li>VM2: <code>192.168.1.11</code></li>
+<li>Teste die <strong>Kommunikation</strong> zwischen den VMs:</li>
+<li>Ping von VM1 zu VM2 (<code>ping 192.168.1.11</code>).</li>
+<li>Ping von VM2 zu VM1 (<code>ping 192.168.1.10</code>).</li>
+</ol>
+<p><strong>Fragen:</strong></p>
+<ol>
+<li>Warum funktioniert der Ping <strong>nicht</strong>, wenn der <strong>Netzwerkmodus auf "Privat"</strong> eingestellt ist?</li>
+<li>Welcher <strong>Netzwerkmodus</strong> wäre geeignet, wenn die VMs <strong>keinen Internetzugriff</strong> haben sollen, aber miteinander kommunizieren können?</li>
+<li>Wie kannst du prüfen, ob die VMs <strong>Internetzugriff</strong> haben?</li>
+</ol>
+<details class="success">
+<summary>Lösung:</summary>
+<ol>
+<li>
+<p><strong>Ping funktioniert nicht mit "Privat":</strong></p>
+<ul>
+<li>Im <strong>Privat-Modus</strong> können VMs <strong>nur untereinander kommunizieren</strong>, aber <strong>nicht mit dem Host oder dem Internet</strong>.</li>
+<li>Für Ping zwischen VMs <strong>muss der Modus auf "Extern" oder "Intern"</strong> eingestellt sein.</li>
+</ul>
+</li>
+<li>
+<p><strong>Netzwerkmodus für interne Kommunikation ohne Internet:</strong></p>
+<ul>
+<li><strong>Interner Modus</strong> – VMs können <strong>nur untereinander kommunizieren</strong>, aber nicht mit dem Host oder Internet.</li>
+</ul>
+</li>
+<li>
+<p><strong>Internetzugriff prüfen:</strong></p>
+<ul>
+<li><strong>Befehl:</strong>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ping<span class="w"> </span><span class="m">8</span>.8.8.8
+</code></pre></div></td></tr></table></div></li>
+<li><strong>Erwartetes Ergebnis:</strong>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=117 time=12.3 ms
+</code></pre></div></td></tr></table></div></li>
+<li>Falls kein Ping möglich ist:</li>
+<li>Prüfe, ob der <strong>Netzwerkmodus auf "Extern"</strong> eingestellt ist.</li>
+<li>Prüfe die <strong>Firewall</strong> (<code>sudo ufw status</code> – sollte <code>inactive</code> sein).</li>
+</ul>
+</li>
+</ol>
+</details>
+<hr />
+<hr />
+<h3 id="aufgabe-3-benutzerverwaltung-paketmanagement"><strong>📝 Aufgabe 3: Benutzerverwaltung &amp; Paketmanagement</strong><a class="headerlink" href="#aufgabe-3-benutzerverwaltung-paketmanagement" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong></p>
+<ol>
+<li>Erstelle auf deiner VM einen <strong>neuen Benutzer</strong> mit dem Namen <code>testuser</code> und dem Passwort <code>Test1234!</code>.</li>
+<li>Füge den Benutzer zur <strong>sudo-Gruppe</strong> hinzu.</li>
+<li>Installiere das Paket <code>**htop**</code> (Systemmonitoring-Tool).</li>
+<li>Starte <code>htop</code> und beobachte die <strong>CPU- und RAM-Auslastung</strong>.</li>
+</ol>
+<p><strong>Fragen:</strong></p>
+<ol>
+<li>Welcher Befehl wird verwendet, um einen <strong>neuen Benutzer</strong> zu erstellen?</li>
+<li>Wie kannst du prüfen, ob der Benutzer <code>**testuser**</code> zur <code>sudo</code>-Gruppe gehört?</li>
+</ol>
+<details class="success">
+<summary>Lösung:</summary>
+<ol>
+<li>
+<p><strong>Benutzer erstellen:</strong></p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>adduser<span class="w"> </span>testuser
+</code></pre></div></td></tr></table></div>
+- Passwort: <code>Test1234!</code> (zweimal eingeben).
+- Weitere Fragen mit <code>Enter</code> bestätigen.</p>
+</li>
+<li>
+<p><strong>Benutzer zur sudo-Gruppe hinzufügen:</strong></p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>sudo<span class="w"> </span>testuser
+</code></pre></div></td></tr></table></div>
+- <strong>Prüfen:</strong>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>groups<span class="w"> </span>testuser
+</code></pre></div></td></tr></table></div>
+- <strong>Erwartete Ausgabe:</strong>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>testuser : testuser sudo
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>Paket <code>htop</code> installieren:</strong></p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>htop<span class="w"> </span>-y
+</code></pre></div></td></tr></table></div>
+- <strong>Starten:</strong>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>htop
+</code></pre></div></td></tr></table></div>
+- <strong>Beenden:</strong> <code>F10</code> oder <code>Strg + C</code>.</p>
+</li>
+</ol>
+</details>
+<hr />
+<hr />
+<h3 id="aufgabe-4-netzwerkdiagnose"><strong>📝 Aufgabe 4: Netzwerkdiagnose</strong><a class="headerlink" href="#aufgabe-4-netzwerkdiagnose" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong></p>
+<ol>
+<li>Auf <strong>VM1 (<code>192.168.1.10</code>)</strong>:</li>
+<li>Starte einen <strong>einfachen HTTP-Server</strong> mit Python:<ul>
+<li>sudo python3 -m http.server 80</li>
+</ul>
+</li>
+<li>Auf <strong>VM2 (<code>192.168.1.11</code>)</strong>:</li>
+<li>Versuche, auf den Server von VM1 zuzugreifen:</li>
+<li>Alternativ: <strong>Browser</strong> öffnen (falls GUI installiert) und <code>http://192.168.1.10:80</code> aufrufen.</li>
+</ol>
+<p><strong>Fragen:</strong></p>
+<ol>
+<li>Warum funktioniert der Zugriff evtl <strong>nicht</strong>, wenn der <strong>HTTP-Server auf Port 80</strong> läuft?</li>
+<li>Wie kannst du prüfen, ob der <strong>Port 8000</strong> auf VM1 offen ist?</li>
+<li>Welcher Befehl zeigt die <strong>offenen Ports</strong> auf einer VM an?</li>
+</ol>
+<details class="success">
+<summary>Lösung:</summary>
+<ol>
+<li>
+<p><strong>Zugriff auf Port 80 funktioniert nicht:</strong></p>
+</li>
+<li>
+<p><strong>Standardmäßig</strong> blockiert die <strong>Firewall</strong> (<code>ufw</code>) oder <strong>Hyper-V</strong> den Zugriff auf Port 80.</p>
+</li>
+<li>
+<p><strong>Lösung:</strong></p>
+<ul>
+<li>Firewall deaktivieren:
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>ufw<span class="w"> </span>disable
+</code></pre></div></td></tr></table></div></li>
+<li>Oder Port 80 freigeben:
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">80</span>
+</code></pre></div></td></tr></table></div></li>
+</ul>
+</li>
+<li>
+<p><strong>Port 8000 prüfen:</strong></p>
+</li>
+<li>
+<p><strong>Von VM2 aus:</strong>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>telnet<span class="w"> </span><span class="m">192</span>.168.1.10<span class="w"> </span><span class="m">8000</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p><strong>Erwartetes Ergebnis:</strong>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>Trying 192.168.1.10...
+Connected to 192.168.1.10.
+Escape character is &#39;^]&#39;.
+</code></pre></div></td></tr></table></div>
+    → Verbindung erfolgreich.</p>
+</li>
+<li>
+<p><strong>Offene Ports anzeigen:</strong></p>
+</li>
+</ol>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>netstat<span class="w"> </span>-tuln
+</code></pre></div></td></tr></table></div>
+  oder
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ss<span class="w"> </span>-tuln
+</code></pre></div></td></tr></table></div>
+  - <strong>Erwartete Ausgabe (für Python-Server):</strong>
+    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>tcp   0   0 0.0.0.0:8000   0.0.0.0:*   LISTEN
+</code></pre></div></td></tr></table></div></p>
+</details>
+<hr />
+<hr />
+<h2 id="zusammenfassung"><strong>🎓 Zusammenfassung</strong><a class="headerlink" href="#zusammenfassung" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Virtualisierung</strong> ermöglicht das <strong>Betreiben mehrerer VMs auf einem Host</strong>.</li>
+<li><strong>Hyper-V</strong> ist ein <strong>kostenloser Hypervisor (Typ 1)</strong> von Microsoft für Windows.</li>
+<li><strong>Ubuntu Server</strong> kann in Hyper-V <strong>einfach installiert und konfiguriert</strong> werden.</li>
+<li><strong>Netzwerkmodi in Hyper-V:</strong></li>
+<li><strong>Extern:</strong> VM erhält eine IP aus dem LAN (für Internetzugriff).</li>
+<li><strong>Intern:</strong> VMs können nur untereinander kommunizieren (isoliertes Netzwerk).</li>
+<li><strong>Privat:</strong> VMs können nur untereinander kommunizieren (kein Zugriff auf Host oder Internet).</li>
+<li><strong>NAT:</strong> VMs teilen sich eine IP des Hosts (für Internetzugriff).</li>
+<li><strong>Basis-Konfiguration</strong> einer VM:</li>
+<li>Benutzerverwaltung (<code>adduser</code>, <code>usermod</code>).</li>
+<li>Paketmanagement (<code>apt install</code>, <code>apt update</code>).</li>
+<li>Netzwerkkonfiguration (<code>netplan</code>, <code>ip a</code>).</li>
+</ul>
+<hr />
+<hr />
+<h2 id="tipps-fur-hyper-v"><strong>📌 Tipps für Hyper-V</strong><a class="headerlink" href="#tipps-fur-hyper-v" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Hyper-V-Manager</strong> ist die <strong>GUI für die Verwaltung</strong> von VMs.</li>
+<li><strong>PowerShell</strong> bietet <strong>mehr Kontrolle</strong> für Fortgeschrittene.</li>
+<li><strong>Integration Services</strong> für Linux-VMs installieren (für bessere Performance):
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>linux-cloud-tools<span class="w"> </span>-y
+</code></pre></div></td></tr></table></div></li>
+<li><strong>Snapshots</strong> erstellen, um den Zustand einer VM zu speichern (für Tests).</li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../1/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Einführung &amp; Netzwerkgrundlagen">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Einführung & Netzwerkgrundlagen
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../3/" class="md-footer__link md-footer__link--next" aria-label="Next: IP-Adressierung &amp; Subnetting">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                IP-Adressierung & Subnetting
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Qualidy GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.kununu.com/de/qualidy" target="_blank" rel="noopener" title="www.kununu.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M311 86.3c12.3-12.7 12-32.9-.7-45.2s-32.9-12-45.2.7C143.4 167.2 76.4 236.3 64 249V64c0-17.7-14.3-32-32-32S0 46.3 0 64v384c0 17.7 14.3 32 32 32s32-14.3 32-32V341l64.7-66.7 133 192c10.1 14.5 30 18.1 44.5 8.1s18.1-30 8.1-44.5L174.1 227.4z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://de.linkedin.com/company/qualidy" target="_blank" rel="noopener" title="de.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.google.com/search?sca_esv=7e6ba2047fcb60f3&uds=AMwkrPtyB8MsmozA4Lwzqy2G2HCu-abqzc6moOG48q3gP5dtjTRzC2Ws0eSwcyLXDfZNuYCrZ7ByIreHLG9th3vKLekPoVeey0tumAbet4cVLQRLzdRFhUbOGbnyp3xo1V0hzzaNmkCN&si=AKbGX_rcuucMgom2rba1cdwsvM2SVoIkP2btyqGMV4t0GuHIs4sGV_1tpuqR0YHG4Rzd9SdJcL-lW6E-2aJA5azZLTKkIOrZ2j2aWwoBkVbdEJ0o0GPcQhs%3D&q=Qualidy+GmbH+Rezensionen&sa=X&ved=2ahUKEwibsbnSgcmFAxXNQvEDHaVYCiAQ3PALegQIRxAF" target="_blank" rel="noopener" title="www.google.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://qualidy.de" target="_blank" rel="noopener" title="qualidy.de" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.path", "navigation.top", "navigation.footer", "toc.follow", "toc.integrate", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

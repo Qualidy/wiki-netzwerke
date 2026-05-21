@@ -1,0 +1,1485 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../7/">
+      
+      
+        <link rel="next" href="../9/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Monitoring & Fehlerbehebung - Netzwerktechnik - Grundlagen & Praxis</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/logo.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/grid.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/video_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/python_tutor_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/mermaid.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tag-8-monitoring-fehlerbehebung-einfach-erklart" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Netzwerktechnik - Grundlagen &amp; Praxis" class="md-header__button md-logo" aria-label="Netzwerktechnik - Grundlagen & Praxis" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Netzwerktechnik - Grundlagen & Praxis
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Monitoring & Fehlerbehebung
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Netzwerktechnik - Grundlagen &amp; Praxis" class="md-nav__button md-logo" aria-label="Netzwerktechnik - Grundlagen & Praxis" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Netzwerktechnik - Grundlagen & Praxis
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Übersicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Einführung & Netzwerkgrundlagen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Virtualisierung & VM-Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IP-Adressierung & Subnetting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rechenaufgaben
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Router & Switches
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Firewall & Sicherheit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Webserver (Apache/Nginx)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    E-Mail-Server (Postfix/Dovecot)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Monitoring & Fehlerbehebung
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monitoring & Fehlerbehebung
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#theorie-ganz-einfach-erklart" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Theorie – ganz einfach erklärt
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 Theorie – ganz einfach erklärt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-warum-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Warum Monitoring?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-wichtige-tools-fur-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Wichtige Tools für Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-wichtige-begriffe" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Wichtige Begriffe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-fehlerbehebung-schritt-fur-schritt" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Fehlerbehebung – Schritt für Schritt
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#praxis-monitoring-tools-verwenden" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎮 Praxis – Monitoring-Tools verwenden
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎮 Praxis – Monitoring-Tools verwenden">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schritt-1-ping-prufen-ob-ein-gerat-erreichbar-ist" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Schritt 1: ping – Prüfen, ob ein Gerät erreichbar ist
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-2-traceroute-den-weg-eines-pakets-verfolgen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Schritt 2: traceroute – Den Weg eines Pakets verfolgen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-3-netstat-oder-ss-aktive-verbindungen-anzeigen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Schritt 3: netstat oder ss – Aktive Verbindungen anzeigen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-4-iftop-datenverkehr-in-echtzeit-anzeigen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Schritt 4: iftop – Datenverkehr in Echtzeit anzeigen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-5-nload-netzwerkauslastung-anzeigen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Schritt 5: nload – Netzwerkauslastung anzeigen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-6-wireshark-datenverkehr-analysieren" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Schritt 6: Wireshark – Datenverkehr analysieren
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-7-log-dateien-lesen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Schritt 7: Log-Dateien lesen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubungen-einfach-praxisnah" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 Übungen – einfach &amp; praxisnah
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 Übungen – einfach &amp; praxisnah">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1-ping-testen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 1: ping testen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2-traceroute-ausprobieren" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 2: traceroute ausprobieren
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-3-aktive-verbindungen-prufen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 3: Aktive Verbindungen prüfen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-4-datenverkehr-mit-iftop-beobachten" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 4: Datenverkehr mit iftop beobachten
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-5-netzwerkauslastung-mit-nload-prufen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 5: Netzwerkauslastung mit nload prüfen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-6-wireshark-http-traffic-analysieren" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 6: Wireshark – HTTP-Traffic analysieren
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-7-fehlerbehebung-webserver-ladt-nicht" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 7: Fehlerbehebung – Webserver lädt nicht
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zusammenfassung-das-wichtigste" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎓 Zusammenfassung – das Wichtigste
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vertiefung Wireshark
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Abschlussprojekt & Reflexion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tag-8-monitoring-fehlerbehebung-einfach-erklart">🔍 Tag 8: Monitoring &amp; Fehlerbehebung - Einfach erklärt<a class="headerlink" href="#tag-8-monitoring-fehlerbehebung-einfach-erklart" title="Permanent link">&para;</a></h1>
+<h2 id="theorie-ganz-einfach-erklart"><strong>📚 Theorie – ganz einfach erklärt</strong><a class="headerlink" href="#theorie-ganz-einfach-erklart" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="1-warum-monitoring"><strong>1. Warum Monitoring?</strong><a class="headerlink" href="#1-warum-monitoring" title="Permanent link">&para;</a></h3>
+<p>Stell dir vor, du hast ein <strong>Auto</strong>:</p>
+<ul>
+<li><strong>Ohne Monitoring:</strong> Du fährst einfach los und hoffst, dass nichts kaputt geht.</li>
+<li><strong>Mit Monitoring:</strong> Du hast ein <strong>Armaturenbrett</strong>, das dir zeigt, ob alles in Ordnung ist (z. B. Ölstand, Temperatur).</li>
+</ul>
+<p><strong>Monitoring im Netzwerk:</strong><br />
+✔ <strong>Überwacht den Datenverkehr</strong> (wer sendet was?).<br />
+✔ <strong>Erkennt Probleme frühzeitig</strong> (z. B. zu viele Anfragen an einen Server).<br />
+✔ <strong>Hilft bei der Fehlerbehebung</strong> (z. B. warum ist die Webseite langsam?).</p>
+<hr />
+<hr />
+<h3 id="2-wichtige-tools-fur-monitoring"><strong>2. Wichtige Tools für Monitoring</strong><a class="headerlink" href="#2-wichtige-tools-fur-monitoring" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Tool</strong></th>
+<th><strong>Wofür?</strong></th>
+<th><strong>Beispielbefehl</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>**ping**</code></td>
+<td>Prüft, ob ein Gerät erreichbar ist.</td>
+<td><code>ping 8.8.8.8</code></td>
+</tr>
+<tr>
+<td><code>**traceroute**</code></td>
+<td>Zeigt den Weg eines Pakets durchs Netzwerk.</td>
+<td><code>traceroute google.com</code></td>
+</tr>
+<tr>
+<td><code>**netstat**</code></td>
+<td>Zeigt aktive Netzwerkverbindungen.</td>
+<td><code>netstat -tuln</code></td>
+</tr>
+<tr>
+<td><code>**ss**</code></td>
+<td>Moderner Ersatz für <code>netstat</code>.</td>
+<td><code>ss -tuln</code></td>
+</tr>
+<tr>
+<td><code>**iftop**</code></td>
+<td>Zeigt den aktuellen Datenverkehr an.</td>
+<td><code>sudo iftop</code></td>
+</tr>
+<tr>
+<td><code>**nload**</code></td>
+<td>Zeigt die Auslastung der Netzwerkinterfaces.</td>
+<td><code>nload</code></td>
+</tr>
+<tr>
+<td><strong>Wireshark</strong></td>
+<td>Analysiert den Datenverkehr im Detail.</td>
+<td><code>sudo wireshark</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<hr />
+<h3 id="3-wichtige-begriffe"><strong>3. Wichtige Begriffe</strong><a class="headerlink" href="#3-wichtige-begriffe" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Begriff</strong></th>
+<th><strong>Erklärung</strong></th>
+<th><strong>Beispiel</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Paket</strong></td>
+<td>Ein kleines Datenstück, das durchs Netzwerk geschickt wird.</td>
+<td>Wie ein Brief im Postsystem.</td>
+</tr>
+<tr>
+<td><strong>Latenz</strong></td>
+<td>Die Zeit, die ein Paket braucht, um von A nach B zu kommen.</td>
+<td>"Ping-Zeit" in Millisekunden.</td>
+</tr>
+<tr>
+<td><strong>Bandbreite</strong></td>
+<td>Wie viel Daten pro Sekunde übertragen werden können.</td>
+<td>100 Mbit/s.</td>
+</tr>
+<tr>
+<td><strong>Timeout</strong></td>
+<td>Wenn eine Anfrage zu lange auf eine Antwort wartet.</td>
+<td><code>ping: timeout</code></td>
+</tr>
+<tr>
+<td><strong>Log-Datei</strong></td>
+<td>Eine Datei, in der Ereignisse protokolliert werden.</td>
+<td><code>/var/log/syslog</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<hr />
+<h3 id="4-fehlerbehebung-schritt-fur-schritt"><strong>4. Fehlerbehebung – Schritt für Schritt</strong><a class="headerlink" href="#4-fehlerbehebung-schritt-fur-schritt" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Problem erkennen</strong> (z. B. "Die Webseite lädt nicht").</li>
+<li><strong>Symptome sammeln</strong> (z. B. "Fehlermeldung: Connection refused").</li>
+<li><strong>Mögliche Ursachen prüfen</strong> (z. B. Server ausgefallen, Firewall blockiert Port).</li>
+<li><strong>Tests durchführen</strong> (z. B. <code>ping</code>, <code>traceroute</code>, Logs prüfen).</li>
+<li><strong>Lösung umsetzen</strong> (z. B. Server neu starten, Firewall-Regel anpassen).</li>
+</ol>
+<hr />
+<hr />
+<h2 id="praxis-monitoring-tools-verwenden"><strong>🎮 Praxis – Monitoring-Tools verwenden</strong><a class="headerlink" href="#praxis-monitoring-tools-verwenden" title="Permanent link">&para;</a></h2>
+<hr />
+<hr />
+<h3 id="schritt-1-ping-prufen-ob-ein-gerat-erreichbar-ist"><strong>📌 Schritt 1: <code>ping</code> – Prüfen, ob ein Gerät erreichbar ist</strong><a class="headerlink" href="#schritt-1-ping-prufen-ob-ein-gerat-erreichbar-ist" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Prüfe, ob Google erreichbar ist</span>
+ping<span class="w"> </span><span class="m">8</span>.8.8.8
+
+<span class="c1"># Prüfe, ob ein Gerät in deinem Netzwerk erreichbar ist</span>
+ping<span class="w"> </span><span class="m">192</span>.168.1.1
+</code></pre></div></td></tr></table></div>
+<p><strong>Erwartete Ausgabe:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=117 time=12.3 ms
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><code>**time=12.3 ms**</code> = Latenz (je kleiner, desto besser).</li>
+<li><code>**ttl=117**</code> = Time to Live (wie oft das Paket weitergeleitet werden darf).</li>
+</ul>
+<p><strong>Abbruch:</strong> <code>Strg + C</code></p>
+<hr />
+<hr />
+<h3 id="schritt-2-traceroute-den-weg-eines-pakets-verfolgen"><strong>📌 Schritt 2: <code>traceroute</code> – Den Weg eines Pakets verfolgen</strong><a class="headerlink" href="#schritt-2-traceroute-den-weg-eines-pakets-verfolgen" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Zeige den Weg zu Google</span>
+traceroute<span class="w"> </span>google.com
+</code></pre></div></td></tr></table></div>
+<p><strong>Erwartete Ausgabe:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code> 1  192.168.1.1  1.2 ms
+ 2  10.0.0.1    5.6 ms
+ 3  216.239.40.123  12.3 ms
+ ...
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>Jede Zeile = ein <strong>Hop</strong> (ein Router auf dem Weg).</li>
+<li><code>**ms**</code> = Zeit, die das Paket für diesen Hop braucht.</li>
+</ul>
+<hr />
+<hr />
+<h3 id="schritt-3-netstat-oder-ss-aktive-verbindungen-anzeigen"><strong>📌 Schritt 3: <code>netstat</code> oder <code>ss</code> – Aktive Verbindungen anzeigen</strong><a class="headerlink" href="#schritt-3-netstat-oder-ss-aktive-verbindungen-anzeigen" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Zeige alle aktiven TCP- und UDP-Verbindungen</span>
+netstat<span class="w"> </span>-tuln
+
+<span class="c1"># oder (modernere Alternative)</span>
+ss<span class="w"> </span>-tuln
+</code></pre></div></td></tr></table></div>
+<p><strong>Erwartete Ausgabe:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN
+tcp        0      0 192.168.1.100:80       0.0.0.0:*               LISTEN
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><code>**LISTEN**</code> = Der Server wartet auf Verbindungen (z. B. Port 22 = SSH, Port 80 = HTTP).</li>
+<li><code>**ESTABLISHED**</code> = Eine aktive Verbindung.</li>
+</ul>
+<hr />
+<hr />
+<h3 id="schritt-4-iftop-datenverkehr-in-echtzeit-anzeigen"><strong>📌 Schritt 4: <code>iftop</code> – Datenverkehr in Echtzeit anzeigen</strong><a class="headerlink" href="#schritt-4-iftop-datenverkehr-in-echtzeit-anzeigen" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Installiere iftop</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>iftop<span class="w"> </span>-y
+
+<span class="c1"># Zeige den Datenverkehr an</span>
+sudo<span class="w"> </span>iftop
+</code></pre></div></td></tr></table></div>
+<p><strong>Erwartete Ausgabe:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>interface: eth0
+TX:             RX:          TOTAL:
+2.50KB/s        1.20KB/s     3.70KB/s
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><code>**TX**</code> = Gesendete Daten (Upload).</li>
+<li><code>**RX**</code> = Empfangene Daten (Download).</li>
+</ul>
+<p><strong>Beenden:</strong> <code>q</code></p>
+<hr />
+<hr />
+<h3 id="schritt-5-nload-netzwerkauslastung-anzeigen"><strong>📌 Schritt 5: <code>nload</code> – Netzwerkauslastung anzeigen</strong><a class="headerlink" href="#schritt-5-nload-netzwerkauslastung-anzeigen" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Installiere nload</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>nload<span class="w"> </span>-y
+
+<span class="c1"># Zeige die Auslastung an</span>
+nload
+</code></pre></div></td></tr></table></div>
+<p><strong>Erwartete Ausgabe:</strong></p>
+<ul>
+<li>Ein <strong>Diagramm</strong> mit der Auslastung deiner Netzwerkinterfaces (z. B. <code>eth0</code>, <code>wlan0</code>).</li>
+</ul>
+<p><strong>Beenden:</strong> <code>q</code></p>
+<hr />
+<hr />
+<h3 id="schritt-6-wireshark-datenverkehr-analysieren"><strong>📌 Schritt 6: Wireshark – Datenverkehr analysieren</strong><a class="headerlink" href="#schritt-6-wireshark-datenverkehr-analysieren" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Installiere Wireshark</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>wireshark<span class="w"> </span>-y
+
+<span class="c1"># Starte Wireshark (als Root)</span>
+sudo<span class="w"> </span>wireshark
+</code></pre></div></td></tr></table></div>
+<p><strong>Was du siehst:</strong></p>
+<ul>
+<li>Eine <strong>Liste aller Pakete</strong>, die durch dein Netzwerk fließen.</li>
+<li><strong>Farben:</strong></li>
+<li><strong>Blau</strong> = TCP</li>
+<li><strong>Grün</strong> = HTTP</li>
+<li><strong>Schwarz</strong> = ICMP (z. B. Ping)</li>
+<li><strong>Rot</strong> = Fehler</li>
+</ul>
+<p><strong>Filter:</strong></p>
+<ul>
+<li>Gib oben in der Leiste z. B. <code>http</code> ein, um nur HTTP-Pakete anzuzeigen.</li>
+<li>Oder <code>ip.addr == 8.8.8.8</code>, um nur Pakete von/to 8.8.8.8 anzuzeigen.</li>
+</ul>
+<hr />
+<hr />
+<h3 id="schritt-7-log-dateien-lesen"><strong>📌 Schritt 7: Log-Dateien lesen</strong><a class="headerlink" href="#schritt-7-log-dateien-lesen" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Zeige die letzten Einträge der System-Logs</span>
+tail<span class="w"> </span>-f<span class="w"> </span>/var/log/syslog
+
+<span class="c1"># Zeige die Apache-Logs (falls Apache installiert ist)</span>
+tail<span class="w"> </span>-f<span class="w"> </span>/var/log/apache2/access.log
+</code></pre></div></td></tr></table></div>
+<p><strong>Wichtige Log-Dateien:</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Datei</strong></th>
+<th><strong>Inhalt</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/var/log/syslog</code></td>
+<td>Systemweite Logs (z. B. Netzwerkfehler).</td>
+</tr>
+<tr>
+<td><code>/var/log/auth.log</code></td>
+<td>Anmeldungen (z. B. SSH-Logins).</td>
+</tr>
+<tr>
+<td><code>/var/log/apache2/access.log</code></td>
+<td>Zugriffe auf den Apache-Webserver.</td>
+</tr>
+<tr>
+<td><code>/var/log/mail.log</code></td>
+<td>E-Mail-Logs (z. B. Postfix).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Beenden:</strong> <code>Strg + C</code></p>
+<hr />
+<hr />
+<h2 id="ubungen-einfach-praxisnah"><strong>💡 Übungen – einfach &amp; praxisnah</strong><a class="headerlink" href="#ubungen-einfach-praxisnah" title="Permanent link">&para;</a></h2>
+<hr />
+<hr />
+<h3 id="aufgabe-1-ping-testen"><strong>📝 Aufgabe 1: <code>ping</code> testen</strong><a class="headerlink" href="#aufgabe-1-ping-testen" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong></p>
+<ol>
+<li>Pinge die IP <strong>8.8.8.8</strong> (Google DNS).</li>
+<li>Pinge die IP <strong>192.168.1.1</strong> (dein Router, falls du im Netzwerk bist).</li>
+<li>Pinge eine <strong>nicht existierende IP</strong> (z. B. 192.168.1.255).</li>
+</ol>
+<p><strong>Fragen:</strong></p>
+<ol>
+<li>Was ist der Unterschied zwischen den Ausgaben?</li>
+<li>Was bedeutet <code>Destination Host Unreachable</code>?</li>
+</ol>
+<details class="success">
+<summary>Lösung:</summary>
+<p><strong>Befehle:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>ping<span class="w"> </span><span class="m">8</span>.8.8.8
+ping<span class="w"> </span><span class="m">192</span>.168.1.1
+ping<span class="w"> </span><span class="m">192</span>.168.1.255
+</code></pre></div></td></tr></table></div></p>
+<p><strong>1. Unterschiede:</strong></p>
+<ul>
+<li><strong>8.8.8.8 und 192.168.1.1:</strong> Antworten mit <code>64 bytes from ...</code> (erreichbar).</li>
+<li><strong>192.168.1.255:</strong> Keine Antwort, stattdessen <code>Destination Host Unreachable</code> (nicht erreichbar).</li>
+</ul>
+<p><strong>2. <code>Destination Host Unreachable</code>:</strong></p>
+<ul>
+<li>Das bedeutet, dass das <strong>Ziel nicht erreichbar</strong> ist (z. B. weil die IP nicht existiert oder das Gerät ausgeschaltet ist).</li>
+</ul>
+</details>
+<hr />
+<hr />
+<h3 id="aufgabe-2-traceroute-ausprobieren"><strong>📝 Aufgabe 2: <code>traceroute</code> ausprobieren</strong><a class="headerlink" href="#aufgabe-2-traceroute-ausprobieren" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong></p>
+<ol>
+<li>Führe <code>traceroute google.com</code> aus.</li>
+<li>Führe <code>traceroute 8.8.8.8</code> aus.</li>
+</ol>
+<p><strong>Frage:</strong> Warum sehen die Wege unterschiedlich aus?</p>
+<details class="success">
+<summary>Lösung:</summary>
+<p><strong>Befehle:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>traceroute<span class="w"> </span>google.com
+traceroute<span class="w"> </span><span class="m">8</span>.8.8.8
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Warum unterschiedlich?</strong></p>
+<ul>
+<li><strong><code>google.com</code></strong> wird zuerst in eine <strong>IP-Adresse umgewandelt</strong> (z. B. 142.250.186.46).</li>
+<li><strong><code>8.8.8.8</code></strong> ist bereits eine IP-Adresse.</li>
+<li>Der Weg kann sich unterscheiden, weil:</li>
+<li><strong>Google</strong> nutzt <strong>Content Delivery Networks (CDN)</strong>, die den schnellsten Weg wählen.</li>
+<li><strong>8.8.8.8</strong> ist ein <strong>DNS-Server von Google</strong>, der direkt angesprochen wird.</li>
+</ul>
+</details>
+<hr />
+<hr />
+<h3 id="aufgabe-3-aktive-verbindungen-prufen"><strong>📝 Aufgabe 3: Aktive Verbindungen prüfen</strong><a class="headerlink" href="#aufgabe-3-aktive-verbindungen-prufen" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong></p>
+<ol>
+<li>Zeige alle <strong>aktiven Verbindungen</strong> mit <code>ss -tuln</code> an.</li>
+<li>Starte einen <strong>Webserver</strong> (z. B. Apache) und prüfe erneut.</li>
+</ol>
+<p><strong>Frage:</strong> Welcher Port wird für HTTP verwendet?</p>
+<details class="success">
+<summary>Lösung:</summary>
+<p><strong>Befehle:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ss<span class="w"> </span>-tuln
+</code></pre></div></td></tr></table></div>
+<strong>Nach dem Starten von Apache:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>apache2
+ss<span class="w"> </span>-tuln
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Erwartete Ausgabe (Ausschnitt):</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>tcp   LISTEN  0  128  0.0.0.0:80  0.0.0.0:*
+</code></pre></div></td></tr></table></div>
+<strong>Port für HTTP:</strong>
+- <strong>Port 80</strong>.</p>
+</details>
+<hr />
+<hr />
+<h3 id="aufgabe-4-datenverkehr-mit-iftop-beobachten"><strong>📝 Aufgabe 4: Datenverkehr mit <code>iftop</code> beobachten</strong><a class="headerlink" href="#aufgabe-4-datenverkehr-mit-iftop-beobachten" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong></p>
+<ol>
+<li>Installiere <code>iftop</code> und starte es.</li>
+<li>Lade eine <strong>große Datei</strong> herunter (z. B. <code>wget https://releases.ubuntu.com/26.04/ubuntu-26.04-desktop-amd64.iso</code>).</li>
+<li>Beobachte den Datenverkehr in <code>iftop</code>.</li>
+</ol>
+<p><strong>Frage:</strong> Was siehst du in <code>iftop</code>?</p>
+<details class="success">
+<summary>Lösung:</summary>
+<p><strong>Befehle:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>iftop<span class="w"> </span>-y
+sudo<span class="w"> </span>iftop
+</code></pre></div></td></tr></table></div>
+<strong>In einem anderen Terminal:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>wget<span class="w"> </span>https://releases.ubuntu.com/26.04/ubuntu-26.04-desktop-amd64.iso
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Erwartete Ausgabe in <code>iftop</code>:</strong></p>
+<ul>
+<li>Eine <strong>Liste der Verbindungen</strong> mit:</li>
+<li><strong>Quell-IP</strong> und <strong>Ziel-IP</strong>.</li>
+<li><strong>Datenmenge</strong> (z. B. <code>1.5MB</code>).</li>
+<li><strong>Geschwindigkeit</strong> (z. B. <code>100KB/s</code>).</li>
+</ul>
+</details>
+<hr />
+<hr />
+<h3 id="aufgabe-5-netzwerkauslastung-mit-nload-prufen"><strong>📝 Aufgabe 5: Netzwerkauslastung mit <code>nload</code> prüfen</strong><a class="headerlink" href="#aufgabe-5-netzwerkauslastung-mit-nload-prufen" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong></p>
+<ol>
+<li>Installiere <code>nload</code> und starte es.</li>
+<li>Lade eine <strong>große Datei</strong> herunter.</li>
+<li>Beobachte die Auslastung.</li>
+</ol>
+<p><strong>Frage:</strong> Was zeigt <code>nload</code> an?</p>
+<details class="success">
+<summary>Lösung:</summary>
+<p><strong>Befehle:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>nload<span class="w"> </span>-y
+nload
+</code></pre></div></td></tr></table></div>
+<strong>In einem anderen Terminal:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>wget<span class="w"> </span>wget<span class="w"> </span>https://releases.ubuntu.com/26.04/ubuntu-26.04-desktop-amd64.iso
+</code></pre></div></td></tr></table></div></p>
+<p><strong>Erwartete Ausgabe in <code>nload</code>:</strong></p>
+<ul>
+<li>Ein <strong>Diagramm</strong> mit:</li>
+<li><strong>Incoming Traffic (RX)</strong> = Empfangene Daten.</li>
+<li><strong>Outgoing Traffic (TX)</strong> = Gesendete Daten.</li>
+<li><strong>Auslastung in %</strong> (z. B. 10%, 50%).</li>
+</ul>
+</details>
+<hr />
+<hr />
+<h3 id="aufgabe-6-wireshark-http-traffic-analysieren"><strong>📝 Aufgabe 6: Wireshark – HTTP-Traffic analysieren</strong><a class="headerlink" href="#aufgabe-6-wireshark-http-traffic-analysieren" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong></p>
+<ol>
+<li>Installiere Wireshark und starte es.</li>
+<li>Starte eine <strong>Aufzeichnung</strong> auf deinem Netzwerkinterface (z. B. <code>eth0</code>).</li>
+<li>Rufe eine <strong>Webseite</strong> im Browser auf (z. B. <code>http://example.com</code>).</li>
+<li>Stoppe die Aufzeichnung und filtere nach <strong>HTTP</strong>.</li>
+</ol>
+<p><strong>Frage:</strong> Welche Informationen siehst du in den HTTP-Paketen?</p>
+<details class="success">
+<summary>Lösung:</summary>
+<p><strong>Befehle:</strong>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>wireshark<span class="w"> </span>-y
+sudo<span class="w"> </span>wireshark
+</code></pre></div></td></tr></table></div>
+<strong>Schritte in Wireshark:</strong></p>
+<ol>
+<li>Wähle das <strong>Netzwerkinterface</strong> (z. B. <code>eth0</code>).</li>
+<li>Klicke auf den <strong>blauen Hai</strong> (Start).</li>
+<li>Rufe <code>http://example.com</code> im Browser auf.</li>
+<li>Stoppe die Aufzeichnung (rotes Quadrat).</li>
+<li>Gib im <strong>Filterfeld</strong> <code>http</code> ein.</li>
+</ol>
+<p><strong>Erwartete Informationen in HTTP-Paketen:</strong></p>
+<ul>
+<li><strong>GET / HTTP/1.1</strong> = Anfrage an den Server.</li>
+<li><strong>Host: example.com</strong> = Die angefragte Webseite.</li>
+<li><strong>HTTP/1.1 200 OK</strong> = Antwort des Servers (200 = Erfolg).</li>
+<li><strong>Content-Type: text/html</strong> = Typ der Antwort (HTML-Seite).</li>
+</ul>
+</details>
+<hr />
+<h3 id="aufgabe-7-fehlerbehebung-webserver-ladt-nicht"><strong>📝 Aufgabe 7: Fehlerbehebung – Webserver lädt nicht</strong><a class="headerlink" href="#aufgabe-7-fehlerbehebung-webserver-ladt-nicht" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong><br />
+<strong>Problem:</strong> Dein Apache-Webserver lädt keine Seiten mehr.</p>
+<p><strong>Schritte zur Fehlerbehebung:</strong></p>
+<ol>
+<li>Prüfe, ob Apache <strong>läuft</strong>:
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>apache2
+</code></pre></div></td></tr></table></div></li>
+<li>Prüfe die <strong>Logs</strong>:
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span>tail<span class="w"> </span>-f<span class="w"> </span>/var/log/apache2/error.log
+</code></pre></div></td></tr></table></div></li>
+<li>Prüfe, ob <strong>Port 80</strong> offen ist:
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span>ss<span class="w"> </span>-tuln<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">80</span>
+</code></pre></div></td></tr></table></div></li>
+<li>Prüfe die <strong>Firewall</strong>:
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span>sudo<span class="w"> </span>ufw<span class="w"> </span>status
+</code></pre></div></td></tr></table></div></li>
+</ol>
+<p><strong>Frage:</strong> Welche möglichen Ursachen könnte es geben?</p>
+<details class="success">
+<summary>Lösung:</summary>
+<p><strong>Mögliche Ursachen:</strong></p>
+<ol>
+<li><strong>Apache läuft nicht:</strong><ul>
+<li>Lösung: <code>sudo systemctl start apache2</code></li>
+</ul>
+</li>
+<li><strong>Fehler in der Konfiguration:</strong><ul>
+<li>Lösung: Prüfe <code>/var/log/apache2/error.log</code> und korrigiere die Konfiguration.</li>
+</ul>
+</li>
+<li><strong>Port 80 ist blockiert:</strong><ul>
+<li>Lösung: <code>sudo ufw allow 80</code></li>
+</ul>
+</li>
+<li><strong>Apache bindet nicht an Port 80:</strong><ul>
+<li>Lösung: Prüfe <code>/etc/apache2/ports.conf</code> und starte Apache neu: <code>sudo systemctl restart apache2</code></li>
+</ul>
+</li>
+</ol>
+</details>
+<hr />
+<hr />
+<h2 id="zusammenfassung-das-wichtigste"><strong>🎓 Zusammenfassung – das Wichtigste</strong><a class="headerlink" href="#zusammenfassung-das-wichtigste" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Tool</strong></th>
+<th><strong>Wofür?</strong></th>
+<th><strong>Beispielbefehl</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>**ping**</code></td>
+<td>Prüft, ob ein Gerät erreichbar ist.</td>
+<td><code>ping 8.8.8.8</code></td>
+</tr>
+<tr>
+<td><code>**traceroute**</code></td>
+<td>Zeigt den Weg eines Pakets.</td>
+<td><code>traceroute google.com</code></td>
+</tr>
+<tr>
+<td><code>**ss**</code></td>
+<td>Zeigt aktive Verbindungen.</td>
+<td><code>ss -tuln</code></td>
+</tr>
+<tr>
+<td><code>**iftop**</code></td>
+<td>Zeigt Datenverkehr in Echtzeit.</td>
+<td><code>sudo iftop</code></td>
+</tr>
+<tr>
+<td><code>**nload**</code></td>
+<td>Zeigt Netzwerkauslastung.</td>
+<td><code>nload</code></td>
+</tr>
+<tr>
+<td><strong>Wireshark</strong></td>
+<td>Analysiert Pakete im Detail.</td>
+<td><code>sudo wireshark</code></td>
+</tr>
+<tr>
+<td><code>**grep**</code></td>
+<td>Durchsucht Logs nach einem Wort.</td>
+<td><code>grep error /var/log/syslog</code></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../7/" class="md-footer__link md-footer__link--prev" aria-label="Previous: E-Mail-Server (Postfix/Dovecot)">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                E-Mail-Server (Postfix/Dovecot)
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../9/" class="md-footer__link md-footer__link--next" aria-label="Next: Vertiefung Wireshark">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Vertiefung Wireshark
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Qualidy GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.kununu.com/de/qualidy" target="_blank" rel="noopener" title="www.kununu.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M311 86.3c12.3-12.7 12-32.9-.7-45.2s-32.9-12-45.2.7C143.4 167.2 76.4 236.3 64 249V64c0-17.7-14.3-32-32-32S0 46.3 0 64v384c0 17.7 14.3 32 32 32s32-14.3 32-32V341l64.7-66.7 133 192c10.1 14.5 30 18.1 44.5 8.1s18.1-30 8.1-44.5L174.1 227.4z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://de.linkedin.com/company/qualidy" target="_blank" rel="noopener" title="de.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.google.com/search?sca_esv=7e6ba2047fcb60f3&uds=AMwkrPtyB8MsmozA4Lwzqy2G2HCu-abqzc6moOG48q3gP5dtjTRzC2Ws0eSwcyLXDfZNuYCrZ7ByIreHLG9th3vKLekPoVeey0tumAbet4cVLQRLzdRFhUbOGbnyp3xo1V0hzzaNmkCN&si=AKbGX_rcuucMgom2rba1cdwsvM2SVoIkP2btyqGMV4t0GuHIs4sGV_1tpuqR0YHG4Rzd9SdJcL-lW6E-2aJA5azZLTKkIOrZ2j2aWwoBkVbdEJ0o0GPcQhs%3D&q=Qualidy+GmbH+Rezensionen&sa=X&ved=2ahUKEwibsbnSgcmFAxXNQvEDHaVYCiAQ3PALegQIRxAF" target="_blank" rel="noopener" title="www.google.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://qualidy.de" target="_blank" rel="noopener" title="qualidy.de" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.path", "navigation.top", "navigation.footer", "toc.follow", "toc.integrate", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

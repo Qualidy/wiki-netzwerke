@@ -1,0 +1,2140 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../2/">
+      
+      
+        <link rel="next" href="../3.1/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>IP-Adressierung & Subnetting - Netzwerktechnik - Grundlagen & Praxis</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/logo.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/grid.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/video_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/python_tutor_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/mermaid.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tag-3-ip-adressierung-subnetting" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Netzwerktechnik - Grundlagen &amp; Praxis" class="md-header__button md-logo" aria-label="Netzwerktechnik - Grundlagen & Praxis" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Netzwerktechnik - Grundlagen & Praxis
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              IP-Adressierung & Subnetting
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Netzwerktechnik - Grundlagen &amp; Praxis" class="md-nav__button md-logo" aria-label="Netzwerktechnik - Grundlagen & Praxis" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Netzwerktechnik - Grundlagen & Praxis
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Übersicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Einführung & Netzwerkgrundlagen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Virtualisierung & VM-Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    IP-Adressierung & Subnetting
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    IP-Adressierung & Subnetting
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#theorie" class="md-nav__link">
+    <span class="md-ellipsis">
+      📖 Theorie
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📖 Theorie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-einfuhrung-in-ip-adressierung" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Einführung in IP-Adressierung
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Einführung in IP-Adressierung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zweck-von-ip-adressen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zweck von IP-Adressen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ipv4-vs-ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. IPv4 vs. IPv6
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. IPv4 vs. IPv6">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ipv4-adressformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      IPv4-Adressformat
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipv6-adressformat" class="md-nav__link">
+    <span class="md-ellipsis">
+      IPv6-Adressformat
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ip-adressklassen-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. IP-Adressklassen (IPv4)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. IP-Adressklassen (IPv4)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spezielle-ip-adressen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spezielle IP-Adressen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-subnetting-warum-und-wie" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Subnetting – Warum und wie?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Subnetting – Warum und wie?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subnetzmaske" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subnetzmaske
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cidr-notation-classless-inter-domain-routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      CIDR-Notation (Classless Inter-Domain Routing)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#berechnung-der-anzahl-hosts-pro-subnetz" class="md-nav__link">
+    <span class="md-ellipsis">
+      Berechnung der Anzahl Hosts pro Subnetz
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-subnetting-schritt-fur-schritt" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Subnetting Schritt für Schritt
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Subnetting Schritt für Schritt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-netzwerk-1921681024-in-4-subnetze-aufteilen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beispiel: Netzwerk 192.168.1.0/24 in 4 Subnetze aufteilen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visualisierung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualisierung
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-vlsm-variable-length-subnet-masking" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. VLSM (Variable Length Subnet Masking)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. VLSM (Variable Length Subnet Masking)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vlsm-berechnung" class="md-nav__link">
+    <span class="md-ellipsis">
+      VLSM-Berechnung
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-tools-fur-subnetting" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Tools für Subnetting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Tools für Subnetting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ipcalc-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      **ipcalc (Linux)**
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#online-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Online-Tools
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubungsaufgaben" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 Übungsaufgaben
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 Übungsaufgaben">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1-ip-adressklassen-zuordnen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 1: IP-Adressklassen zuordnen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-3-subnetzmaske-in-cidr-umwandeln" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 3: Subnetzmaske in CIDR umwandeln
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-4-anzahl-hosts-pro-subnetz-berechnen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 4: Anzahl Hosts pro Subnetz berechnen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-5-praktische-ubung-mit-ipcalc" class="md-nav__link">
+    <span class="md-ellipsis">
+      **📝 Aufgabe 5: Praktische Übung mit ipcalc**
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rechenaufgaben
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Router & Switches
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Firewall & Sicherheit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Webserver (Apache/Nginx)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    E-Mail-Server (Postfix/Dovecot)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monitoring & Fehlerbehebung
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vertiefung Wireshark
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Abschlussprojekt & Reflexion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tag-3-ip-adressierung-subnetting">🌐 Tag 3: IP-Adressierung &amp; Subnetting<a class="headerlink" href="#tag-3-ip-adressierung-subnetting" title="Permanent link">&para;</a></h1>
+<h2 id="theorie"><strong>📖 Theorie</strong><a class="headerlink" href="#theorie" title="Permanent link">&para;</a></h2>
+<h3 id="1-einfuhrung-in-ip-adressierung"><strong>1. Einführung in IP-Adressierung</strong><a class="headerlink" href="#1-einfuhrung-in-ip-adressierung" title="Permanent link">&para;</a></h3>
+<p>Eine <strong>IP-Adresse</strong> (Internet Protocol Address) ist eine <strong>eindeutige numerische Adresse</strong>, die jedem Gerät in einem Netzwerk zugewiesen wird, um die <strong>Kommunikation</strong> zu ermöglichen.</p>
+<h4 id="zweck-von-ip-adressen"><strong>Zweck von IP-Adressen</strong><a class="headerlink" href="#zweck-von-ip-adressen" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Identifikation:</strong> Eindeutige Kennung eines Geräts im Netzwerk.</li>
+<li><strong>Lokalisierung:</strong> Bestimmung des <strong>Standorts</strong> eines Geräts (z. B. in einem Subnetz).</li>
+<li><strong>Routing:</strong> Weiterleitung von Datenpaketen durch das Netzwerk.</li>
+</ul>
+<hr />
+<hr />
+<h3 id="2-ipv4-vs-ipv6"><strong>2. IPv4 vs. IPv6</strong><a class="headerlink" href="#2-ipv4-vs-ipv6" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Kriterium</strong></th>
+<th><strong>IPv4</strong></th>
+<th><strong>IPv6</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Adresslänge</strong></td>
+<td>32 Bit (4 Bytes)</td>
+<td>128 Bit (16 Bytes)</td>
+</tr>
+<tr>
+<td><strong>Anzahl Adressen</strong></td>
+<td>~4,3 Mrd. (2³²)</td>
+<td>~340 Sextillionen (2¹²⁸)</td>
+</tr>
+<tr>
+<td><strong>Format</strong></td>
+<td>Dezimal (z. B. <code>192.168.1.1</code>)</td>
+<td>Hexadezimal (z. B. <code>2001:0db8:85a3::8a2e:0370:7334</code>)</td>
+</tr>
+<tr>
+<td><strong>Verwendung</strong></td>
+<td>Dominierend (90% des Internets)</td>
+<td>Zunehmend (z. B. für IoT, Mobilfunk)</td>
+</tr>
+<tr>
+<td><strong>Vorteile</strong></td>
+<td>Einfach, weit verbreitet</td>
+<td>Kein NAT nötig, mehr Adressen, bessere Sicherheit</td>
+</tr>
+<tr>
+<td><strong>Nachteile</strong></td>
+<td>Adressknappheit, NAT nötig</td>
+<td>Komplexere Konfiguration</td>
+</tr>
+</tbody>
+</table>
+<h4 id="ipv4-adressformat"><strong>IPv4-Adressformat</strong><a class="headerlink" href="#ipv4-adressformat" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>4 Oktette</strong> (jeweils 8 Bit), durch Punkte getrennt.</li>
+<li><strong>Beispiel:</strong> <code>192.168.1.1</code><ul>
+<li><strong>Oktett 1:</strong> <code>192</code> (Netzwerkanteil)</li>
+<li><strong>Oktett 2:</strong> <code>168</code> (Netzwerkanteil)</li>
+<li><strong>Oktett 3:</strong> <code>1</code> (Subnetzanteil)</li>
+<li><strong>Oktett 4:</strong> <code>1</code> (Hostanteil)</li>
+</ul>
+</li>
+</ul>
+<h4 id="ipv6-adressformat"><strong>IPv6-Adressformat</strong><a class="headerlink" href="#ipv6-adressformat" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>8 Blöcke</strong> à 16 Bit, durch Doppelpunkte getrennt.</li>
+<li><strong>Beispiel:</strong> <code>2001:0db8:85a3:0000:0000:8a2e:0370:7334</code></li>
+<li><strong>Verkürzte Schreibweise:</strong><ul>
+<li>Führende Nullen können weggelassen werden (<code>2001:db8:85a3:0:0:8a2e:370:7334</code>).</li>
+<li><strong>Doppelte Nullen</strong> können durch <code>::</code> ersetzt werden (<code>2001:db8:85a3::8a2e:370:7334</code>).</li>
+</ul>
+</li>
+</ul>
+<hr />
+<hr />
+<h3 id="3-ip-adressklassen-ipv4"><strong>3. IP-Adressklassen (IPv4)</strong><a class="headerlink" href="#3-ip-adressklassen-ipv4" title="Permanent link">&para;</a></h3>
+<p>IPv4-Adressen werden in <strong>5 Klassen</strong> unterteilt, die den <strong>Verwendungszweck</strong> bestimmen.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Klasse</strong></th>
+<th><strong>Bereich</strong></th>
+<th><strong>Erstes Bit</strong></th>
+<th><strong>Verwendung</strong></th>
+<th><strong>Standard-Subnetzmaske</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A</strong></td>
+<td>1.0.0.0 – 126.255.255.255</td>
+<td>0</td>
+<td>Große Netzwerke (z. B. Regierungen)</td>
+<td>255.0.0.0 (/8)</td>
+</tr>
+<tr>
+<td><strong>B</strong></td>
+<td>128.0.0.0 – 191.255.255.255</td>
+<td>10</td>
+<td>Mittlere Netzwerke (z. B. Universitäten)</td>
+<td>255.255.0.0 (/16)</td>
+</tr>
+<tr>
+<td><strong>C</strong></td>
+<td>192.0.0.0 – 223.255.255.255</td>
+<td>110</td>
+<td>Kleine Netzwerke (z. B. Unternehmen)</td>
+<td>255.255.255.0 (/24)</td>
+</tr>
+<tr>
+<td><strong>D</strong></td>
+<td>224.0.0.0 – 239.255.255.255</td>
+<td>1110</td>
+<td><strong>Multicast</strong> (Gruppenkommunikation)</td>
+<td>–</td>
+</tr>
+<tr>
+<td><strong>E/R</strong></td>
+<td>240.0.0.0 – 255.255.255.255</td>
+<td>11110</td>
+<td>Reserved (für zukünftige Verwendung)</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<h4 id="spezielle-ip-adressen"><strong>Spezielle IP-Adressen</strong><a class="headerlink" href="#spezielle-ip-adressen" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Adresse</strong></th>
+<th><strong>Bedeutung</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0.0.0.0</code></td>
+<td><strong>Standard-Route</strong> (Default Gateway)</td>
+</tr>
+<tr>
+<td><code>127.0.0.1</code></td>
+<td><strong>Loopback</strong> (lokaler Host)</td>
+</tr>
+<tr>
+<td><code>255.255.255.255</code></td>
+<td><strong>Broadcast</strong> (alle Geräte im Netzwerk)</td>
+</tr>
+<tr>
+<td><code>169.254.x.x</code></td>
+<td><strong>APIPA</strong> (Automatische private IP-Zuweisung, falls DHCP fehlschlägt)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<hr />
+<h3 id="4-subnetting-warum-und-wie"><strong>4. Subnetting – Warum und wie?</strong><a class="headerlink" href="#4-subnetting-warum-und-wie" title="Permanent link">&para;</a></h3>
+<p><strong>Subnetting</strong> ist die <strong>Aufteilung eines Netzwerks in kleinere Teilnetze (Subnetze)</strong>, um:</p>
+<ul>
+<li><strong>IP-Adressen effizienter zu nutzen</strong> (Vermeidung von Adressverschwendung).</li>
+<li><strong>Netzwerkverkehr zu reduzieren</strong> (geringere Broadcast-Domänen).</li>
+<li><strong>Sicherheit zu erhöhen</strong> (Isolation von Netzwerksegmenten).</li>
+<li><strong>Routing zu vereinfachen</strong> (bessere Kontrolle über Datenflüsse).</li>
+</ul>
+<h4 id="subnetzmaske"><strong>Subnetzmaske</strong><a class="headerlink" href="#subnetzmaske" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Die <strong>Subnetzmaske</strong> bestimmt, welcher Teil der IP-Adresse zum <strong>Netzwerk</strong> und welcher zum <strong>Host</strong> gehört.</li>
+<li><strong>Beispiel:</strong><ul>
+<li>IP: <code>192.168.1.10</code></li>
+<li>Subnetzmaske: <code>255.255.255.0</code> (<code>/24</code>)</li>
+<li><strong>Netzwerkanteil:</strong> <code>192.168.1</code></li>
+<li><strong>Hostanteil:</strong> <code>.10</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="cidr-notation-classless-inter-domain-routing"><strong>CIDR-Notation (Classless Inter-Domain Routing)</strong><a class="headerlink" href="#cidr-notation-classless-inter-domain-routing" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Ersetzt die klassische Klassenunterteilung</strong> (A, B, C).</li>
+<li><strong>Format:</strong> <code>IP-Adresse/Präfixlänge</code> (z. B. <code>192.168.1.0/24</code>).</li>
+<li><strong>Präfixlänge:</strong> Anzahl der Bits für den <strong>Netzwerkanteil</strong> (z. B. <code>/24</code> = 24 Bits für Netzwerk, 8 Bits für Hosts).</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>Subnetzmaske</strong></th>
+<th><strong>CIDR-Notation</strong></th>
+<th><strong>Anzahl Hosts</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>255.0.0.0</td>
+<td>/8</td>
+<td>16.777.214</td>
+</tr>
+<tr>
+<td>255.255.0.0</td>
+<td>/16</td>
+<td>65.534</td>
+</tr>
+<tr>
+<td>255.255.255.0</td>
+<td>/24</td>
+<td>254</td>
+</tr>
+<tr>
+<td>255.255.255.128</td>
+<td>/25</td>
+<td>126</td>
+</tr>
+<tr>
+<td>255.255.255.192</td>
+<td>/26</td>
+<td>62</td>
+</tr>
+<tr>
+<td>255.255.255.224</td>
+<td>/27</td>
+<td>30</td>
+</tr>
+<tr>
+<td>255.255.255.240</td>
+<td>/28</td>
+<td>14</td>
+</tr>
+</tbody>
+</table>
+<h4 id="berechnung-der-anzahl-hosts-pro-subnetz"><strong>Berechnung der Anzahl Hosts pro Subnetz</strong><a class="headerlink" href="#berechnung-der-anzahl-hosts-pro-subnetz" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Formel:</strong> <code>2^(Anzahl Host-Bits) - 2</code><ul>
+<li><strong>-2</strong>, weil <strong>Netzwerkadresse</strong> und <strong>Broadcast-Adresse</strong> nicht für Hosts genutzt werden können.</li>
+</ul>
+</li>
+<li><strong>Beispiel für /24:</strong><ul>
+<li>Host-Bits: <code>32 - 24 = 8</code></li>
+<li>Anzahl Hosts: <code>2^8 - 2 = 256 - 2 = 254</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<hr />
+<h3 id="5-subnetting-schritt-fur-schritt"><strong>5. Subnetting Schritt für Schritt</strong><a class="headerlink" href="#5-subnetting-schritt-fur-schritt" title="Permanent link">&para;</a></h3>
+<h4 id="beispiel-netzwerk-1921681024-in-4-subnetze-aufteilen"><strong>Beispiel: Netzwerk <code>192.168.1.0/24</code> in 4 Subnetze aufteilen</strong><a class="headerlink" href="#beispiel-netzwerk-1921681024-in-4-subnetze-aufteilen" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>Anforderung:</strong><ul>
+<li>4 Subnetze mit je <strong>mindestens 30 Hosts</strong>.</li>
+</ul>
+</li>
+<li><strong>Host-Bits berechnen:</strong><ul>
+<li>30 Hosts → <code>2^n - 2 ≥ 30</code> → <code>n = 5</code> (2⁵ - 2 = 30).</li>
+</ul>
+</li>
+<li><strong>Netzwerk-Bits:</strong><ul>
+<li>Ursprünglich: <code>/24</code> (24 Bits für Netzwerk).</li>
+<li>Neue Präfixlänge: <code>32 - 5 = 27</code> → <strong>/27</strong>.</li>
+</ul>
+</li>
+<li><strong>Subnetzmaske:</strong><ul>
+<li><code>/27</code> → <code>255.255.255.224</code>.</li>
+</ul>
+</li>
+<li><strong>Subnetze berechnen:</strong><ul>
+<li><strong>Subnetz 1:</strong> <code>192.168.1.0/27</code> (Hosts: <code>192.168.1.1</code> – <code>192.168.1.30</code>)</li>
+<li><strong>Subnetz 2:</strong> <code>192.168.1.32/27</code> (Hosts: <code>192.168.1.33</code> – <code>192.168.1.62</code>)</li>
+<li><strong>Subnetz 3:</strong> <code>192.168.1.64/27</code> (Hosts: <code>192.168.1.65</code> – <code>192.168.1.94</code>)</li>
+<li><strong>Subnetz 4:</strong> <code>192.168.1.96/27</code> (Hosts: <code>192.168.1.97</code> – <code>192.168.1.126</code>)</li>
+</ul>
+</li>
+</ol>
+<h4 id="visualisierung"><strong>Visualisierung</strong><a class="headerlink" href="#visualisierung" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th><strong>Subnetz</strong></th>
+<th><strong>Netzwerkadresse</strong></th>
+<th><strong>Erste Host-IP</strong></th>
+<th><strong>Letzte Host-IP</strong></th>
+<th><strong>Broadcast-Adresse</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Subnetz 1</td>
+<td>192.168.1.0/27</td>
+<td>192.168.1.1</td>
+<td>192.168.1.30</td>
+<td>192.168.1.31</td>
+</tr>
+<tr>
+<td>Subnetz 2</td>
+<td>192.168.1.32/27</td>
+<td>192.168.1.33</td>
+<td>192.168.1.62</td>
+<td>192.168.1.63</td>
+</tr>
+<tr>
+<td>Subnetz 3</td>
+<td>192.168.1.64/27</td>
+<td>192.168.1.65</td>
+<td>192.168.1.94</td>
+<td>192.168.1.95</td>
+</tr>
+<tr>
+<td>Subnetz 4</td>
+<td>192.168.1.96/27</td>
+<td>192.168.1.97</td>
+<td>192.168.1.126</td>
+<td>192.168.1.127</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<hr />
+<h3 id="6-vlsm-variable-length-subnet-masking"><strong>6. VLSM (Variable Length Subnet Masking)</strong><a class="headerlink" href="#6-vlsm-variable-length-subnet-masking" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Problem:</strong> Bei klassischem Subnetting werden <strong>alle Subnetze gleich groß</strong> erstellt (z. B. 4x /27).</li>
+<li><strong>Lösung:</strong> <strong>VLSM</strong> ermöglicht <strong>unterschiedlich große Subnetze</strong> innerhalb eines Netzwerks.</li>
+<li><strong>Beispiel:</strong><ul>
+<li>Netzwerk: <code>192.168.1.0/24</code></li>
+<li><strong>Subnetz 1:</strong> 50 Hosts → <code>/26</code> (62 Hosts)</li>
+<li><strong>Subnetz 2:</strong> 20 Hosts → <code>/27</code> (30 Hosts)</li>
+<li><strong>Subnetz 3:</strong> 10 Hosts → <code>/28</code> (14 Hosts)</li>
+</ul>
+</li>
+</ul>
+<h4 id="vlsm-berechnung"><strong>VLSM-Berechnung</strong><a class="headerlink" href="#vlsm-berechnung" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>Größtes Subnetz zuerst</strong> (Top-Down-Ansatz).</li>
+<li><strong>Subnetz 1 (50 Hosts):</strong><ul>
+<li><code>/26</code> → <code>192.168.1.0/26</code> (Hosts: <code>192.168.1.1</code> – <code>192.168.1.62</code>).</li>
+</ul>
+</li>
+<li><strong>Subnetz 2 (20 Hosts):</strong><ul>
+<li><code>/27</code> → <code>192.168.1.64/27</code> (Hosts: <code>192.168.1.65</code> – <code>192.168.1.94</code>).</li>
+</ul>
+</li>
+<li><strong>Subnetz 3 (10 Hosts):</strong><ul>
+<li><code>/28</code> → <code>192.168.1.96/28</code> (Hosts: <code>192.168.1.97</code> – <code>192.168.1.110</code>).</li>
+</ul>
+</li>
+</ol>
+<hr />
+<hr />
+<h3 id="7-tools-fur-subnetting"><strong>7. Tools für Subnetting</strong><a class="headerlink" href="#7-tools-fur-subnetting" title="Permanent link">&para;</a></h3>
+<h4 id="ipcalc-linux"><code>**ipcalc</code> (Linux)**<a class="headerlink" href="#ipcalc-linux" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Installation:</strong>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ipcalc<span class="w"> </span>-y
+</code></pre></div></td></tr></table></div></li>
+<li><strong>Beispiel:</strong>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ipcalc<span class="w"> </span><span class="m">192</span>.168.1.0/24
+</code></pre></div></td></tr></table></div>
+  <strong>Ausgabe:</strong>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>Address:   192.168.1.0        11000000.10101000.00000001.00000000
+Netmask:   255.255.255.0 = 24 11111111.11111111.11111111.00000000
+Wildcard:  0.0.0.255        00000000.00000000.00000000.11111111
+=&gt;
+Network:   192.168.1.0/24    11000000.10101000.00000001.00000000
+HostMin:   192.168.1.1       11000000.10101000.00000001.00000001
+HostMax:   192.168.1.254     11000000.10101000.00000001.11111110
+Broadcast: 192.168.1.255     11000000.10101000.00000001.11111111
+Hosts/Net: 254               (Private Internet)
+</code></pre></div></td></tr></table></div></li>
+</ul>
+<h4 id="online-tools"><strong>Online-Tools</strong><a class="headerlink" href="#online-tools" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://www.calculator.net/ip-subnet-calculator.html">Subnet Calculator</a></li>
+</ul>
+<hr />
+<hr />
+<h2 id="ubungsaufgaben"><strong>💡 Übungsaufgaben</strong><a class="headerlink" href="#ubungsaufgaben" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="aufgabe-1-ip-adressklassen-zuordnen"><strong>📝 Aufgabe 1: IP-Adressklassen zuordnen</strong><a class="headerlink" href="#aufgabe-1-ip-adressklassen-zuordnen" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong><br />
+Ordne die folgenden IP-Adressen den <strong>richtigen Klassen (A, B, C, D, E)</strong> zu.</p>
+<table>
+<thead>
+<tr>
+<th><strong>IP-Adresse</strong></th>
+<th><strong>Klasse</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10.5.20.30</td>
+<td>?</td>
+</tr>
+<tr>
+<td>172.16.254.1</td>
+<td>?</td>
+</tr>
+<tr>
+<td>192.168.1.1</td>
+<td>?</td>
+</tr>
+<tr>
+<td>224.0.0.5</td>
+<td>?</td>
+</tr>
+<tr>
+<td>240.1.1.1</td>
+<td>?</td>
+</tr>
+<tr>
+<td>128.10.0.1</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+<details class="success">
+<summary>Lösung:</summary>
+<table>
+<thead>
+<tr>
+<th><strong>IP-Adresse</strong></th>
+<th><strong>Klasse</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10.5.20.30</td>
+<td>A</td>
+</tr>
+<tr>
+<td>172.16.254.1</td>
+<td>B</td>
+</tr>
+<tr>
+<td>192.168.1.1</td>
+<td>C</td>
+</tr>
+<tr>
+<td>224.0.0.5</td>
+<td>D</td>
+</tr>
+<tr>
+<td>240.1.1.1</td>
+<td>E</td>
+</tr>
+<tr>
+<td>128.10.0.1</td>
+<td>B</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>&nbsp;</p>
+<hr />
+<h3 id="aufgabe-3-subnetzmaske-in-cidr-umwandeln"><strong>📝 Aufgabe 3: Subnetzmaske in CIDR umwandeln</strong><a class="headerlink" href="#aufgabe-3-subnetzmaske-in-cidr-umwandeln" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong><br />
+Wandle die folgenden <strong>Subnetzmasken</strong> in <strong>CIDR-Notation</strong> um.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Subnetzmaske</strong></th>
+<th><strong>CIDR</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>255.0.0.0</td>
+<td>?</td>
+</tr>
+<tr>
+<td>255.255.0.0</td>
+<td>?</td>
+</tr>
+<tr>
+<td>255.255.255.0</td>
+<td>?</td>
+</tr>
+<tr>
+<td>255.255.255.128</td>
+<td>?</td>
+</tr>
+<tr>
+<td>255.255.255.192</td>
+<td>?</td>
+</tr>
+<tr>
+<td>255.255.255.240</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+<details class="success">
+<summary>Lösung:</summary>
+<table>
+<thead>
+<tr>
+<th><strong>Subnetzmaske</strong></th>
+<th><strong>CIDR</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>255.0.0.0</td>
+<td>/8</td>
+</tr>
+<tr>
+<td>255.255.0.0</td>
+<td>/16</td>
+</tr>
+<tr>
+<td>255.255.255.0</td>
+<td>/24</td>
+</tr>
+<tr>
+<td>255.255.255.128</td>
+<td>/25</td>
+</tr>
+<tr>
+<td>255.255.255.192</td>
+<td>/26</td>
+</tr>
+<tr>
+<td>255.255.255.240</td>
+<td>/28</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>&nbsp;</p>
+<hr />
+<hr />
+<h3 id="aufgabe-4-anzahl-hosts-pro-subnetz-berechnen"><strong>📝 Aufgabe 4: Anzahl Hosts pro Subnetz berechnen</strong><a class="headerlink" href="#aufgabe-4-anzahl-hosts-pro-subnetz-berechnen" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong><br />
+Berechne die <strong>Anzahl der nutzbaren Hosts</strong> für die folgenden Subnetze.</p>
+<table>
+<thead>
+<tr>
+<th><strong>CIDR</strong></th>
+<th><strong>Anzahl Hosts</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/24</td>
+<td>?</td>
+</tr>
+<tr>
+<td>/25</td>
+<td>?</td>
+</tr>
+<tr>
+<td>/26</td>
+<td>?</td>
+</tr>
+<tr>
+<td>/27</td>
+<td>?</td>
+</tr>
+<tr>
+<td>/28</td>
+<td>?</td>
+</tr>
+<tr>
+<td>/30</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+<details class="success">
+<summary>Lösung:</summary>
+<table>
+<thead>
+<tr>
+<th><strong>CIDR</strong></th>
+<th><strong>Anzahl Hosts</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/24</td>
+<td>254</td>
+</tr>
+<tr>
+<td>/25</td>
+<td>126</td>
+</tr>
+<tr>
+<td>/26</td>
+<td>62</td>
+</tr>
+<tr>
+<td>/27</td>
+<td>30</td>
+</tr>
+<tr>
+<td>/28</td>
+<td>14</td>
+</tr>
+<tr>
+<td>/30</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>&nbsp;</p>
+<h3 id="aufgabe-5-praktische-ubung-mit-ipcalc">**📝 Aufgabe 5: Praktische Übung mit <code>ipcalc**</code><a class="headerlink" href="#aufgabe-5-praktische-ubung-mit-ipcalc" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong></p>
+<ol>
+<li>Installiere <code>ipcalc</code> auf deiner Ubuntu-VM:
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ipcalc<span class="w"> </span>-y
+</code></pre></div></td></tr></table></div></li>
+<li>Führe folgende Befehle aus und interpretiere die Ausgaben:
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span>ipcalc<span class="w"> </span><span class="m">192</span>.168.1.0/24
+<span class="w"> </span>ipcalc<span class="w"> </span><span class="m">10</span>.0.0.0/16
+<span class="w"> </span>ipcalc<span class="w"> </span><span class="m">172</span>.16.0.0/20
+</code></pre></div></td></tr></table></div></li>
+<li><strong>Frage:</strong> Wie viele Hosts können in einem <code>/20</code>-Netzwerk genutzt werden?</li>
+</ol>
+<details class="success">
+<summary>Lösung:</summary>
+<ol>
+<li><strong>Ausgabe für <code>192.168.1.0/24</code>:</strong></li>
+</ol>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>Network:   192.168.1.0/24
+HostMin:   192.168.1.1
+HostMax:   192.168.1.254
+Hosts/Net: 254
+</code></pre></div></td></tr></table></div>
+2. <strong>Ausgabe für <code>10.0.0.0/16</code>:</strong></p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>Network:   10.0.0.0/16
+HostMin:   10.0.0.1
+HostMax:   10.0.255.254
+Hosts/Net: 65534
+</code></pre></div></td></tr></table></div>
+3. <strong>Ausgabe für <code>172.16.0.0/20</code>:</strong></p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>Network:   172.16.0.0/20
+HostMin:   172.16.0.1
+HostMax:   172.16.15.254
+Hosts/Net: 4094
+</code></pre></div></td></tr></table></div>
+4. <strong>Anzahl Hosts in <code>/20</code>:</strong></p>
+<ul>
+<li><code>2^(32-20) - 2 = 2^12 - 2 = 4096 - 2 = 4094</code>.</li>
+</ul>
+</details>
+<p>&nbsp;</p>
+<h1 id="vlan-labor-mit-virtualbox-router-als-gateway-fur-internetzugriff">🌐 VLAN-Labor mit VirtualBox: Router als Gateway für Internetzugriff<a class="headerlink" href="#vlan-labor-mit-virtualbox-router-als-gateway-fur-internetzugriff" title="Permanent link">&para;</a></h1>
+<hr />
+<p><strong>Ziel:</strong> Ein <strong>funktionierendes VLAN-Labor</strong> mit <strong>3 Ubuntu-VMs</strong> in VirtualBox aufbauen, bei dem <strong>nur die Router-VM zwei Netzwerkkarten</strong> hat (eine für Internet, eine für das interne Netzwerk). Die anderen VMs haben <strong>nur eine Host-Only-Netzwerkkarte</strong> und gehen über den Router ins Internet.</p>
+<p><strong>Dauer:</strong> 2-3 Stunden<br />
+<strong>Voraussetzung:</strong> VirtualBox installiert, 3 Ubuntu Server-VMs (22.04 LTS)</p>
+<hr />
+<hr />
+<hr />
+<h2 id="theorie-netzwerkaufbau">📚 <strong>Theorie: Netzwerkaufbau</strong><a class="headerlink" href="#theorie-netzwerkaufbau" title="Permanent link">&para;</a></h2>
+<h3 id="1-netzwerk-topologie"><strong>1. Netzwerk-Topologie</strong><a class="headerlink" href="#1-netzwerk-topologie" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>[Internet]
+    │
+[Router-VM] (enp0s3: NAT für Internet, enp0s8: Host-Only für internes Netzwerk)
+    │
+    ├── eth0.10 → 192.168.10.1 (VLAN 10, Gateway für VM1)
+    │
+    └── eth0.20 → 192.168.20.1 (VLAN 20, Gateway für VM2)
+         │
+[VM1] → 192.168.10.10 (Host-Only, Gateway: 192.168.10.1)
+[VM2] → 192.168.20.10 (Host-Only, Gateway: 192.168.20.1)
+</code></pre></div></td></tr></table></div>
+<p><strong>Ziel:</strong></p>
+<ul>
+<li><strong>Router-VM</strong> hat <strong>zwei Netzwerkkarten</strong>:</li>
+<li><code>enp0s3</code> (NAT) → <strong>Internetzugriff</strong>.</li>
+<li><code>enp0s8</code> (Host-Only) → <strong>Internes Netzwerk für VLANs</strong>.</li>
+<li><strong>VM1 und VM2</strong> haben <strong>nur eine Host-Only-Netzwerkkarte</strong> (<code>enp0s8</code>) und gehen über den Router ins Internet.</li>
+<li>VM1 und VM2 <strong>können sich nicht direkt</strong> erreichen (unterschiedliche VLANs).</li>
+<li>Der <strong>Router</strong> entscheidet, ob Verkehr zwischen den VLANs erlaubt ist.</li>
+</ul>
+<hr />
+<hr />
+<hr />
+<h2 id="praxis-schritt-fur-schritt-anleitung-fur-virtualbox">🛠️ <strong>Praxis: Schritt-für-Schritt-Anleitung für VirtualBox</strong><a class="headerlink" href="#praxis-schritt-fur-schritt-anleitung-fur-virtualbox" title="Permanent link">&para;</a></h2>
+<hr />
+<hr />
+<h3 id="schritt-0-virtualbox-vorbereiten"><strong>📌 Schritt 0: VirtualBox vorbereiten</strong><a class="headerlink" href="#schritt-0-virtualbox-vorbereiten" title="Permanent link">&para;</a></h3>
+<p><strong>Voraussetzung:</strong></p>
+<ul>
+<li><strong>3 Ubuntu Server-VMs</strong> in VirtualBox erstellen (Router-VM, VM1, VM2).</li>
+</ul>
+<h4 id="1-netzwerkadapter-der-vms-konfigurieren"><strong>1. Netzwerkadapter der VMs konfigurieren</strong><a class="headerlink" href="#1-netzwerkadapter-der-vms-konfigurieren" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th><strong>VM</strong></th>
+<th><strong>Adapter 1</strong></th>
+<th><strong>Adapter 2</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Router-VM</td>
+<td>NAT (<code>enp0s3</code>)</td>
+<td>Host-Only (<code>enp0s8</code>, z. B. <code>vboxnet0</code>)</td>
+</tr>
+<tr>
+<td>VM1</td>
+<td>-</td>
+<td>Host-Only (<code>enp0s8</code>, <code>vboxnet0</code>)</td>
+</tr>
+<tr>
+<td>VM2</td>
+<td>-</td>
+<td>Host-Only (<code>enp0s8</code>, <code>vboxnet0</code>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Schritte für jede VM:</strong></p>
+<ol>
+<li>VM auswählen → <strong>Einstellungen</strong> → <strong>Netzwerk</strong>.</li>
+<li><strong>Router-VM:</strong></li>
+<li><strong>Adapter 1:</strong> <strong>NAT</strong> (für Internetzugriff).</li>
+<li><strong>Adapter 2:</strong> <strong>Host-Only Adapter</strong> (z. B. <code>vboxnet0</code>).</li>
+<li><strong>Ganz Wichtig den Promiscuous Modus auf erlauben für alle stellen</strong></li>
+<li><strong>VM1 und VM2:</strong></li>
+<li><strong>Adapter 1:</strong> <strong>Deaktiviert</strong>.</li>
+<li><strong>Adapter 2:</strong> <strong>Host-Only Adapter</strong> (z. B. <code>vboxnet0</code>).</li>
+<li><strong>Ganz Wichtig den Promiscuous Modus auf erlauben für alle stellen</strong></li>
+<li><strong>OK</strong> klicken.</li>
+</ol>
+<p><strong>Hinweis:</strong></p>
+<ul>
+<li><strong>Router-VM</strong> hat <strong>zwei Adapter</strong> (NAT + Host-Only).</li>
+<li><strong>VM1 und VM2</strong> haben <strong>nur einen Adapter</strong> (Host-Only).</li>
+</ul>
+<hr />
+<hr />
+<h3 id="schritt-1-router-vm-konfigurieren"><strong>📌 Schritt 1: Router-VM konfigurieren</strong><a class="headerlink" href="#schritt-1-router-vm-konfigurieren" title="Permanent link">&para;</a></h3>
+<p><strong>Ziel:</strong> Die Router-VM soll <strong>zwei VLANs (10 und 20)</strong> verwalten, <strong>Internetzugriff ermöglichen</strong> und als <strong>Gateway für VM1 und VM2</strong> dienen.</p>
+<h4 id="1-netzwerkinterfaces-prufen"><strong>1. Netzwerkinterfaces prüfen</strong><a class="headerlink" href="#1-netzwerkinterfaces-prufen" title="Permanent link">&para;</a></h4>
+<p>Auf der <strong>Router-VM</strong>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ip<span class="w"> </span>a
+</code></pre></div></td></tr></table></div>
+<p><strong>Erwartete Ausgabe (Beispiel):</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+2: enp0s3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 08:00:27:xx:xx:xx brd ff:ff:ff:ff:ff:ff
+    inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic enp0s3  # NAT-Interface (Internet)
+3: enp0s8: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 08:00:27:yy:yy:yy brd ff:ff:ff:ff:ff:ff
+    inet 192.168.56.10/24 brd 192.168.56.255 scope global dynamic enp0s8  # Host-Only-Interface
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><code>**enp0s3**</code> = NAT-Interface (für Internetzugriff).</li>
+<li><code>**enp0s8**</code> = Host-Only-Interface (für internes Netzwerk).</li>
+</ul>
+<h4 id="2-vlan-subinterfaces-fur-das-host-only-netzwerk-erstellen"><strong>2. VLAN-Subinterfaces für das Host-Only-Netzwerk erstellen</strong><a class="headerlink" href="#2-vlan-subinterfaces-fur-das-host-only-netzwerk-erstellen" title="Permanent link">&para;</a></h4>
+<p>Bearbeite die Netplan-Konfiguration der Router-VM:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/netplan/01-netcfg.yaml
+</code></pre></div></td></tr></table></div>
+<p><strong>Inhalt:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># This is the network config written by &#39;subiquity&#39;</span>
+<span class="nt">network</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ethernets</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">enp0s8</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">dhcp4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">dhcp6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">match</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">macaddress</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">08:00:27:f8:91:93</span>
+<span class="w">      </span><span class="nt">set-name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enp0s8</span>
+<span class="w">    </span><span class="nt">enp0s9</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">dhcp4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">      </span><span class="nt">dhcp6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="nt">vlans</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">enp0s9.10</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">      </span><span class="nt">link</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enp0s9</span>
+<span class="w">      </span><span class="nt">addresses</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">192.168.10.1/24</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">enp0s9.20</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
+<span class="w">      </span><span class="nt">link</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enp0s9</span>
+<span class="w">      </span><span class="nt">addresses</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">192.168.20.1/24</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Konfiguration anwenden:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>netplan<span class="w"> </span>apply
+</code></pre></div></td></tr></table></div>
+<h4 id="3-ip-forwarding-aktivieren"><strong>3. IP-Forwarding aktivieren</strong><a class="headerlink" href="#3-ip-forwarding-aktivieren" title="Permanent link">&para;</a></h4>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Temporär aktivieren</span>
+sudo<span class="w"> </span>sysctl<span class="w"> </span>-w<span class="w"> </span>net.ipv4.ip_forward<span class="o">=</span><span class="m">1</span>
+
+<span class="c1"># Dauerhaft aktivieren</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;net.ipv4.ip_forward=1&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/sysctl.conf
+sudo<span class="w"> </span>sysctl<span class="w"> </span>-p
+</code></pre></div></td></tr></table></div>
+<h4 id="4-nat-fur-internetzugriff-einrichten"><strong>4. NAT für Internetzugriff einrichten</strong><a class="headerlink" href="#4-nat-fur-internetzugriff-einrichten" title="Permanent link">&para;</a></h4>
+<p><strong>Wichtig:</strong> Damit VM1 und VM2 über die Router-VM ins Internet kommen, müssen wir <strong>NAT (Masquerading)</strong> für das NAT-Interface (<code>enp0s3</code>) einrichten.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># NAT (Masquerading) für ausgehende Pakete über enp0s3 aktivieren</span>
+sudo<span class="w"> </span>iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-A<span class="w"> </span>POSTROUTING<span class="w"> </span>-o<span class="w"> </span>enp0s3<span class="w"> </span>-j<span class="w"> </span>MASQUERADE
+
+<span class="c1"># Forwarding von den VLANs ins Internet erlauben</span>
+sudo<span class="w"> </span>iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-i<span class="w"> </span>enp0s8.10<span class="w"> </span>-o<span class="w"> </span>enp0s3<span class="w"> </span>-j<span class="w"> </span>ACCEPT
+sudo<span class="w"> </span>iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-i<span class="w"> </span>enp0s8.20<span class="w"> </span>-o<span class="w"> </span>enp0s3<span class="w"> </span>-j<span class="w"> </span>ACCEPT
+
+<span class="c1"># Antwortverkehr von Internet zu den VLANs erlauben</span>
+sudo<span class="w"> </span>iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-i<span class="w"> </span>enp0s3<span class="w"> </span>-o<span class="w"> </span>enp0s8.10<span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>ESTABLISHED,RELATED<span class="w"> </span>-j<span class="w"> </span>ACCEPT
+sudo<span class="w"> </span>iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-i<span class="w"> </span>enp0s3<span class="w"> </span>-o<span class="w"> </span>enp0s8.20<span class="w"> </span>-m<span class="w"> </span>conntrack<span class="w"> </span>--ctstate<span class="w"> </span>ESTABLISHED,RELATED<span class="w"> </span>-j<span class="w"> </span>ACCEPT
+
+<span class="c1"># Regeln speichern</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>iptables-persistent<span class="w"> </span>-y
+sudo<span class="w"> </span>netfilter-persistent<span class="w"> </span>save
+</code></pre></div></td></tr></table></div>
+<p><strong>Was passiert hier?</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Befehl</strong></th>
+<th><strong>Erklärung</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE</code></td>
+<td><strong>NAT (Masquerading)</strong> für ausgehende Pakete über <code>enp0s3</code> (Internet). Alle VMs teilen sich die IP von <code>enp0s3</code>.</td>
+</tr>
+<tr>
+<td><code>iptables -A FORWARD -i enp0s8.10 -o enp0s3 -j ACCEPT</code></td>
+<td>Erlaubt <strong>Forwarding von VLAN 10 ins Internet</strong>.</td>
+</tr>
+<tr>
+<td><code>iptables -A FORWARD -i enp0s3 -o enp0s8.10 -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT</code></td>
+<td>Erlaubt <strong>Antwortpakete von Internet zu VLAN 10</strong>.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<hr />
+<h3 id="schritt-2-vm1-vlan-10-konfigurieren"><strong>📌 Schritt 2: VM1 (VLAN 10) konfigurieren</strong><a class="headerlink" href="#schritt-2-vm1-vlan-10-konfigurieren" title="Permanent link">&para;</a></h3>
+<p><strong>Ziel:</strong> VM1 bekommt eine IP in <strong>VLAN 10</strong> und nutzt die Router-VM als Gateway.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/netplan/01-netcfg.yaml
+</code></pre></div></td></tr></table></div>
+<p><strong>Inhalt:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">network</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ethernets</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">enp0s8</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">dhcp4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">      </span><span class="nt">dhcp6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+
+<span class="w">  </span><span class="nt">vlans</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">enp0s8.10</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">      </span><span class="nt">link</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enp0s8</span>
+<span class="w">      </span><span class="nt">addresses</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">192.168.10.2/24</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="nt">routes</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="w">          </span><span class="nt">via</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.10.1</span>
+<span class="w">      </span><span class="nt">nameservers</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">addresses</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8.8.8.8</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.1.1.1</span>
+<span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Konfiguration anwenden:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>netplan<span class="w"> </span>apply
+</code></pre></div></td></tr></table></div>
+<hr />
+<hr />
+<h3 id="schritt-3-vm2-vlan-20-konfigurieren"><strong>📌 Schritt 3: VM2 (VLAN 20) konfigurieren</strong><a class="headerlink" href="#schritt-3-vm2-vlan-20-konfigurieren" title="Permanent link">&para;</a></h3>
+<p><strong>Ziel:</strong> VM2 bekommt eine IP in <strong>VLAN 20</strong> und nutzt die Router-VM als Gateway.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/netplan/01-netcfg.yaml
+</code></pre></div></td></tr></table></div>
+<p><strong>Inhalt:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">network</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ethernets</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">enp0s8</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">dhcp4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">      </span><span class="nt">dhcp6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+
+<span class="w">  </span><span class="nt">vlans</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">enp0s8.10</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">      </span><span class="nt">link</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">enp0s8</span>
+<span class="w">      </span><span class="nt">addresses</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">192.168.10.3/24</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="nt">routes</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="w">          </span><span class="nt">via</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.10.1</span>
+<span class="w">      </span><span class="nt">nameservers</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">addresses</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8.8.8.8</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.1.1.1</span>
+<span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Konfiguration anwenden:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>netplan<span class="w"> </span>apply
+</code></pre></div></td></tr></table></div>
+<hr />
+<hr />
+<h3 id="schritt-4-firewall-regeln-auf-der-router-vm"><strong>📌 Schritt 4: Firewall-Regeln auf der Router-VM</strong><a class="headerlink" href="#schritt-4-firewall-regeln-auf-der-router-vm" title="Permanent link">&para;</a></h3>
+<p><strong>Ziel:</strong> Standardmäßig <strong>allen Verkehr zwischen den VLANs blockieren</strong>, aber <strong>Internetzugriff erlauben</strong>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Alle Verbindungen zwischen VLAN 10 und VLAN 20 blockieren</span>
+sudo<span class="w"> </span>iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-i<span class="w"> </span>enp0s8.10<span class="w"> </span>-o<span class="w"> </span>enp0s8.20<span class="w"> </span>-j<span class="w"> </span>DROP
+sudo<span class="w"> </span>iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-i<span class="w"> </span>enp0s8.20<span class="w"> </span>-o<span class="w"> </span>enp0s8.10<span class="w"> </span>-j<span class="w"> </span>DROP
+
+<span class="c1"># Regeln speichern</span>
+sudo<span class="w"> </span>netfilter-persistent<span class="w"> </span>save
+</code></pre></div></td></tr></table></div>
+<p><strong>Was passiert hier?</strong></p>
+<ul>
+<li><code>**iptables -A FORWARD -i enp0s8.10 -o enp0s8.20 -j DROP**</code> blockiert alle Pakete von VLAN 10 zu VLAN 20.</li>
+<li><code>**iptables -A FORWARD -i enp0s8.20 -o enp0s8.10 -j DROP**</code> blockiert alle Pakete von VLAN 20 zu VLAN 10.</li>
+</ul>
+<hr />
+<hr />
+<h3 id="schritt-5-testen"><strong>📌 Schritt 5: Testen</strong><a class="headerlink" href="#schritt-5-testen" title="Permanent link">&para;</a></h3>
+<h4 id="1-internetzugriff-prufen"><strong>1. Internetzugriff prüfen</strong><a class="headerlink" href="#1-internetzugriff-prufen" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Auf VM1:</strong>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ping<span class="w"> </span><span class="m">8</span>.8.8.8
+</code></pre></div></td></tr></table></div>
+  → <strong>Sollte funktionieren!</strong> (NAT leitet Pakete über <code>enp0s3</code> ins Internet weiter.)</li>
+<li><strong>Auf VM2:</strong>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ping<span class="w"> </span><span class="m">8</span>.8.8.8
+</code></pre></div></td></tr></table></div>
+  → <strong>Sollte funktionieren!</strong></li>
+</ul>
+<h4 id="2-ping-innerhalb-eines-vlans-sollte-funktionieren"><strong>2. Ping innerhalb eines VLANs (sollte funktionieren)</strong><a class="headerlink" href="#2-ping-innerhalb-eines-vlans-sollte-funktionieren" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Von VM1 zu sich selbst:</strong>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ping<span class="w"> </span><span class="m">192</span>.168.10.10
+</code></pre></div></td></tr></table></div>
+  → <strong>Funktioniert!</strong> (Lokaler Ping)</li>
+</ul>
+<h4 id="3-ping-zwischen-vlans-sollte-nicht-funktionieren"><strong>3. Ping zwischen VLANs (sollte NICHT funktionieren)</strong><a class="headerlink" href="#3-ping-zwischen-vlans-sollte-nicht-funktionieren" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Von VM1 (VLAN 10) zu VM2 (VLAN 20):</strong>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ping<span class="w"> </span><span class="m">192</span>.168.20.10
+</code></pre></div></td></tr></table></div>
+  → <strong>Funktioniert NICHT!</strong> (Firewall blockiert den Verkehr.)</li>
+</ul>
+<h4 id="4-ping-zwischen-vlans-erlauben-optional"><strong>4. Ping zwischen VLANs erlauben (optional)</strong><a class="headerlink" href="#4-ping-zwischen-vlans-erlauben-optional" title="Permanent link">&para;</a></h4>
+<p>Falls du den Verkehr zwischen den VLANs <strong>erlauben</strong> willst:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Erlaube Ping (ICMP) zwischen VLAN 10 und VLAN 20</span>
+sudo<span class="w"> </span>iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-i<span class="w"> </span>enp0s8.10<span class="w"> </span>-o<span class="w"> </span>enp0s8.20<span class="w"> </span>-p<span class="w"> </span>icmp<span class="w"> </span>-j<span class="w"> </span>ACCEPT
+sudo<span class="w"> </span>iptables<span class="w"> </span>-A<span class="w"> </span>FORWARD<span class="w"> </span>-i<span class="w"> </span>enp0s8.20<span class="w"> </span>-o<span class="w"> </span>enp0s8.10<span class="w"> </span>-p<span class="w"> </span>icmp<span class="w"> </span>-j<span class="w"> </span>ACCEPT
+sudo<span class="w"> </span>netfilter-persistent<span class="w"> </span>save
+</code></pre></div></td></tr></table></div>
+<p>→ <strong>Jetzt funktioniert der Ping zwischen VM1 und VM2!</strong></p>
+<hr />
+<hr />
+<hr />
+<h2 id="ubungen-fur-die-teilnehmer">💡 <strong>Übungen für die Teilnehmer</strong><a class="headerlink" href="#ubungen-fur-die-teilnehmer" title="Permanent link">&para;</a></h2>
+<hr />
+<hr />
+<h2 id="zusammenfassung">🎓 <strong>Zusammenfassung</strong><a class="headerlink" href="#zusammenfassung" title="Permanent link">&para;</a></h2>
+<h3 id="was-du-gelernt-hast"><strong>Was du gelernt hast:</strong><a class="headerlink" href="#was-du-gelernt-hast" title="Permanent link">&para;</a></h3>
+<p>✅ <strong>VLANs</strong> trennen Netzwerke logisch, auch wenn sie physisch verbunden sind.<br />
+✅ <strong>Netplan</strong> kann <strong>VLAN-Subinterfaces</strong> einfach konfigurieren.<br />
+✅ <strong>IP-Forwarding</strong> ermöglicht es einem Router, Pakete zwischen Netzwerken weiterzuleiten.<br />
+✅ <strong>NAT (Masquerading)</strong> ermöglicht <strong>Internetzugriff</strong> für VMs hinter einem Router.<br />
+✅ <strong>iptables</strong> kann Verkehr zwischen VLANs <strong>blockieren oder erlauben</strong>.</p>
+<h3 id="wichtige-befehle"><strong>Wichtige Befehle:</strong><a class="headerlink" href="#wichtige-befehle" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Zweck</strong></th>
+<th><strong>Befehl</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VLAN-Subinterface erstellen</td>
+<td><code>enp0s8.10: { id: 10, link: enp0s8, addresses: [192.168.10.1/24] }</code></td>
+</tr>
+<tr>
+<td>IP-Forwarding aktivieren</td>
+<td><code>sudo sysctl -w net.ipv4.ip_forward=1</code></td>
+</tr>
+<tr>
+<td>NAT (Masquerading) aktivieren</td>
+<td><code>sudo iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE</code></td>
+</tr>
+<tr>
+<td>Forwarding für VLANs ins Internet</td>
+<td><code>sudo iptables -A FORWARD -i enp0s8.10 -o enp0s3 -j ACCEPT</code></td>
+</tr>
+<tr>
+<td>Firewall-Regel hinzufügen</td>
+<td><code>sudo iptables -A FORWARD -i enp0s8.10 -o enp0s8.20 -j DROP</code></td>
+</tr>
+<tr>
+<td>Firewall-Regeln speichern</td>
+<td><code>sudo netfilter-persistent save</code></td>
+</tr>
+<tr>
+<td>Netplan-Konfiguration anwenden</td>
+<td><code>sudo netplan apply</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<hr />
+<h3 id="typische-fehler-losungen"><strong>Typische Fehler &amp; Lösungen:</strong><a class="headerlink" href="#typische-fehler-losungen" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Problem</strong></th>
+<th><strong>Ursache</strong></th>
+<th><strong>Lösung</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kein Internetzugriff</td>
+<td>NAT ist nicht aktiviert</td>
+<td><code>sudo iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE</code></td>
+</tr>
+<tr>
+<td>VLANs funktionieren nicht</td>
+<td>IP-Forwarding ist deaktiviert</td>
+<td><code>sudo sysctl -w net.ipv4.ip_forward=1</code></td>
+</tr>
+<tr>
+<td>VMs können sich nicht verbinden</td>
+<td>Falsche IP oder Gateway</td>
+<td>Prüfe die Netplan-Konfiguration mit <code>ip a</code></td>
+</tr>
+<tr>
+<td>Firewall blockiert alles</td>
+<td>Standardrichtlinie ist <code>DROP</code></td>
+<td>Erlaube explizit den gewünschten Verkehr</td>
+</tr>
+<tr>
+<td>Ping funktioniert nicht zwischen VLANs</td>
+<td>Firewall-Regel blockiert ICMP</td>
+<td><code>sudo iptables -A FORWARD -i enp0s8.10 -o enp0s8.20 -p icmp -j ACCEPT</code></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../2/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Virtualisierung &amp; VM-Setup">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Virtualisierung & VM-Setup
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../3.1/" class="md-footer__link md-footer__link--next" aria-label="Next: Rechenaufgaben">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Rechenaufgaben
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Qualidy GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.kununu.com/de/qualidy" target="_blank" rel="noopener" title="www.kununu.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M311 86.3c12.3-12.7 12-32.9-.7-45.2s-32.9-12-45.2.7C143.4 167.2 76.4 236.3 64 249V64c0-17.7-14.3-32-32-32S0 46.3 0 64v384c0 17.7 14.3 32 32 32s32-14.3 32-32V341l64.7-66.7 133 192c10.1 14.5 30 18.1 44.5 8.1s18.1-30 8.1-44.5L174.1 227.4z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://de.linkedin.com/company/qualidy" target="_blank" rel="noopener" title="de.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.google.com/search?sca_esv=7e6ba2047fcb60f3&uds=AMwkrPtyB8MsmozA4Lwzqy2G2HCu-abqzc6moOG48q3gP5dtjTRzC2Ws0eSwcyLXDfZNuYCrZ7ByIreHLG9th3vKLekPoVeey0tumAbet4cVLQRLzdRFhUbOGbnyp3xo1V0hzzaNmkCN&si=AKbGX_rcuucMgom2rba1cdwsvM2SVoIkP2btyqGMV4t0GuHIs4sGV_1tpuqR0YHG4Rzd9SdJcL-lW6E-2aJA5azZLTKkIOrZ2j2aWwoBkVbdEJ0o0GPcQhs%3D&q=Qualidy+GmbH+Rezensionen&sa=X&ved=2ahUKEwibsbnSgcmFAxXNQvEDHaVYCiAQ3PALegQIRxAF" target="_blank" rel="noopener" title="www.google.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://qualidy.de" target="_blank" rel="noopener" title="qualidy.de" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.path", "navigation.top", "navigation.footer", "toc.follow", "toc.integrate", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

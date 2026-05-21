@@ -1,0 +1,1419 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../6/">
+      
+      
+        <link rel="next" href="../8/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>E-Mail-Server (Postfix/Dovecot) - Netzwerktechnik - Grundlagen & Praxis</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/logo.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/grid.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/video_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/python_tutor_admonition.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/mermaid.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tag-7-e-mail-server-postfixdovecot-einfach-erklart" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Netzwerktechnik - Grundlagen &amp; Praxis" class="md-header__button md-logo" aria-label="Netzwerktechnik - Grundlagen & Praxis" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Netzwerktechnik - Grundlagen & Praxis
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              E-Mail-Server (Postfix/Dovecot)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Netzwerktechnik - Grundlagen &amp; Praxis" class="md-nav__button md-logo" aria-label="Netzwerktechnik - Grundlagen & Praxis" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Netzwerktechnik - Grundlagen & Praxis
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Übersicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Einführung & Netzwerkgrundlagen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Virtualisierung & VM-Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IP-Adressierung & Subnetting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rechenaufgaben
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Router & Switches
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Firewall & Sicherheit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Webserver (Apache/Nginx)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    E-Mail-Server (Postfix/Dovecot)
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    E-Mail-Server (Postfix/Dovecot)
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#theorie-ganz-einfach-erklart" class="md-nav__link">
+    <span class="md-ellipsis">
+      📚 Theorie – ganz einfach erklärt
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 Theorie – ganz einfach erklärt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-wie-funktioniert-e-mail" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Wie funktioniert E-Mail?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-postfix-der-e-mail-versender" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Postfix – Der E-Mail-Versender
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-dovecot-der-e-mail-empfanger" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Dovecot – Der E-Mail-Empfänger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-wichtige-begriffe" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Wichtige Begriffe
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#praxis-postfix-und-dovecot-installieren" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎮 Praxis – Postfix und Dovecot installieren
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎮 Praxis – Postfix und Dovecot installieren">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schritt-1-postfix-installieren" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Schritt 1: Postfix installieren
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-2-dovecot-installieren" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Schritt 2: Dovecot installieren
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-3-benutzer-fur-e-mails-einrichten" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Schritt 3: Benutzer für E-Mails einrichten
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-4-postfix-fur-lokale-e-mails-konfigurieren" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Schritt 4: Postfix für lokale E-Mails konfigurieren
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-5-dovecot-konfigurieren" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Schritt 5: Dovecot konfigurieren
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schritt-6-firewall-fur-e-mail-ports-offnen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Schritt 6: Firewall für E-Mail-Ports öffnen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubungen-einfach-praxisnah" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 Übungen – einfach &amp; praxisnah
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 Übungen – einfach &amp; praxisnah">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-1-postfix-installieren-und-status-prufen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 1: Postfix installieren und Status prüfen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-2-dovecot-installieren-und-status-prufen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 2: Dovecot installieren und Status prüfen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-3-benutzer-fur-e-mails-einrichten" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 3: Benutzer für E-Mails einrichten
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-4-e-mail-zwischen-zwei-vms-senden" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 4: E-Mail zwischen zwei VMs senden
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-5-postfix-konfiguration-anpassen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 5: Postfix-Konfiguration anpassen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-6-firewall-fur-e-mail-ports-offnen" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 6: Firewall für E-Mail-Ports öffnen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aufgabe-7-e-mail-mit-telnet-testen-fur-fortgeschrittene" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 Aufgabe 7: E-Mail mit Telnet testen (für Fortgeschrittene)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zusammenfassung-das-wichtigste" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎓 Zusammenfassung – das Wichtigste
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monitoring & Fehlerbehebung
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vertiefung Wireshark
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Abschlussprojekt & Reflexion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tag-7-e-mail-server-postfixdovecot-einfach-erklart">📧 Tag 7: E-Mail-Server (Postfix/Dovecot) - Einfach erklärt<a class="headerlink" href="#tag-7-e-mail-server-postfixdovecot-einfach-erklart" title="Permanent link">&para;</a></h1>
+<h2 id="theorie-ganz-einfach-erklart"><strong>📚 Theorie – ganz einfach erklärt</strong><a class="headerlink" href="#theorie-ganz-einfach-erklart" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="1-wie-funktioniert-e-mail"><strong>1. Wie funktioniert E-Mail?</strong><a class="headerlink" href="#1-wie-funktioniert-e-mail" title="Permanent link">&para;</a></h3>
+<p>Stell dir vor, du schickst einen <strong>Brief</strong>:</p>
+<ol>
+<li>Du schreibst den Brief und wirfst ihn in einen <strong>Briefkasten</strong> (E-Mail-Client wie Outlook oder Thunderbird).</li>
+<li>Der <strong>Postbote (SMTP-Server, z. B. Postfix)</strong> holt den Brief ab und bringt ihn zum <strong>Postamt (E-Mail-Server)</strong>.</li>
+<li>Das Postamt schickt den Brief zum <strong>Postamt des Empfängers</strong> (über das Internet).</li>
+<li>Der <strong>Postbote des Empfängers (IMAP/POP3-Server, z. B. Dovecot)</strong> legt den Brief in den <strong>Briefkasten des Empfängers</strong> (E-Mail-Postfach).</li>
+<li>Der Empfänger holt den Brief aus seinem Briefkasten ab (mit einem E-Mail-Client).</li>
+</ol>
+<p><strong>E-Mail-Protokolle:</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Protokoll</strong></th>
+<th><strong>Wofür?</strong></th>
+<th><strong>Port</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SMTP</strong> (Simple Mail Transfer Protocol)</td>
+<td><strong>Versenden</strong> von E-Mails.</td>
+<td>25, 587 (mit TLS)</td>
+</tr>
+<tr>
+<td><strong>IMAP</strong> (Internet Message Access Protocol)</td>
+<td><strong>Empfangen und Verwalten</strong> von E-Mails (bleiben auf dem Server).</td>
+<td>143, 993 (mit SSL)</td>
+</tr>
+<tr>
+<td><strong>POP3</strong> (Post Office Protocol)</td>
+<td><strong>Empfangen</strong> von E-Mails (werden heruntergeladen).</td>
+<td>110, 995 (mit SSL)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-postfix-der-e-mail-versender"><strong>2. Postfix – Der E-Mail-Versender</strong><a class="headerlink" href="#2-postfix-der-e-mail-versender" title="Permanent link">&para;</a></h3>
+<p><strong>Postfix</strong> ist wie ein <strong>Postbote</strong>, der deine E-Mails <strong>versendet</strong>.</p>
+<ul>
+<li><strong>Aufgabe:</strong> Nimmt E-Mails entgegen und leitet sie an den Empfänger weiter.</li>
+<li><strong>Vorteile:</strong> Schnell, sicher, einfach zu konfigurieren.</li>
+</ul>
+<hr />
+<h3 id="3-dovecot-der-e-mail-empfanger"><strong>3. Dovecot – Der E-Mail-Empfänger</strong><a class="headerlink" href="#3-dovecot-der-e-mail-empfanger" title="Permanent link">&para;</a></h3>
+<p><strong>Dovecot</strong> ist wie ein <strong>Briefkasten</strong>, in dem E-Mails <strong>empfangen und gespeichert</strong> werden.</p>
+<ul>
+<li><strong>Aufgabe:</strong> Ermöglicht das <strong>Abrufen von E-Mails</strong> (z. B. mit Thunderbird oder einem Handy).</li>
+<li><strong>Vorteile:</strong> Unterstützt <strong>IMAP und POP3</strong>, sicher, effizient.</li>
+</ul>
+<hr />
+<hr />
+<h3 id="4-wichtige-begriffe"><strong>4. Wichtige Begriffe</strong><a class="headerlink" href="#4-wichtige-begriffe" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Begriff</strong></th>
+<th><strong>Erklärung</strong></th>
+<th><strong>Beispiel</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SMTP-Server</strong></td>
+<td>Server zum <strong>Versenden</strong> von E-Mails.</td>
+<td>Postfix</td>
+</tr>
+<tr>
+<td><strong>IMAP-Server</strong></td>
+<td>Server zum <strong>Empfangen und Verwalten</strong> von E-Mails.</td>
+<td>Dovecot</td>
+</tr>
+<tr>
+<td><strong>Domain</strong></td>
+<td>Der Name deines E-Mail-Servers.</td>
+<td><code>example.com</code></td>
+</tr>
+<tr>
+<td><strong>MX-Record</strong></td>
+<td>Zeigt an, welcher Server für E-Mails einer Domain zuständig ist.</td>
+<td><code>mail.example.com</code></td>
+</tr>
+<tr>
+<td><strong>Spam-Filter</strong></td>
+<td>Filtert unerwünschte E-Mails (Spam) heraus.</td>
+<td>SpamAssassin</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<hr />
+<h2 id="praxis-postfix-und-dovecot-installieren"><strong>🎮 Praxis – Postfix und Dovecot installieren</strong><a class="headerlink" href="#praxis-postfix-und-dovecot-installieren" title="Permanent link">&para;</a></h2>
+<hr />
+<hr />
+<h3 id="schritt-1-postfix-installieren"><strong>📌 Schritt 1: Postfix installieren</strong><a class="headerlink" href="#schritt-1-postfix-installieren" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Postfix installieren</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>postfix<span class="w"> </span>-y
+</code></pre></div></td></tr></table></div>
+<p><strong>Während der Installation:</strong></p>
+<ul>
+<li>Wähle <strong>"Internet Site"</strong>.</li>
+<li>Gib deine <strong>Domain</strong> ein (z. B. <code>meinmailserver.local</code> oder eine echte Domain, falls vorhanden).</li>
+</ul>
+<p><strong>Postfix starten und aktivieren:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>postfix
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>postfix
+sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>postfix
+</code></pre></div></td></tr></table></div>
+<p><strong>Erwartete Ausgabe:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>● postfix.service - Postfix Mail Transport Agent
+   Loaded: loaded (/lib/systemd/system/postfix.service; enabled; vendor preset: enabled)
+   Active: active (running) since ...
+</code></pre></div></td></tr></table></div>
+<hr />
+<hr />
+<h3 id="schritt-2-dovecot-installieren"><strong>📌 Schritt 2: Dovecot installieren</strong><a class="headerlink" href="#schritt-2-dovecot-installieren" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Dovecot installieren</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>dovecot-core<span class="w"> </span>dovecot-imapd<span class="w"> </span>dovecot-pop3d<span class="w"> </span>-y
+</code></pre></div></td></tr></table></div>
+<p><strong>Dovecot starten und aktivieren:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>dovecot
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>dovecot
+sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>dovecot
+</code></pre></div></td></tr></table></div>
+<p><strong>Erwartete Ausgabe:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>● dovecot.service - Dovecot IMAP/POP3 email server
+   Loaded: loaded (/lib/systemd/system/dovecot.service; enabled; vendor preset: enabled)
+   Active: active (running) since ...
+</code></pre></div></td></tr></table></div>
+<hr />
+<hr />
+<h3 id="schritt-3-benutzer-fur-e-mails-einrichten"><strong>📌 Schritt 3: Benutzer für E-Mails einrichten</strong><a class="headerlink" href="#schritt-3-benutzer-fur-e-mails-einrichten" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Erstelle einen <strong>Benutzer</strong> (z. B. <code>testuser</code>):
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span>sudo<span class="w"> </span>adduser<span class="w"> </span>testuser
+</code></pre></div></td></tr></table></div></li>
+<li>Gib ein <strong>Passwort</strong> ein (z. B. <code>Test1234!</code>).</li>
+<li>Bestätige die weiteren Fragen mit <code>Enter</code>.</li>
+<li><strong>E-Mail-Verzeichnis erstellen</strong> (für Dovecot):
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/home/testuser/Maildir
+<span class="w"> </span>sudo<span class="w"> </span>chown<span class="w"> </span>testuser:testuser<span class="w"> </span>/home/testuser/Maildir
+<span class="w"> </span>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">700</span><span class="w"> </span>/home/testuser/Maildir
+</code></pre></div></td></tr></table></div></li>
+</ol>
+<hr />
+<hr />
+<h3 id="schritt-4-postfix-fur-lokale-e-mails-konfigurieren"><strong>📌 Schritt 4: Postfix für lokale E-Mails konfigurieren</strong><a class="headerlink" href="#schritt-4-postfix-fur-lokale-e-mails-konfigurieren" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Bearbeite die <strong>Postfix-Konfiguration</strong>:
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/postfix/main.cf
+</code></pre></div></td></tr></table></div></li>
+<li>Füge folgende Zeilen hinzu oder ändere sie:
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span><span class="na">myhostname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">mail.meinmailserver.local</span>
+<span class="w"> </span><span class="na">mydomain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">meinmailserver.local</span>
+<span class="w"> </span><span class="na">myorigin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$mydomain</span>
+<span class="w"> </span><span class="na">inet_interfaces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">all</span>
+<span class="w"> </span><span class="na">mydestination</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">$myhostname, localhost.$mydomain, localhost, $mydomain</span>
+<span class="w"> </span><span class="na">home_mailbox</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Maildir/</span>
+</code></pre></div></td></tr></table></div></li>
+<li>Speichern: <code>Strg + O</code> → <code>Enter</code> → <code>Strg + X</code>.</li>
+<li><strong>Postfix neu starten:</strong>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>postfix
+</code></pre></div></td></tr></table></div></li>
+</ol>
+<hr />
+<hr />
+<h3 id="schritt-5-dovecot-konfigurieren"><strong>📌 Schritt 5: Dovecot konfigurieren</strong><a class="headerlink" href="#schritt-5-dovecot-konfigurieren" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Bearbeite die <strong>Dovecot-Konfiguration</strong>:
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/dovecot/conf.d/10-mail.conf
+</code></pre></div></td></tr></table></div></li>
+<li>Füge folgende Zeile hinzu oder ändere sie:
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span><span class="na">mail_location</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">maildir:~/Maildir</span>
+</code></pre></div></td></tr></table></div></li>
+<li>Speichern und schließen.</li>
+<li><strong>Dovecot neu starten:</strong>
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>dovecot
+</code></pre></div></td></tr></table></div></li>
+</ol>
+<hr />
+<hr />
+<h3 id="schritt-6-firewall-fur-e-mail-ports-offnen"><strong>📌 Schritt 6: Firewall für E-Mail-Ports öffnen</strong><a class="headerlink" href="#schritt-6-firewall-fur-e-mail-ports-offnen" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># SMTP (Port 25 und 587)</span>
+sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">25</span>
+sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">587</span>
+
+<span class="c1"># IMAP (Port 143 und 993)</span>
+sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">143</span>
+sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">993</span>
+
+<span class="c1"># POP3 (Port 110 und 995)</span>
+sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">110</span>
+sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">995</span>
+
+<span class="c1"># Status prüfen</span>
+sudo<span class="w"> </span>ufw<span class="w"> </span>status
+</code></pre></div></td></tr></table></div>
+<p><strong>Erwartete Ausgabe:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>Status: active
+To                         Action      From
+--                         ------      ----
+25/tcp                     ALLOW       Anywhere
+587/tcp                    ALLOW       Anywhere
+143/tcp                    ALLOW       Anywhere
+993/tcp                    ALLOW       Anywhere
+110/tcp                    ALLOW       Anywhere
+995/tcp                    ALLOW       Anywhere
+</code></pre></div></td></tr></table></div>
+<hr />
+<hr />
+<h2 id="ubungen-einfach-praxisnah"><strong>💡 Übungen – einfach &amp; praxisnah</strong><a class="headerlink" href="#ubungen-einfach-praxisnah" title="Permanent link">&para;</a></h2>
+<hr />
+<hr />
+<h3 id="aufgabe-1-postfix-installieren-und-status-prufen"><strong>📝 Aufgabe 1: Postfix installieren und Status prüfen</strong><a class="headerlink" href="#aufgabe-1-postfix-installieren-und-status-prufen" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong></p>
+<ol>
+<li>Installiere <strong>Postfix</strong> auf deiner Ubuntu-VM.</li>
+<li>Starte Postfix und prüfe den Status.</li>
+</ol>
+<p><strong>Frage:</strong> Welcher Befehl zeigt an, ob Postfix läuft?</p>
+<details class="success">
+<summary>Lösung:</summary>
+<p><strong>Befehle:</strong></p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>postfix<span class="w"> </span>-y
+sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>postfix
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>postfix
+sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>postfix
+</code></pre></div></td></tr></table></div>
+<strong>Befehl zum Prüfen:</strong></p>
+<ul>
+<li><code>sudo systemctl status postfix</code></li>
+</ul>
+</details>
+<hr />
+<hr />
+<h3 id="aufgabe-2-dovecot-installieren-und-status-prufen"><strong>📝 Aufgabe 2: Dovecot installieren und Status prüfen</strong><a class="headerlink" href="#aufgabe-2-dovecot-installieren-und-status-prufen" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong></p>
+<ol>
+<li>Installiere <strong>Dovecot</strong> auf deiner Ubuntu-VM.</li>
+<li>Starte Dovecot und prüfe den Status.</li>
+</ol>
+<p><strong>Frage:</strong> Welcher Befehl zeigt an, ob Dovecot läuft?</p>
+<details class="success">
+<summary>Lösung:</summary>
+<p><strong>Befehle:</strong></p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>dovecot-core<span class="w"> </span>dovecot-imapd<span class="w"> </span>dovecot-pop3d<span class="w"> </span>-y
+sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>dovecot
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>dovecot
+sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>dovecot
+</code></pre></div></td></tr></table></div>
+<strong>Befehl zum Prüfen:</strong></p>
+<ul>
+<li><code>sudo systemctl status dovecot</code></li>
+</ul>
+</details>
+<hr />
+<h3 id="aufgabe-3-benutzer-fur-e-mails-einrichten"><strong>📝 Aufgabe 3: Benutzer für E-Mails einrichten</strong><a class="headerlink" href="#aufgabe-3-benutzer-fur-e-mails-einrichten" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong></p>
+<ol>
+<li>Erstelle einen <strong>Benutzer</strong> mit dem Namen <code>emailuser</code>.</li>
+<li>Erstelle das <strong>Maildir-Verzeichnis</strong> für diesen Benutzer.</li>
+</ol>
+<p><strong>Frage:</strong> Welcher Befehl erstellt ein neues Verzeichnis?</p>
+<details class="success">
+<summary>Lösung:</summary>
+<p><strong>Benutzer erstellen:</strong></p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>adduser<span class="w"> </span>emailuser
+</code></pre></div></td></tr></table></div>
+<strong>Maildir-Verzeichnis erstellen:</strong></p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/home/emailuser/Maildir
+sudo<span class="w"> </span>chown<span class="w"> </span>emailuser:emailuser<span class="w"> </span>/home/emailuser/Maildir
+sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">700</span><span class="w"> </span>/home/emailuser/Maildir
+</code></pre></div></td></tr></table></div>
+<strong>Befehl zum Erstellen eines Verzeichnisses:</strong></p>
+<ul>
+<li><code>sudo mkdir -p /home/emailuser/Maildir</code></li>
+</ul>
+</details>
+<hr />
+<h3 id="aufgabe-4-e-mail-zwischen-zwei-vms-senden"><strong>📝 Aufgabe 4: E-Mail zwischen zwei VMs senden</strong><a class="headerlink" href="#aufgabe-4-e-mail-zwischen-zwei-vms-senden" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong></p>
+<ol>
+<li>Richte auf <strong>zwei VMs</strong> Postfix und Dovecot ein (wie oben beschrieben).</li>
+<li>Sende eine <strong>E-Mail von VM1 an VM2</strong> mit dem <code>mail</code>-Befehl:
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hallo, das ist eine Test-E-Mail!&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>mail<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;Test-E-Mail&quot;</span><span class="w"> </span>emailuser@IP_DER_VM2
+</code></pre></div></td></tr></table></div></li>
+<li>Ersetze <code>IP_DER_VM2</code> mit der <strong>IP-Adresse der zweiten VM</strong>.</li>
+<li>Melde dich auf <strong>VM2</strong> als <code>emailuser</code> an und prüfe die E-Mails:
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span>su<span class="w"> </span>-<span class="w"> </span>emailuser
+<span class="w"> </span>mail
+</code></pre></div></td></tr></table></div></li>
+</ol>
+<p><strong>Frage:</strong> Welcher Befehl zeigt die E-Mails von <code>emailuser</code> an?</p>
+<details class="success">
+<summary>Lösung:</summary>
+<p><strong>E-Mail senden (auf VM1):</strong></p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hallo, das ist eine Test-E-Mail!&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>mail<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;Test-E-Mail&quot;</span><span class="w"> </span>emailuser@192.168.1.2
+</code></pre></div></td></tr></table></div>
+<strong>E-Mails abrufen (auf VM2):</strong></p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>su<span class="w"> </span>-<span class="w"> </span>emailuser
+mail
+</code></pre></div></td></tr></table></div>
+<strong>Befehl zum Anzeigen der E-Mails:</strong></p>
+<ul>
+<li><code>mail</code> (nach dem Einloggen als <code>emailuser</code>)</li>
+</ul>
+</details>
+<hr />
+<hr />
+<h3 id="aufgabe-5-postfix-konfiguration-anpassen"><strong>📝 Aufgabe 5: Postfix-Konfiguration anpassen</strong><a class="headerlink" href="#aufgabe-5-postfix-konfiguration-anpassen" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong></p>
+<ol>
+<li>Bearbeite die Datei <code>/etc/postfix/main.cf</code>.</li>
+<li>Ändere die Zeile <code>myhostname</code> in <code>mail.meinmailserver.local</code>.</li>
+<li>Starte Postfix neu.</li>
+</ol>
+<p><strong>Frage:</strong> Welcher Befehl startet Postfix neu?</p>
+<details class="success">
+<summary>Lösung:</summary>
+<p><strong>Konfiguration bearbeiten:</strong></p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/postfix/main.cf
+</code></pre></div></td></tr></table></div>
+<strong>Zeile anpassen:</strong></p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="na">myhostname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">mail.meinmailserver.local</span>
+</code></pre></div></td></tr></table></div>
+<strong>Postfix neu starten:</strong></p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>postfix
+</code></pre></div></td></tr></table></div>
+<strong>Befehl zum Neustarten:</strong></p>
+<ul>
+<li><code>sudo systemctl restart postfix</code></li>
+</ul>
+</details>
+<h3 id="aufgabe-6-firewall-fur-e-mail-ports-offnen"><strong>📝 Aufgabe 6: Firewall für E-Mail-Ports öffnen</strong><a class="headerlink" href="#aufgabe-6-firewall-fur-e-mail-ports-offnen" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong></p>
+<ol>
+<li>Erlaube die <strong>Ports 25, 143 und 587</strong> in der Firewall.</li>
+<li>Prüfe den Status der Firewall.</li>
+</ol>
+<p><strong>Frage:</strong> Welcher Befehl zeigt den Status der Firewall an?</p>
+<details class="success">
+<summary>Lösung:</summary>
+<p><strong>Ports freigeben:</strong></p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">25</span>
+sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">143</span>
+sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">587</span>
+</code></pre></div></td></tr></table></div>
+<strong>Status prüfen:</strong></p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>sudo<span class="w"> </span>ufw<span class="w"> </span>status
+</code></pre></div></td></tr></table></div>
+<strong>Befehl zum Anzeigen des Firewall-Status:</strong></p>
+<ul>
+<li><code>sudo ufw status</code></li>
+</ul>
+</details>
+<hr />
+<hr />
+<h3 id="aufgabe-7-e-mail-mit-telnet-testen-fur-fortgeschrittene"><strong>📝 Aufgabe 7: E-Mail mit Telnet testen (für Fortgeschrittene)</strong><a class="headerlink" href="#aufgabe-7-e-mail-mit-telnet-testen-fur-fortgeschrittene" title="Permanent link">&para;</a></h3>
+<p><strong>Beschreibung:</strong></p>
+<ol>
+<li>Verbinde dich mit <strong>Telnet</strong> zu deinem Postfix-Server (Port 25):
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span>telnet<span class="w"> </span>localhost<span class="w"> </span><span class="m">25</span>
+</code></pre></div></td></tr></table></div></li>
+<li>Gib folgende Befehle ein (ersetze die E-Mail-Adressen):
+  <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code> EHLO meinmailserver.local
+ MAIL FROM: testuser@meinmailserver.local
+ RCPT TO: emailuser@meinmailserver.local
+ DATA
+ Subject: Test-E-Mail
+
+ Das ist eine Test-E-Mail.
+ .
+ QUIT
+</code></pre></div></td></tr></table></div></li>
+<li>Prüfe auf dem Empfänger, ob die E-Mail angekommen ist.</li>
+</ol>
+<p><strong>Frage:</strong> Welcher Befehl verbindet dich mit dem SMTP-Server?</p>
+<details class="success">
+<summary>Lösung:</summary>
+<p><strong>Verbindung mit Telnet herstellen:</strong></p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>telnet<span class="w"> </span>localhost<span class="w"> </span><span class="m">25</span>
+</code></pre></div></td></tr></table></div>
+<strong>Befehl zum Verbinden mit dem SMTP-Server:</strong></p>
+<ul>
+<li><code>telnet localhost 25</code></li>
+</ul>
+</details>
+<hr />
+<hr />
+<h2 id="zusammenfassung-das-wichtigste"><strong>🎓 Zusammenfassung – das Wichtigste</strong><a class="headerlink" href="#zusammenfassung-das-wichtigste" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Thema</strong></th>
+<th><strong>Was es macht</strong></th>
+<th><strong>Beispiel</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Postfix</strong></td>
+<td>Versendet E-Mails (SMTP-Server).</td>
+<td><code>sudo apt install postfix</code></td>
+</tr>
+<tr>
+<td><strong>Dovecot</strong></td>
+<td>Empfängt und verwaltet E-Mails (IMAP/POP3-Server).</td>
+<td><code>sudo apt install dovecot-core</code></td>
+</tr>
+<tr>
+<td><strong>SMTP</strong></td>
+<td>Protokoll zum <strong>Versenden</strong> von E-Mails.</td>
+<td>Port 25, 587</td>
+</tr>
+<tr>
+<td><strong>IMAP</strong></td>
+<td>Protokoll zum <strong>Empfangen und Verwalten</strong> von E-Mails.</td>
+<td>Port 143, 993</td>
+</tr>
+<tr>
+<td><strong>POP3</strong></td>
+<td>Protokoll zum <strong>Empfangen</strong> von E-Mails (Herunterladen).</td>
+<td>Port 110, 995</td>
+</tr>
+<tr>
+<td><strong>Maildir</strong></td>
+<td>Verzeichnis, in dem E-Mails gespeichert werden.</td>
+<td><code>/home/benutzer/Maildir</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Merksätze:</strong></p>
+<ol>
+<li><strong>Postfix = Versenden, Dovecot = Empfangen</strong>.</li>
+<li><strong>SMTP = Senden, IMAP/POP3 = Empfangen</strong>.</li>
+<li><strong>Port 25 = SMTP, Port 143 = IMAP, Port 110 = POP3</strong>.</li>
+<li><strong>E-Mails werden in <code>/home/benutzer/Maildir</code> gespeichert</strong>.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../6/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Webserver (Apache/Nginx)">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Webserver (Apache/Nginx)
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../8/" class="md-footer__link md-footer__link--next" aria-label="Next: Monitoring &amp; Fehlerbehebung">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Monitoring & Fehlerbehebung
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Qualidy GmbH
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.kununu.com/de/qualidy" target="_blank" rel="noopener" title="www.kununu.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M311 86.3c12.3-12.7 12-32.9-.7-45.2s-32.9-12-45.2.7C143.4 167.2 76.4 236.3 64 249V64c0-17.7-14.3-32-32-32S0 46.3 0 64v384c0 17.7 14.3 32 32 32s32-14.3 32-32V341l64.7-66.7 133 192c10.1 14.5 30 18.1 44.5 8.1s18.1-30 8.1-44.5L174.1 227.4z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://de.linkedin.com/company/qualidy" target="_blank" rel="noopener" title="de.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.google.com/search?sca_esv=7e6ba2047fcb60f3&uds=AMwkrPtyB8MsmozA4Lwzqy2G2HCu-abqzc6moOG48q3gP5dtjTRzC2Ws0eSwcyLXDfZNuYCrZ7ByIreHLG9th3vKLekPoVeey0tumAbet4cVLQRLzdRFhUbOGbnyp3xo1V0hzzaNmkCN&si=AKbGX_rcuucMgom2rba1cdwsvM2SVoIkP2btyqGMV4t0GuHIs4sGV_1tpuqR0YHG4Rzd9SdJcL-lW6E-2aJA5azZLTKkIOrZ2j2aWwoBkVbdEJ0o0GPcQhs%3D&q=Qualidy+GmbH+Rezensionen&sa=X&ved=2ahUKEwibsbnSgcmFAxXNQvEDHaVYCiAQ3PALegQIRxAF" target="_blank" rel="noopener" title="www.google.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12c0-4.1 3.2-7.27 7.2-7.27 3.09 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.1 2C6.42 2 2.03 6.8 2.03 12c0 5.05 4.13 10 10.22 10 5.35 0 9.25-3.67 9.25-9.09 0-1.15-.15-1.81-.15-1.81"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://qualidy.de" target="_blank" rel="noopener" title="qualidy.de" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.path", "navigation.top", "navigation.footer", "toc.follow", "toc.integrate", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
